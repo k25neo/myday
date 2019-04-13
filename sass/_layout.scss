@@ -1,3 +1,6 @@
+* {
+    box-sizing: border-box;
+}
 html{
     height: 100%;
 }
@@ -8,7 +11,50 @@ body{
     flex-direction: column;
     height: 100%;
 }
+h1 {
 
+  color: #393939;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-size: 1.8em;
+
+}
+.label {
+
+  display: inline;
+  padding: .2em .6em .3em;
+  font-size: 75%;
+  font-weight: bold;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25em;
+
+}
+input[type="text"],
+input[type="password"],
+select {
+
+  background-color: #fff;
+  border: 1px solid;
+  border-top-color: currentcolor;
+  border-right-color: currentcolor;
+  border-bottom-color: currentcolor;
+  border-left-color: currentcolor;
+  border-color: #cccccc #e2e2e2 #e2e2e2 #cccccc;
+  border-radius: 3px;
+  font-size: 12px;
+  padding: 2px 0px 3px 6px;
+
+}
+a {
+
+    text-decoration: none;
+    color: #1F76C2;
+
+}
 .header{
     background: #eee;
     font-weight: 300;
@@ -280,6 +326,10 @@ body{
     &_container{
 
     }
+    &_inner-container{
+        max-width: 500px;
+        margin: 0 auto auto auto;
+    }
     &_image-component{
         display: flex;
         flex-direction: column;
@@ -352,12 +402,6 @@ body{
     &_menu{
         margin-top: 20px;
         border: 0;
-        &-container {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-        }
         .pulse-tabs{
             list-style: none;
             -webkit-user-select: none;
@@ -404,4 +448,12 @@ body{
             }
         }
     }
+}
+
+/* puls-tabs */
+.pulse-tabs-data{
+  display: none;
+}
+.pulse-tabs-data.open{
+  display: block;
 }

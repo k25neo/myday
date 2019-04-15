@@ -1,0 +1,316 @@
+.personal-assistant-component .personal-assistant-content-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 80px;
+}
+.personal-assistant-component .personal-assistant-content-header .weeks-navigator-container {
+  padding-right: 20%;
+  flex-grow: 1;
+  transition: padding-right .2s ease;
+}
+.personal-assistant-weeks-navigator-component {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.personal-assistant-weeks-navigator-component .prev-week-button {
+  cursor: pointer;
+  display: flex;
+}
+.personal-assistant-weeks-navigator-component .prev-week-button .prev-week {
+  font-size: 16px;
+  color: gray;
+  margin-right: 16px;
+}
+.personal-assistant-weeks-navigator-component .prev-week-button .left-arrow-icon {
+  font-size: 10px;
+  line-height: 22px;
+}
+.personal-assistant-weeks-navigator-component .week-indicator-wrapper .week-indicator {
+  font-size: 24px;
+  font-weight: 400;
+}
+.personal-assistant-weeks-navigator-component .week-indicator-wrapper {
+  width: 200px;
+  text-align: center;
+  position: relative;
+}
+
+.personal-assistant-weeks-navigator-component .next-week-button {
+  cursor: pointer;
+  display: flex;
+}
+.personal-assistant-weeks-navigator-component .next-week-button .right-arrow-icon {
+  font-size: 10px;
+  line-height: 22px;
+}
+.personal-assistant-weeks-navigator-component .next-week-button .next-week {
+  font-size: 16px;
+  color: gray;
+  margin-left: 16px;
+}
+.personal-assistant-component .personal-assistant-content-view {
+  padding: 0 20% 66px 0;
+  height: calc(100% - 80px);
+  transition: all .2s ease;
+  overflow: scroll;
+}
+.personal-assistant-content-component .header-container {
+  margin: 8px 0 16px 36px;
+}
+.personal-assistant-header-component {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 16px;
+  align-items: center;
+}
+.personal-assistant-content-component .personal-assistant-filter-wrapper {
+  margin-left: 30px;
+}
+.personal-assistant-header-component .image-title {
+  width: 120px;
+  height: 120px;
+}
+.personal-assistant-header-component .personal-assistant-titles {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+  margin-left: 16px;
+}
+.personal-assistant-header-component .personal-assistant-titles .first-title {
+  font-size: 18px;
+  font-weight: 400;
+}
+.personal-assistant-header-component .personal-assistant-titles .second-title {
+  font-size: 22px;
+}
+.personal-assistant-content-component .personal-assistant-filter-wrapper {
+  margin-left: 30px;
+}
+.personal-assistant-filter-component {
+  display: flex;
+}
+.personal-assistant-filter-component .person-filter-input-wrapper {
+  width: 300px;
+}
+.personal-assistant-filter-component .person-filter-picker-wrapper {
+  flex-grow: 1;
+  transform: translateX(-48px) translateY(-1px);
+}
+.pure-input {
+  position: relative;
+}
+.personal-assistant-filter-component .person-filter-input-wrapper .person-filter-input {
+  padding-right: 60px;
+}
+.pure-input .input {
+  width: 100%;
+  outline: 0;
+  border: 1px solid;
+  border-top-color: currentcolor;
+  border-right-color: currentcolor;
+  border-bottom-color: currentcolor;
+  border-left-color: currentcolor;
+  border-radius: 20px;
+  padding: 8px 24px;
+  padding-right: 24px;
+}
+.person-filter,
+.person-filter .person-filter-button-wrapper {
+  position: relative;
+}
+.person-filter {
+  margin-left: 5px;
+  transition: transform .2s ease-in-out;
+}
+.person-filter,
+.person-filter .person-filter-button-wrapper {
+  position: relative;
+}
+.person-filter-button-component {
+  display: inline-block;
+  width: 42px;
+  height: 42px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  vertical-align: middle;
+  transition: border-radius .2s ease;
+  position: relative;
+  z-index: 1;
+  background: transparent;
+  outline: none;
+  color: #333;
+  cursor: pointer;
+}
+.person-filter-button-component .icon {
+  font-size: 26px;
+  position: relative;
+  top: 2px;
+  left: 7px;
+  outline: none;
+}
+.person-filter-button-component>i {
+  font-size: 28px;
+  margin: 4px 9px 0;
+}
+.deadline-tasks-section-component {
+  width: 100%;
+}
+.deadline-tasks-section-component .section-type-container {
+  display: flex;
+  align-items: center;
+  height: 64px;
+  margin-left: 28px;
+}
+.deadline-tasks-section-component .section-type-container .collapse-icon-wrapper {
+  margin-right: 16px;
+  margin-left: 8px;
+}
+.collapse-group-toggle-component {
+  color: #666;
+  background: #e1e1e1;
+  font-size: 13px;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  line-height: 19px;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.collapse-group-toggle-component>i {
+  line-height: 18px;
+}
+.deadline-tasks-section-component .section-type-container .section-type-title-wrapper {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+.deadline-tasks-section-component .section-type-container .section-type-title-wrapper .section-type-title {
+  text-transform: capitalize;
+  font-size: 20px;
+}
+.deadline-tasks-section-component .deadline-tasks-wrapper {
+  margin-left: 66px;
+  margin-bottom: 24px;
+}
+.deadline-task-component {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid #e1e1e1;
+  border-radius: 8px;
+  height: 64px;
+  background: #fff;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+.deadline-task-component .details {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 16px;
+  min-width: 0;
+}
+
+.deadline-task-component .details .pulse-name-wrapper {
+  font-size: 18px;
+  font-weight: 400;
+  display: flex;
+}
+
+.deadline-task-component .details .pulse-name-wrapper .pulse-name-text {
+  cursor: pointer;
+  width: 100%;
+}
+
+.ds-text-component {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  border: 1px solid transparent;
+  padding: 0 2px;
+}
+
+.deadline-task-component .details .deadline-task-path {
+  color: gray;
+  font-size: 14px;
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.deadline-task-component .details .deadline-task-path .board-name,
+.deadline-task-component .details .deadline-task-path .group-name {
+  cursor: pointer;
+}
+
+.deadline-task-component .deadline-task-columns {
+  display: flex;
+}
+
+.deadline-task-component .persons-wrapper {
+  margin-right: 16px;
+}
+
+.overlap-images-component {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+}
+
+.overlap-images-component .overlap-images-wrapper {
+  z-index: 1;
+  display: flex;
+  flex: 0 1 auto;
+  align-items: center;
+}
+
+.overlap-images-component .overlap-images-wrapper .overlap-image {
+  position: relative;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  overflow: hidden;
+  height: 35px;
+  width: 35px;
+  margin: 0px;
+}
+.overlap-images-component .overlap-images-wrapper .overlap-image .inner-image {
+  width: 100%;
+  height: 100%;
+}
+.deadline-task-component .deadline-indication {
+  display: flex;
+  flex-direction: row;
+  flex-shrink: 0;
+  align-items: center;
+  color: #fff;
+  padding: 0 16px;
+  width: 145px;
+  background-color: #f1f1f1;
+  border-radius: 0 8px 8px 0;
+}
+.deadline-date-indication-icon-component {
+  font-size: 16px;
+}
+.deadline-task-component .deadline-indication .deadline-time {
+  margin-left: 16px;
+  color: #5a6492;
+  font-weight: 400;
+}
+
+.deadline-date-indication-icon-component>i {
+  color: red;
+  font-size: 25px;
+}

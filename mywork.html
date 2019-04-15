@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Myday</title>
+  <link href="//fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,400,500,500italic;subset=cyrillic"
+    rel="stylesheet"
+    type="text/css">
+  <link rel="stylesheet" href="/sass/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script defer src="https://code.jquery.com/jquery-3.4.0.min.js"
+    integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+  <script defer src="/js/main.js"></script>
+</head>
+
+<body>
+  <div class="header">
+    <div class="leftnav">
+      <a href="/" class="logo"></a>
+    </div>
+    <div class="content">
+      <div class="header__search">
+        <form action="#" id="top_project_finder">
+          <div class="form__control_block">
+            <input type="text" class="search form__control">
+            <div class="btn__search"><i class="fa fa-search" aria-hidden="true"></i> </div>
+          </div>
+        </form>
+      </div>
+      <div class="header__profile popup_menu" data-menu="profile-menu">
+        <div class="header__profile_block">
+          <div class="header__profile_image">
+            <img src="/img/profile_img.png" alt="" class="header__profile_pic img-circle">
+          </div>
+          <div class="header__profile_btn">
+            <span class="header__profile_arrow-circle">
+              <i class="fa fa-caret-down header__profile_arrow-icon"></i>
+            </span>
+          </div>
+        </div>
+        <div class="header__profile_menu popup_menu_data" id="profile-menu">
+          <ul id="top-user-menu" class="pulse_menu_options">
+            <li><a class="your_profile" href="javascript:void(0);"><i class="fa fa-user"></i>Профиль</a></li>
+            <li><a href="javascript:void(0)" class="logout_btn"><i class="fa fa-sign-out"></i>Выход</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main__container">
+    <div class="left__container">
+      <div class="left__nav">
+        <div class="left__nav_item">
+          <a href="#" class="left__nav_link">
+            <span class="title">Сообщения</span>
+            <span class="count">1</span>
+          </a>
+        </div>
+        <div class="left__nav_item">
+          <a href="#" class="left__nav_link">
+            <span class="title">Мои задачи</span>
+          </a>
+        </div>
+      </div>
+      <div class="left__nav_client">
+        <div class="left__nav_client-title"><i class="fa fa-list" aria-hidden="true"></i>
+          Клиенты</div>
+        <div class="left__nav_client-item">
+          <a href="#" class="left__nav_client-link">
+            <span class="title">ППК</span>
+          </a>
+        </div>
+        <div class="left__nav_client-item">
+          <a href="#" class="left__nav_client-link">
+            <span class="title">ХелпДеск</span>
+          </a>
+        </div>
+        <div class="left__nav_client-buttons">
+          <div class="left__nav_client-btn">
+            <i class="fa fa-plus-circle" aria-hidden="true"></i>
+            <span class="title">Добавить</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content__wrapper">
+      <!-- begin mywork -->
+      <div class="personal-assistant-component ">
+        <div class="personal-assistant-content-header ">
+          <div class="weeks-navigator-container">
+            <div class="personal-assistant-weeks-navigator-component">
+              <div class="prev-week-button"><span class="prev-week">Предыдущая неделя / 1</span><i
+                  class="fa fa-chevron-left" aria-hidden="true"></i>
+              </div>
+              <div class="week-indicator-wrapper"><span class="week-indicator">Apr 15 - Apr 21</span></div>
+              <div class="next-week-button"><i class="fa fa-chevron-right" aria-hidden="true"></i>
+                <span class="next-week">Следующая неделя / 0</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="personal-assistant-content-view">
+          <div class="personal-assistant-content-component">
+            <div class="header-container">
+              <div class="personal-assistant-header-component"><img src="/img/coffee_team.png" class="image-title">
+                <div class="personal-assistant-titles">
+                  <div class="first-title"><span>Привет Vladimir,</span></div>
+                  <div class="second-title"><span>У вас нет заданий на этой недели</span></div>
+                </div>
+              </div>
+              <div class="personal-assistant-filter-wrapper">
+                <div class="personal-assistant-filter-component">
+                  <div class="person-filter-input-wrapper">
+                    <div class="pure-input "><input class="input person-filter-input" placeholder="Filter by person"
+                        autocomplete="off" style="border-color: rgb(196, 196, 196);" value=""></div>
+                  </div>
+                  <div class="person-filter-picker-wrapper">
+                    <div class="person-filter ">
+                      <div class="person-filter-button-wrapper"><a
+                          class="person-filter-button-component ignore-person-filter-onclickoutside"><i
+                            class="fa fa-user-circle" aria-hidden="true"></i>
+                        </a></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="deadlines-tasks-container">
+              <div class="deadline-tasks-section-component">
+                <div class="section-type-container"><span class="collapse-icon-wrapper">
+                    <div class="collapse-group-toggle-component"><i class="fa fa-minus" aria-hidden="true"></i>
+                    </div>
+                  </span>
+                  <div class="section-type-title-wrapper"><span class="section-type-title">previous weeks</span></div>
+                </div>
+                <div>
+                  <div class="deadline-tasks-wrapper" style="display: block;">
+                    <div class="deadline-task-component">
+                      <div class="details">
+                        <div class="pulse-name-wrapper"><span class="pulse-name-text">
+                            <div class="ds-text-component" dir="auto"><span>Task 1</span></div>
+                          </span></div>
+                        <div class="deadline-task-path"><i class="fa fa-list" aria-hidden="true"></i>
+                          <span class="board-name">Weekly Team Tasks</span><span> &gt; </span><span
+                            class="group-name">This
+                            Week</span></div>
+                      </div>
+                      <div class="deadline-task-columns">
+                        <div class="persons-wrapper">
+                          <div class="overlap-images-component">
+                            <div class="overlap-images-wrapper">
+                              <div class="overlap-image" style="height: 35px; width: 35px; margin: 0px;"><img
+                                  src="/img/profile_img.png" class="inner-image"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="deadline-indication merged">
+                          <div class="deadline-date-indication-icon-component"><i class="fa fa-info-circle"
+                              aria-hidden="true"></i>
+                          </div><span class="deadline-time ">Apr 11</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="deadline-tasks-section-component">
+                <div class="section-type-container"><span class="collapse-icon-wrapper">
+                    <div class="collapse-group-toggle-component collapsed"><i class="fa fa-plus" aria-hidden="true"></i>
+                    </div>
+                  </span>
+                  <div class="section-type-title-wrapper"><span class="section-type-title">earlier this week</span><span
+                      class="number-of-assignmetns"> / 0 assignments</span></div>
+                </div>
+                <div></div>
+              </div>
+              <div class="deadline-tasks-section-component">
+                <div class="section-type-container"><span class="collapse-icon-wrapper">
+                    <div class="collapse-group-toggle-component collapsed"><i class="fa fa-plus" aria-hidden="true"></i>
+                    </div>
+                  </span>
+                  <div class="section-type-title-wrapper"><span class="section-type-title">today</span><span
+                      class="number-of-assignmetns"> / 0 assignments</span></div>
+                </div>
+                <div></div>
+              </div>
+              <div class="deadline-tasks-section-component">
+                <div class="section-type-container"><span class="collapse-icon-wrapper">
+                    <div class="collapse-group-toggle-component collapsed"><i class="fa fa-plus" aria-hidden="true"></i>
+                    </div>
+                  </span>
+                  <div class="section-type-title-wrapper"><span class="section-type-title">upcoming</span><span
+                      class="number-of-assignmetns"> / 0 assignments</span></div>
+                </div>
+                <div></div>
+              </div>
+              <div class="deadline-tasks-section-component">
+                <div class="section-type-container"><span class="collapse-icon-wrapper">
+                    <div class="collapse-group-toggle-component collapsed"><i class="fa fa-plus" aria-hidden="true"></i>
+                    </div>
+                  </span>
+                  <div class="section-type-title-wrapper"><span class="section-type-title">done</span><span
+                      class="number-of-assignmetns"> / 0 assignments</span></div>
+                </div>
+                <div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end mywork -->
+    </div>
+  </div>
+  <!-- start modals -->
+  <div class="ReactModalPortal open">
+    <div class="ReactModal__Overlay ReactModal__Overlay--after-open"
+      style="position: fixed; inset: 0px; background-color: rgba(255, 255, 255, 0.75);">
+      <div
+        style="position: absolute; inset: 50% auto auto 50%; border: 1px solid rgb(204, 204, 204); background: rgb(255, 255, 255) none repeat scroll 0% 0%; overflow: visible; border-radius: 4px; outline: currentcolor none medium; padding: 0px; margin-right: -50%; transform: translate(-50%, -50%);"
+        class="ReactModal__Content ReactModal__Content--after-open" tabindex="-1" role="dialog"
+        aria-label="UserProfilePersonalInfoModal">
+        <div class="react_popup_wrapper ">
+          <div class="close_button"></div>
+          <div>
+            <form>
+              <div class="form_title"><label for="edit_elem_13">Должность</label></div>
+              <div class="inline_form">
+                <div class="form_line_container"><input class="form-control fullwidth" id="edit_elem_13" value=""></div>
+                <div class="action_button_container"><button type="submit"
+                    class="ds-btn ds-btn-primary">Сохранить</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end modals -->
+</body>
+
+</html>

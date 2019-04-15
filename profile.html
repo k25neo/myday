@@ -6,7 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Myday</title>
-  <link href="//fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,400,500,500italic" rel="stylesheet"
+  <link href="//fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,400,500,500italic;subset=cyrillic"
+    rel="stylesheet"
     type="text/css">
   <link rel="stylesheet" href="/sass/main.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -87,7 +88,7 @@
     </div>
     <div class="content__wrapper">
       <!-- begin personal info -->
-      <div class="user__profile_container">
+      <div class="user__profile_container" id="user__profile_container">
         <div class="user__profile">
           <div class="user__profile_top-container">
             <div class="user__profile_top">
@@ -296,6 +297,15 @@
 
       </div>
       <!-- end personal info -->
+      <!-- begin inbox -->
+      <div id="inbox" class="pulse-layout">
+        <div tabindex="-1" class="inbox-navigation-component">
+          <div id="latest_news" tabindex="0">
+            <div class="inbox-title-wrapper"><span class="inbox-title">Сообщения</span></div>
+          </div>
+        </div>
+      </div>
+      <!-- end inbox -->
     </div>
   </div>
   <!-- start modals -->

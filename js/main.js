@@ -49,6 +49,7 @@ jQuery.event.special.closePopup = {
     init: function () {
       this.dataID = this.$el.data('menu');
       this.$menu = $('#' + this.dataID);
+      this.menu = document.getElementById(this.dataID);
       this.addHadlers();
     },
     closePopup: function (e) {
@@ -56,7 +57,8 @@ jQuery.event.special.closePopup = {
       this.$menu.removeClass('open');
     },
     addHadlers: function () {
-      console.log(document.addEventListener('closePopup', this.closePopup.bind(this), false));
+      console.log(this.menu);
+      console.log(this.menu.addEventListener('closePopup', this.closePopup.bind(this), false));
       this.$el.on('click', this.togglePopup.bind(this));
     },
     togglePopup: function () {

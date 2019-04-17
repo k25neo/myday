@@ -87,4 +87,15 @@ jQuery.event.special.closePopup = {
     }
   }
   var popupMenuManager = new PopupMenuManager();
+
+  $('.collapse-group-toggle-component').on('click', function () { 
+    var $fa = $(this).find('i');
+    if ($fa.hasClass('fa-compress')) {
+      $fa.removeClass('fa-compress');
+      $fa.addClass('fa-expand');
+    } else {
+      $fa.removeClass('fa-expand');
+      $fa.addClass('fa-compress');
+    }
+  });
 };

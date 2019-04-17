@@ -10,10 +10,11 @@
     rel="stylesheet"
     type="text/css">
   <link rel="stylesheet" href="/sass/main.css">
+  <link rel="stylesheet" href="/js/vendors/air-datepicker/datepicker.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script defer src="https://code.jquery.com/jquery-3.4.0.min.js"
-    integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+  <script defer src="/js/vendors/jquery-3.4.0.min.js"></script>
   <script defer src="/js/main.js"></script>
+  <script defer src="/js/vendors/air-datepicker/datepicker.min.js"></script>
 </head>
 
 <body>
@@ -88,1123 +89,121 @@
     </div>
     <div class="content__wrapper">
       <!-- begin board -->
-      <div class="board-wrapper">
-        <div id="board-header" class="board-header ">
-          <div class="board-header-top">
-            <div class="board-collapse-button"><svg height="60" width="60">
-                <polygon points="0,0 0,60 60,0" class="triangle"></polygon>
-                <image href="/img/arrow-left.svg" transform="translate(8, 12) rotate(0 8 8)"
-                  class="collapse-icon" width="16" height="16"></image>
-              </svg></div>
-          </div>
-          <div class="board-header-content-wrapper">
-            <div class="board-header-main">
-              <div class="board-header-left">
-                <div class="board-name">
-                  <div class="ds-editable-component  " style="width: auto; height: auto;">
-                    <div class="ds-text-component" dir="auto"><span>Weekly Team Tasks</span></div>
-                  </div>
-                </div>
-                <div class="board-description can-edit">
-                  <div class="ds-editable-component  " style="width: auto; height: auto;">
-                    <div class="ds-text-component description-content">
-                      <div class="description-line"><span class="text-content">Add board description</span></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="board-filter board-entity-button">
-              <div class="collapse-all-groups ">
-                <div class="collapse-group-toggle-component"><i class="arrow top icon icon-v2-collapse-up"></i><i
-                    class="line icon icon-v2-collapse-line"></i><i class="arrow bottom icon icon-v2-collapse-down"></i>
-                </div>
-              </div>
-              <div class="add-board-entity-button-wrapper">
-                <div class="ds-menu-button-container ds-menu-button-old">
-                  <div class="add-board-entity-button-component"><button class="ds-btn ds-btn-primary ds-btn-md">
-                      <div class="add-icon">+</div>New
-                    </button></div>
-                </div>
-              </div>
-              <div class="board-filter-input-container">
-                <div class="board-filter-input-wrapper_v2">
-                  <div class="icon-and-input-wrapper"><input placeholder="Search / Filter Board" value=""></div>
-                </div>
-              </div>
+<div class="board-wrapper">
+  <div id="board-header" class="board-header ">
+    <div class="board-header-top">
+    </div>
+    <div class="board-header-content-wrapper">
+      <div class="board-header-main">
+        <div class="board-header-left">
+          <div class="board-name">
+            <div class="ds-editable-component  " style="width: auto; height: auto;">
+              <div class="ds-text-component" dir="auto"><span>Weekly Team Tasks</span></div>
             </div>
           </div>
-        </div>
-        <div class="board-content-component" style="height: 456px;">
-          <div class="group-floating-header" style="display: none; min-width: 1139px; right: 10px; top: 64px;"></div>
-          <div class="board-content-items" style="height: 456px; min-width: 1139px;" tabindex="0">
-            <div style="top: 0px; height: 40px;" class="group-header-wrapper">
-              <div style="">
-                <div class="group-header-component">
-                  <div style="width: 1px; height: 1px; position: absolute;"></div>
-                  <div class="group-menu">
-                    <div class="ds-menu-button-container ds-menu-button-old"><a
-                        class="group-menu-button fa fa-caret-down"
-                        style="color: rgb(253, 171, 61); background-color: rgb(253, 171, 61); border-color: rgb(253, 171, 61);"></a>
-                    </div>
-                  </div>
-                  <div class="name-column-header can-edit" style="color: rgb(253, 171, 61); flex-basis: 300px;">
-                    <div class="column-header-inner"><span class="collapse-group-button">
-                        <div class="collapse-group-toggle-component"><i
-                            class="arrow top icon icon-v2-collapse-up"></i><i
-                            class="line icon icon-v2-collapse-line"></i><i
-                            class="arrow bottom icon icon-v2-collapse-down"></i></div>
-                      </span><span class="drag-handle icon icon-dapulse-drag-handle-3"></span><span class="group-name ">
-                        <div class="ds-editable-component  " style="width: auto; height: auto;">
-                          <div class="ds-text-component" dir="auto"><span>This Week</span></div>
-                        </div>
-                      </span></div>
-                  </div>
-                  <div style="flex-basis: 80px;" class="column-header person-header">
-                    <div>
-                      <div class="column-header-inner">
-                        <div class="column-header-element-wrapper"><span><span
-                              class="drag-handle icon icon-dapulse-drag-2"></span></span></div>
-                        <div class="title-wrapper"><span class="column-title ">
-                            <div class="ds-editable-component  " style="width: auto; height: auto;">
-                              <div class="ds-text-component" dir="auto"><span>Owner</span></div>
-                            </div>
-                          </span></div>
-                        <div class="column-header-element-wrapper"></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div style="flex-basis: 140px;" class="column-header color-header merged-column left-to-linked">
-                    <div>
-                      <div class="column-header-inner">
-                        <div class="column-header-element-wrapper"><span><span
-                              class="drag-handle icon icon-dapulse-drag-2"></span></span></div><i
-                          class="icon icon-v2-merged-column-indication merged-column-indication-icon"></i>
-                        <div class="title-wrapper"><span class="column-title ">
-                            <div class="ds-editable-component  " style="width: auto; height: auto;">
-                              <div class="ds-text-component" dir="auto"><span>Status</span></div>
-                            </div>
-                          </span></div>
-                        <div class="column-header-element-wrapper"></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div style="flex-basis: 125px;" class="column-header date-header merged-column right-to-linked">
-                    <div>
-                      <div class="column-header-inner">
-                        <div class="column-header-element-wrapper"><span><span
-                              class="drag-handle icon icon-dapulse-drag-2"></span></span></div><i
-                          class="icon icon-v2-merged-column-indication merged-column-indication-icon"></i>
-                        <div class="title-wrapper"><span class="column-title ">
-                            <div class="ds-editable-component  " style="width: auto; height: auto;">
-                              <div class="ds-text-component" dir="auto"><span>Due date</span></div>
-                            </div>
-                          </span></div>
-                        <div class="column-header-element-wrapper"></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div style="flex-basis: 140px;" class="column-header color-header">
-                    <div>
-                      <div class="column-header-inner">
-                        <div class="column-header-element-wrapper"><span><span
-                              class="drag-handle icon icon-dapulse-drag-2"></span></span></div>
-                        <div class="title-wrapper"><span class="column-title ">
-                            <div class="ds-editable-component  " style="width: auto; height: auto;">
-                              <div class="ds-text-component" dir="auto"><span>Priority</span></div>
-                            </div>
-                          </span></div>
-                        <div class="column-header-element-wrapper"></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div style="flex-basis: 140px;" class="column-header numeric-header">
-                    <div>
-                      <div class="column-header-inner">
-                        <div class="column-header-element-wrapper"><span><span
-                              class="drag-handle icon icon-dapulse-drag-2"></span></span></div>
-                        <div class="title-wrapper"><span class="column-title ">
-                            <div class="ds-editable-component  " style="width: auto; height: auto;">
-                              <div class="ds-text-component" dir="auto"><span>Time Est.</span></div>
-                            </div>
-                          </span></div>
-                        <div class="column-header-element-wrapper"></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div style="flex-basis: 140px;" class="column-header duration-header">
-                    <div>
-                      <div class="column-header-inner">
-                        <div class="column-header-element-wrapper"><span><span
-                              class="drag-handle icon icon-dapulse-drag-2"></span></span></div>
-                        <div class="title-wrapper"><span class="column-title ">
-                            <div class="ds-editable-component  " style="width: auto; height: auto;">
-                              <div class="ds-text-component" dir="auto"><span>Time Tracking</span></div>
-                            </div>
-                          </span></div>
-                        <div class="column-header-element-wrapper"></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="add-column-container">
-                    <div class="ds-menu-button-container ds-menu-button-old"><a class="add-column-menu-button"><span
-                          class="icon icon-dapulse-addbtn"></span></a></div>
-                  </div>
-                </div>
-              </div>
-              <div class="group-header-component" style="display: none;">
-                <div class="group-menu"><a class="group-menu-button fa fa-caret-down"
-                    style="color: rgb(253, 171, 61); background-color: rgb(253, 171, 61); border-color: rgb(253, 171, 61);"></a>
-                </div>
-                <div class="name-column-header name-column-header-light"
-                  style="color: rgb(253, 171, 61); flex-basis: 300px;"><span class="group-name">This Week</span></div>
-                <div class="column-header person-header column-header-plain" style="flex-basis: 80px;">Owner</div>
-                <div class="column-header color-header merged-column left-to-linked" style="flex-basis: 140px;">
-                  <div>
-                    <div class="column-header-inner">
-                      <div class="column-header-element-wrapper"></div><i
-                        class="icon icon-v2-merged-column-indication merged-column-indication-icon"></i>
-                      <div class="title-wrapper"><span class="column-title ">
-                          <div class="ds-editable-component  " style="width: auto; height: auto;">
-                            <div class="ds-text-component" dir="auto"><span>Status</span></div>
-                          </div>
-                        </span></div>
-                      <div class="column-header-element-wrapper"></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="column-header date-header merged-column right-to-linked" style="flex-basis: 125px;">
-                  <div>
-                    <div class="column-header-inner">
-                      <div class="column-header-element-wrapper"></div><i
-                        class="icon icon-v2-merged-column-indication merged-column-indication-icon"></i>
-                      <div class="title-wrapper"><span class="column-title ">
-                          <div class="ds-editable-component  " style="width: auto; height: auto;">
-                            <div class="ds-text-component" dir="auto"><span>Due date</span></div>
-                          </div>
-                        </span></div>
-                      <div class="column-header-element-wrapper"></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="column-header color-header column-header-plain" style="flex-basis: 140px;">Priority</div>
-                <div class="column-header numeric-header column-header-plain" style="flex-basis: 140px;">Time Est.</div>
-                <div class="column-header duration-header column-header-plain" style="flex-basis: 140px;">Time Tracking
-                </div>
-                <div class="add-column-container add-column-light icon icon-dapulse-addbtn"></div>
-              </div>
-            </div>
-            <div style="top: 148px; height: 116px;" class="group-footer-wrapper">
-              <div>
-                <div class="group-footer-component">
-                  <div class="add-pulse-component">
-                    <div class="add-pulse-left-indicator"
-                      style="background: rgb(253, 171, 61) none repeat scroll 0% 0%;"></div><input type="text"
-                      dir="auto" class="add-pulse-input" placeholder="+ Add"><button
-                      class="add-pulse-button">Add</button>
-                    <div class="add-pulse-right-indicator"></div>
-                  </div>
-                  <div class="columns-footer-component">
-                    <div style="flex-basis: 785px; flex-grow: 1;"></div>
-                    <div class="columns-footer-column numeric-footer" style="flex-basis: 140px;">
-                      <div class="numeric-column-footer-component can-edit">
-                        <div class="numeric-column-footer-value">
-                          <div class="ds-text-component" dir="auto"><span>9.5h</span></div>
-                        </div>
-                        <div class="numeric-column-footer-function">
-                          <div class="column-footer-function-inner inner-link inner-link-saw-tip">sum</div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="columns-footer-column duration-footer" style="flex-basis: 140px;">
-                      <div class="duration-column-footer-component">
-                        <div class="duration-time-holder"><span>0h </span><span>0m </span></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="group-footer-component" style="display: none;">
-                <div class="add-pulse-component">
-                  <div class="add-pulse-left-indicator" style="background: rgb(253, 171, 61) none repeat scroll 0% 0%;">
-                  </div><input type="text" dir="auto" class="add-pulse-input" placeholder="+ Add">
-                </div>
-                <div class="columns-footer-component">
-                  <div style="flex-basis: 785px; flex-grow: 1;"></div>
-                  <div class="columns-footer-column numeric-footer" style="flex-basis: 140px;">
-                    <div class="numeric-column-footer-component can-edit">
-                      <div class="numeric-column-footer-value">
-                        <div class="ds-text-component" dir="auto"><span>9.5h</span></div>
-                      </div>
-                      <div class="numeric-column-footer-function">
-                        <div class="column-footer-function-inner inner-link inner-link-saw-tip">sum</div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="columns-footer-column duration-footer" style="flex-basis: 140px;">
-                    <div class="duration-column-footer-component">
-                      <div class="duration-time-holder"><span>0h </span><span>0m </span></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div style="top: 264px; height: 40px;" class="group-header-wrapper">
-              <div style="">
-                <div class="group-header-component">
-                  <div style="width: 1px; height: 1px; position: absolute;"></div>
-                  <div class="group-menu">
-                    <div class="ds-menu-button-container ds-menu-button-old"><a
-                        class="group-menu-button fa fa-caret-down"
-                        style="color: rgb(162, 93, 220); background-color: rgb(162, 93, 220); border-color: rgb(162, 93, 220);"></a>
-                    </div>
-                  </div>
-                  <div class="name-column-header can-edit" style="color: rgb(162, 93, 220); flex-basis: 300px;">
-                    <div class="column-header-inner"><span class="collapse-group-button">
-                        <div class="collapse-group-toggle-component"><i
-                            class="arrow top icon icon-v2-collapse-up"></i><i
-                            class="line icon icon-v2-collapse-line"></i><i
-                            class="arrow bottom icon icon-v2-collapse-down"></i></div>
-                      </span><span class="drag-handle icon icon-dapulse-drag-handle-3"></span><span class="group-name ">
-                        <div class="ds-editable-component  " style="width: auto; height: auto;">
-                          <div class="ds-text-component" dir="auto"><span>Next Week</span></div>
-                        </div>
-                      </span></div>
-                  </div>
-                  <div style="flex-basis: 80px;" class="column-header person-header">
-                    <div>
-                      <div class="column-header-inner">
-                        <div class="column-header-element-wrapper"><span><span
-                              class="drag-handle icon icon-dapulse-drag-2"></span></span></div>
-                        <div class="title-wrapper"><span class="column-title ">
-                            <div class="ds-editable-component  " style="width: auto; height: auto;">
-                              <div class="ds-text-component" dir="auto"><span>Owner</span></div>
-                            </div>
-                          </span></div>
-                        <div class="column-header-element-wrapper"></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div style="flex-basis: 140px;" class="column-header color-header merged-column left-to-linked">
-                    <div>
-                      <div class="column-header-inner">
-                        <div class="column-header-element-wrapper"><span><span
-                              class="drag-handle icon icon-dapulse-drag-2"></span></span></div><i
-                          class="icon icon-v2-merged-column-indication merged-column-indication-icon"></i>
-                        <div class="title-wrapper"><span class="column-title ">
-                            <div class="ds-editable-component  " style="width: auto; height: auto;">
-                              <div class="ds-text-component" dir="auto"><span>Status</span></div>
-                            </div>
-                          </span></div>
-                        <div class="column-header-element-wrapper"></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div style="flex-basis: 125px;" class="column-header date-header merged-column right-to-linked">
-                    <div>
-                      <div class="column-header-inner">
-                        <div class="column-header-element-wrapper"><span><span
-                              class="drag-handle icon icon-dapulse-drag-2"></span></span></div><i
-                          class="icon icon-v2-merged-column-indication merged-column-indication-icon"></i>
-                        <div class="title-wrapper"><span class="column-title ">
-                            <div class="ds-editable-component  " style="width: auto; height: auto;">
-                              <div class="ds-text-component" dir="auto"><span>Due date</span></div>
-                            </div>
-                          </span></div>
-                        <div class="column-header-element-wrapper"></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div style="flex-basis: 140px;" class="column-header color-header">
-                    <div>
-                      <div class="column-header-inner">
-                        <div class="column-header-element-wrapper"><span><span
-                              class="drag-handle icon icon-dapulse-drag-2"></span></span></div>
-                        <div class="title-wrapper"><span class="column-title ">
-                            <div class="ds-editable-component  " style="width: auto; height: auto;">
-                              <div class="ds-text-component" dir="auto"><span>Priority</span></div>
-                            </div>
-                          </span></div>
-                        <div class="column-header-element-wrapper"></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div style="flex-basis: 140px;" class="column-header numeric-header">
-                    <div>
-                      <div class="column-header-inner">
-                        <div class="column-header-element-wrapper"><span><span
-                              class="drag-handle icon icon-dapulse-drag-2"></span></span></div>
-                        <div class="title-wrapper"><span class="column-title ">
-                            <div class="ds-editable-component  " style="width: auto; height: auto;">
-                              <div class="ds-text-component" dir="auto"><span>Time Est.</span></div>
-                            </div>
-                          </span></div>
-                        <div class="column-header-element-wrapper"></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div style="flex-basis: 140px;" class="column-header duration-header">
-                    <div>
-                      <div class="column-header-inner">
-                        <div class="column-header-element-wrapper"><span><span
-                              class="drag-handle icon icon-dapulse-drag-2"></span></span></div>
-                        <div class="title-wrapper"><span class="column-title ">
-                            <div class="ds-editable-component  " style="width: auto; height: auto;">
-                              <div class="ds-text-component" dir="auto"><span>Time Tracking</span></div>
-                            </div>
-                          </span></div>
-                        <div class="column-header-element-wrapper"></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="add-column-container">
-                    <div class="ds-menu-button-container ds-menu-button-old"><a class="add-column-menu-button"><span
-                          class="icon icon-dapulse-addbtn"></span></a></div>
-                  </div>
-                </div>
-              </div>
-              <div class="group-header-component" style="display: none;">
-                <div class="group-menu"><a class="group-menu-button fa fa-caret-down"
-                    style="color: rgb(162, 93, 220); background-color: rgb(162, 93, 220); border-color: rgb(162, 93, 220);"></a>
-                </div>
-                <div class="name-column-header name-column-header-light"
-                  style="color: rgb(162, 93, 220); flex-basis: 300px;"><span class="group-name">Next Week</span></div>
-                <div class="column-header person-header column-header-plain" style="flex-basis: 80px;">Owner</div>
-                <div class="column-header color-header merged-column left-to-linked" style="flex-basis: 140px;">
-                  <div>
-                    <div class="column-header-inner">
-                      <div class="column-header-element-wrapper"></div><i
-                        class="icon icon-v2-merged-column-indication merged-column-indication-icon"></i>
-                      <div class="title-wrapper"><span class="column-title ">
-                          <div class="ds-editable-component  " style="width: auto; height: auto;">
-                            <div class="ds-text-component" dir="auto"><span>Status</span></div>
-                          </div>
-                        </span></div>
-                      <div class="column-header-element-wrapper"></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="column-header date-header merged-column right-to-linked" style="flex-basis: 125px;">
-                  <div>
-                    <div class="column-header-inner">
-                      <div class="column-header-element-wrapper"></div><i
-                        class="icon icon-v2-merged-column-indication merged-column-indication-icon"></i>
-                      <div class="title-wrapper"><span class="column-title ">
-                          <div class="ds-editable-component  " style="width: auto; height: auto;">
-                            <div class="ds-text-component" dir="auto"><span>Due date</span></div>
-                          </div>
-                        </span></div>
-                      <div class="column-header-element-wrapper"></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="column-header color-header column-header-plain" style="flex-basis: 140px;">Priority</div>
-                <div class="column-header numeric-header column-header-plain" style="flex-basis: 140px;">Time Est.</div>
-                <div class="column-header duration-header column-header-plain" style="flex-basis: 140px;">Time Tracking
-                </div>
-                <div class="add-column-container add-column-light icon icon-dapulse-addbtn"></div>
-              </div>
-            </div>
-            <div style="top: 340px; height: 116px;" class="group-footer-wrapper">
-              <div>
-                <div class="group-footer-component">
-                  <div class="add-pulse-component">
-                    <div class="add-pulse-left-indicator"
-                      style="background: rgb(162, 93, 220) none repeat scroll 0% 0%;"></div><input type="text"
-                      dir="auto" class="add-pulse-input" placeholder="+ Add"><button
-                      class="add-pulse-button">Add</button>
-                    <div class="add-pulse-right-indicator"></div>
-                  </div>
-                  <div class="columns-footer-component">
-                    <div style="flex-basis: 785px; flex-grow: 1;"></div>
-                    <div class="columns-footer-column numeric-footer" style="flex-basis: 140px;">
-                      <div class="numeric-column-footer-component can-edit">
-                        <div class="numeric-column-footer-value">
-                          <div class="ds-text-component" dir="auto"><span>2h</span></div>
-                        </div>
-                        <div class="numeric-column-footer-function">
-                          <div class="column-footer-function-inner inner-link inner-link-saw-tip">sum</div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="columns-footer-column duration-footer" style="flex-basis: 140px;">
-                      <div class="duration-column-footer-component">
-                        <div class="duration-time-holder"><span>0h </span><span>0m </span></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="group-footer-component" style="display: none;">
-                <div class="add-pulse-component">
-                  <div class="add-pulse-left-indicator" style="background: rgb(162, 93, 220) none repeat scroll 0% 0%;">
-                  </div><input type="text" dir="auto" class="add-pulse-input" placeholder="+ Add">
-                </div>
-                <div class="columns-footer-component">
-                  <div style="flex-basis: 785px; flex-grow: 1;"></div>
-                  <div class="columns-footer-column numeric-footer" style="flex-basis: 140px;">
-                    <div class="numeric-column-footer-component can-edit">
-                      <div class="numeric-column-footer-value">
-                        <div class="ds-text-component" dir="auto"><span>2h</span></div>
-                      </div>
-                      <div class="numeric-column-footer-function">
-                        <div class="column-footer-function-inner inner-link inner-link-saw-tip">sum</div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="columns-footer-column duration-footer" style="flex-basis: 140px;">
-                    <div class="duration-column-footer-component">
-                      <div class="duration-time-holder"><span>0h </span><span>0m </span></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div style="top: 40px; height: 36px;" class="pulse-component-wrapper">
-              <div style="">
-                <div id="pulse-214394168" class="pulse-component can-edit">
-                  <div class="pulse-menu-component"></div>
-                  <div id="focus-214394168-name" class="cell-component name-cell" style="flex-basis: 300px;">
-                    <div class="name-cell-component ">
-                      <div class="pulse-left-indicator can-edit"
-                        style="background-color: rgb(253, 171, 61); color: rgb(253, 171, 61);">
-                        <div class="left-indicator-inner">
-                          <div class="left-indicator-checkbox"></div>
-                        </div>
-                      </div>
-                      <div class="name-cell-text">
-                        <div class="ds-editable-component  " style="width: auto; height: 24px;">
-                          <div class="ds-text-component" dir="auto"><span>Task 1</span></div>
-                        </div>
-                        <div class="edit-indicator "></div>
-                      </div>
-                      <div class="posts-indicator-component">
-                        <div class="conversation-indicator-icon"><span class="icon-v2-chat-without-update"></span></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div id="focus-214394168-person" class="cell-component person-cell" style="flex-basis: 80px;">
-                    <div class="person-cell-component can-edit">
-                      <div class="person-image-wrapper"><img
-                          src="https://files.monday.com/photos/7994788/thumb_small/7994788-data?1554915723"
-                          class="person-bullet-image person-bullet-component inline-image" title="Vladimir Zhuravlev"
-                          alt="Vladimir Zhuravlev"></div>
-                    </div>
-                  </div>
-                  <div id="focus-214394168-status" class="cell-component color-cell" style="flex-basis: 140px;">
-                    <div class="status-cell-component">
-                      <div class="transparent-deadline-indicator left-to-linked"></div>
-                      <div class="status-note-wrapper  ">
-                        <div>
-                          <div class="add-status-note"></div><i class="fa fa-plus menu-dog-ear-color"
-                            style="color: rgb(253, 171, 61);"></i>
-                        </div>
-                      </div>
-                      <div class="status-label menu-color menu-color-print-helper-orange left-to-linked"
-                        style="border-bottom-color: rgb(233, 151, 41);">
-                        <div class="status-label-marking left-to-linked">
-                          <div class="ds-text-component" dir="auto"><span>Working on it</span></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div id="focus-214394168-date" class="cell-component date-cell" style="flex-basis: 125px;">
-                    <div class="date-cell-component overdue">
-                      <div class="deadline-indication-wrapper">
-                        <div class="deadline-date-indication-icon-component"><span
-                            class="icon icon-v2-overdue-deadline deadline-icon overdue" style="font-size: 16px;"></span>
-                        </div>
-                      </div>
-                      <div class="date-cell-content date-cell-icons-picker-ignore-hide">
-                        <div class="ds-text-component" dir="auto"><span>Apr 11</span></div>
-                      </div>
-                      <div class="icon-picker-wrapper">
-                        <div class="date-icons-button date-cell-date-picker-ignore-hide">
-                          <div class="date-cell-default-open-icon "><i class="fa fa-smile-o"></i></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div id="focus-214394168-status0" class="cell-component color-cell" style="flex-basis: 140px;">
-                    <div class="status-cell-component">
-                      <div class="status-note-wrapper  ">
-                        <div>
-                          <div class="add-status-note"></div><i class="fa fa-plus menu-dog-ear-color"
-                            style="color: rgb(226, 68, 92);"></i>
-                        </div>
-                      </div>
-                      <div class="status-label menu-color menu-color-print-helper-red-shadow"
-                        style="border-bottom-color: rgb(206, 48, 72);">
-                        <div class="status-label-marking">
-                          <div class="ds-text-component" dir="auto"><span>High</span></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div id="focus-214394168-numbers" class="cell-component numeric-cell" style="flex-basis: 140px;">
-                    <div class="numeric-cell-component">
-                      <div class="ds-editable-component  " style="width: 100%; height: 25px;">
-                        <div class="ds-text-component" dir="auto"><span>2h</span></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div id="focus-214394168-time_tracking" class="cell-component duration-cell"
-                    style="flex-basis: 140px;">
-                    <div class="duration-cell-component">
-                      <div class="section">
-                        <div class="icon icon-duration-v2-play"></div>
-                        <div class="dummy-div"></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="pulse-right-indicator"></div>
-                </div>
-              </div>
-              <div id="pulse-214394168" class="pulse-component can-edit" style="display: none;">
-                <div class="pulse-menu-component"></div>
-                <div id="focus-214394168-name" class="cell-component name-cell is-lite" style="flex-basis: 300px;">
-                  <div class="name-cell-component light-name-cell-component ">
-                    <div class="pulse-left-indicator"
-                      style="background-color: rgb(253, 171, 61); color: rgb(253, 171, 61);">
-                      <div class="left-indicator-inner">
-                        <div class="left-indicator-checkbox"></div>
-                      </div>
-                    </div>
-                    <div class="name-cell-text" dir="auto">
-                      <div class="name-cell-light-text" dir="auto">Task 1</div>
-                      <div class="edit-indicator"></div>
-                    </div>
-                    <div class="posts-indicator-component">
-                      <div class="conversation-indicator-icon"><span class="icon-v2-chat-without-update"></span></div>
-                    </div>
-                  </div>
-                </div>
-                <div id="focus-214394168-person" class="cell-component person-cell is-lite" style="flex-basis: 80px;">
-                  <div class="person-cell-component"><img
-                      src="https://files.monday.com/photos/7994788/thumb_small/7994788-data?1554915723"
-                      class="person-bullet-image person-bullet-component inline-image" title="Vladimir Zhuravlev"
-                      alt="Vladimir Zhuravlev"></div>
-                </div>
-                <div id="focus-214394168-status" class="cell-component color-cell is-lite" style="flex-basis: 140px;">
-                  <div
-                    class="status-label status-label-simple cell-light-ellipsis-overflow menu-color menu-color-print-helper-orange new-transparent-deadline-indicator light-left-to-linked"
-                    style="border-bottom-color: rgb(233, 151, 41);">Working on it</div>
-                </div>
-                <div id="focus-214394168-date" class="cell-component date-cell is-lite" style="flex-basis: 125px;">
-                  <div class="date-cell-component date-cell-light-component overdue">
-                    <div class="deadline-indication-wrapper">
-                      <div class="deadline-date-indication-icon-component"><span
-                          class="icon icon-v2-overdue-deadline deadline-icon overdue" style="font-size: 16px;"></span>
-                      </div>
-                    </div>
-                    <div class="date-cell-content light-date-cell-content cell-light-ellipsis-overflow">Apr 11</div>
-                    <div class="icon-picker-wrapper"></div>
-                  </div>
-                </div>
-                <div id="focus-214394168-status0" class="cell-component color-cell is-lite" style="flex-basis: 140px;">
-                  <div
-                    class="status-label status-label-simple cell-light-ellipsis-overflow menu-color menu-color-print-helper-red-shadow"
-                    style="border-bottom-color: rgb(206, 48, 72);">High</div>
-                </div>
-                <div id="focus-214394168-numbers" class="cell-component numeric-cell is-lite"
-                  style="flex-basis: 140px;">
-                  <div class="numeric-cell-component numeric-cell-light-component"><span
-                      class="formatted-value">2h</span></div>
-                </div>
-                <div id="focus-214394168-time_tracking" class="cell-component duration-cell is-lite"
-                  style="flex-basis: 140px;">
-                  <div class="duration-cell-component">
-                    <div class="section">
-                      <div class="icon icon-duration-v2-play"></div>
-                      <div class="dummy-div"></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="pulse-right-indicator"></div>
-              </div>
-            </div>
-            <div style="top: 76px; height: 36px;" class="pulse-component-wrapper">
-              <div style="">
-                <div id="pulse-214394169" class="pulse-component can-edit">
-                  <div class="pulse-menu-component"></div>
-                  <div id="focus-214394169-name" class="cell-component name-cell" style="flex-basis: 300px;">
-                    <div class="name-cell-component ">
-                      <div class="pulse-left-indicator can-edit"
-                        style="background-color: rgb(253, 171, 61); color: rgb(253, 171, 61);">
-                        <div class="left-indicator-inner">
-                          <div class="left-indicator-checkbox"></div>
-                        </div>
-                      </div>
-                      <div class="name-cell-text">
-                        <div class="ds-editable-component  " style="width: auto; height: 24px;">
-                          <div class="ds-text-component" dir="auto"><span>Task 2</span></div>
-                        </div>
-                        <div class="edit-indicator "></div>
-                      </div>
-                      <div class="posts-indicator-component">
-                        <div class="conversation-indicator-icon"><span class="icon-v2-chat-without-update"></span></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div id="focus-214394169-person" class="cell-component person-cell" style="flex-basis: 80px;">
-                    <div class="person-cell-component can-edit">
-                      <div class="person-image-wrapper"><img
-                          src="https://cdn2.monday.com/assets/dapulse-person-column.svg"
-                          class="person-bullet-image person-bullet-component inline-image" title="" alt=""></div>
-                    </div>
-                  </div>
-                  <div id="focus-214394169-status" class="cell-component color-cell" style="flex-basis: 140px;">
-                    <div class="status-cell-component">
-                      <div class="transparent-deadline-indicator left-to-linked"></div>
-                      <div class="status-note-wrapper  ">
-                        <div>
-                          <div class="add-status-note"></div><i class="fa fa-plus menu-dog-ear-color"
-                            style="color: rgb(0, 200, 117);"></i>
-                        </div>
-                      </div>
-                      <div class="status-label menu-color menu-color-print-helper-green-shadow left-to-linked"
-                        style="border-bottom-color: rgb(0, 180, 97);">
-                        <div class="status-label-marking left-to-linked">
-                          <div class="ds-text-component" dir="auto"><span>Done</span></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div id="focus-214394169-date" class="cell-component date-cell" style="flex-basis: 125px;">
-                    <div class="date-cell-component done">
-                      <div class="deadline-indication-wrapper">
-                        <div class="deadline-date-indication-icon-component"><span
-                            class="icon icon-v2-done-deadline deadline-icon done" style="font-size: 16px;"></span></div>
-                      </div>
-                      <div class="date-cell-content date-cell-icons-picker-ignore-hide">
-                        <div class="ds-text-component" dir="auto"><span>Feb 28</span></div>
-                      </div>
-                      <div class="icon-picker-wrapper">
-                        <div class="date-icons-button date-cell-date-picker-ignore-hide">
-                          <div class="date-cell-default-open-icon "><i class="fa fa-smile-o"></i></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div id="focus-214394169-status0" class="cell-component color-cell" style="flex-basis: 140px;">
-                    <div class="status-cell-component">
-                      <div class="status-note-wrapper  ">
-                        <div>
-                          <div class="add-status-note"></div><i class="fa fa-plus menu-dog-ear-color"
-                            style="color: rgb(226, 68, 92);"></i>
-                        </div>
-                      </div>
-                      <div class="status-label menu-color menu-color-print-helper-red-shadow"
-                        style="border-bottom-color: rgb(206, 48, 72);">
-                        <div class="status-label-marking">
-                          <div class="ds-text-component" dir="auto"><span>High</span></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div id="focus-214394169-numbers" class="cell-component numeric-cell" style="flex-basis: 140px;">
-                    <div class="numeric-cell-component">
-                      <div class="ds-editable-component  " style="width: 100%; height: 25px;">
-                        <div class="ds-text-component" dir="auto"><span>5h</span></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div id="focus-214394169-time_tracking" class="cell-component duration-cell"
-                    style="flex-basis: 140px;">
-                    <div class="duration-cell-component">
-                      <div class="section">
-                        <div class="icon icon-duration-v2-play"></div>
-                        <div class="dummy-div"></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="pulse-right-indicator"></div>
-                </div>
-              </div>
-              <div id="pulse-214394169" class="pulse-component can-edit" style="display: none;">
-                <div class="pulse-menu-component"></div>
-                <div id="focus-214394169-name" class="cell-component name-cell is-lite" style="flex-basis: 300px;">
-                  <div class="name-cell-component light-name-cell-component ">
-                    <div class="pulse-left-indicator"
-                      style="background-color: rgb(253, 171, 61); color: rgb(253, 171, 61);">
-                      <div class="left-indicator-inner">
-                        <div class="left-indicator-checkbox"></div>
-                      </div>
-                    </div>
-                    <div class="name-cell-text" dir="auto">
-                      <div class="name-cell-light-text" dir="auto">Task 2</div>
-                      <div class="edit-indicator"></div>
-                    </div>
-                    <div class="posts-indicator-component">
-                      <div class="conversation-indicator-icon"><span class="icon-v2-chat-without-update"></span></div>
-                    </div>
-                  </div>
-                </div>
-                <div id="focus-214394169-person" class="cell-component person-cell is-lite" style="flex-basis: 80px;">
-                  <div class="person-cell-component"><img src="https://cdn2.monday.com/assets/dapulse-person-column.svg"
-                      class="person-bullet-image person-bullet-component inline-image" title="" alt=""></div>
-                </div>
-                <div id="focus-214394169-status" class="cell-component color-cell is-lite" style="flex-basis: 140px;">
-                  <div
-                    class="status-label status-label-simple cell-light-ellipsis-overflow menu-color menu-color-print-helper-green-shadow new-transparent-deadline-indicator light-left-to-linked"
-                    style="border-bottom-color: rgb(0, 180, 97);">Done</div>
-                </div>
-                <div id="focus-214394169-date" class="cell-component date-cell is-lite" style="flex-basis: 125px;">
-                  <div class="date-cell-component date-cell-light-component done">
-                    <div class="deadline-indication-wrapper">
-                      <div class="deadline-date-indication-icon-component"><span
-                          class="icon icon-v2-done-deadline deadline-icon done" style="font-size: 16px;"></span></div>
-                    </div>
-                    <div class="date-cell-content light-date-cell-content cell-light-ellipsis-overflow">Feb 28</div>
-                    <div class="icon-picker-wrapper"></div>
-                  </div>
-                </div>
-                <div id="focus-214394169-status0" class="cell-component color-cell is-lite" style="flex-basis: 140px;">
-                  <div
-                    class="status-label status-label-simple cell-light-ellipsis-overflow menu-color menu-color-print-helper-red-shadow"
-                    style="border-bottom-color: rgb(206, 48, 72);">High</div>
-                </div>
-                <div id="focus-214394169-numbers" class="cell-component numeric-cell is-lite"
-                  style="flex-basis: 140px;">
-                  <div class="numeric-cell-component numeric-cell-light-component"><span
-                      class="formatted-value">5h</span></div>
-                </div>
-                <div id="focus-214394169-time_tracking" class="cell-component duration-cell is-lite"
-                  style="flex-basis: 140px;">
-                  <div class="duration-cell-component">
-                    <div class="section">
-                      <div class="icon icon-duration-v2-play"></div>
-                      <div class="dummy-div"></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="pulse-right-indicator"></div>
-              </div>
-            </div>
-            <div style="top: 112px; height: 36px;" class="pulse-component-wrapper">
-              <div style="">
-                <div id="pulse-214394170" class="pulse-component can-edit">
-                  <div class="pulse-menu-component"></div>
-                  <div id="focus-214394170-name" class="cell-component name-cell" style="flex-basis: 300px;">
-                    <div class="name-cell-component ">
-                      <div class="pulse-left-indicator can-edit"
-                        style="background-color: rgb(253, 171, 61); color: rgb(253, 171, 61);">
-                        <div class="left-indicator-inner">
-                          <div class="left-indicator-checkbox"></div>
-                        </div>
-                      </div>
-                      <div class="name-cell-text">
-                        <div class="ds-editable-component  " style="width: auto; height: 24px;">
-                          <div class="ds-text-component" dir="auto"><span>Task 3</span></div>
-                        </div>
-                        <div class="edit-indicator "></div>
-                      </div>
-                      <div class="posts-indicator-component">
-                        <div class="conversation-indicator-icon"><span class="icon-v2-chat-without-update"></span></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div id="focus-214394170-person" class="cell-component person-cell" style="flex-basis: 80px;">
-                    <div class="person-cell-component can-edit">
-                      <div class="person-image-wrapper"><img
-                          src="https://cdn2.monday.com/assets/dapulse-person-column.svg"
-                          class="person-bullet-image person-bullet-component inline-image" title="" alt=""></div>
-                    </div>
-                  </div>
-                  <div id="focus-214394170-status" class="cell-component color-cell" style="flex-basis: 140px;">
-                    <div class="status-cell-component">
-                      <div class="transparent-deadline-indicator left-to-linked"></div>
-                      <div class="status-note-wrapper  ">
-                        <div>
-                          <div class="add-status-note"></div><i class="fa fa-plus menu-dog-ear-color"
-                            style="color: rgb(196, 196, 196);"></i>
-                        </div>
-                      </div>
-                      <div class="status-label menu-color menu-color-print-helper-grey left-to-linked"
-                        style="border-bottom-color: rgb(176, 176, 176);">
-                        <div class="status-label-marking left-to-linked">
-                          <div class="ds-text-component" dir="auto"><span></span></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div id="focus-214394170-date" class="cell-component date-cell" style="flex-basis: 125px;">
-                    <div class="date-cell-component ">
-                      <div class="deadline-indication-wrapper"></div>
-                      <div class="date-cell-content date-cell-icons-picker-ignore-hide empty-and-editable">
-                        <div class="ds-text-component" dir="auto"><span></span></div>
-                      </div>
-                      <div class="icon-picker-wrapper"></div>
-                    </div>
-                  </div>
-                  <div id="focus-214394170-status0" class="cell-component color-cell" style="flex-basis: 140px;">
-                    <div class="status-cell-component">
-                      <div class="status-note-wrapper  ">
-                        <div>
-                          <div class="add-status-note"></div><i class="fa fa-plus menu-dog-ear-color"
-                            style="color: rgb(162, 93, 220);"></i>
-                        </div>
-                      </div>
-                      <div class="status-label menu-color menu-color-print-helper-purple"
-                        style="border-bottom-color: rgb(146, 56, 175);">
-                        <div class="status-label-marking">
-                          <div class="ds-text-component" dir="auto"><span>Medium</span></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div id="focus-214394170-numbers" class="cell-component numeric-cell" style="flex-basis: 140px;">
-                    <div class="numeric-cell-component">
-                      <div class="ds-editable-component  " style="width: 100%; height: 25px;">
-                        <div class="ds-text-component" dir="auto"><span>2.5h</span></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div id="focus-214394170-time_tracking" class="cell-component duration-cell"
-                    style="flex-basis: 140px;">
-                    <div class="duration-cell-component">
-                      <div class="section">
-                        <div class="icon icon-duration-v2-play"></div>
-                        <div class="dummy-div"></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="pulse-right-indicator"></div>
-                </div>
-              </div>
-              <div id="pulse-214394170" class="pulse-component can-edit" style="display: none;">
-                <div class="pulse-menu-component"></div>
-                <div id="focus-214394170-name" class="cell-component name-cell is-lite" style="flex-basis: 300px;">
-                  <div class="name-cell-component light-name-cell-component ">
-                    <div class="pulse-left-indicator"
-                      style="background-color: rgb(253, 171, 61); color: rgb(253, 171, 61);">
-                      <div class="left-indicator-inner">
-                        <div class="left-indicator-checkbox"></div>
-                      </div>
-                    </div>
-                    <div class="name-cell-text" dir="auto">
-                      <div class="name-cell-light-text" dir="auto">Task 3</div>
-                      <div class="edit-indicator"></div>
-                    </div>
-                    <div class="posts-indicator-component">
-                      <div class="conversation-indicator-icon"><span class="icon-v2-chat-without-update"></span></div>
-                    </div>
-                  </div>
-                </div>
-                <div id="focus-214394170-person" class="cell-component person-cell is-lite" style="flex-basis: 80px;">
-                  <div class="person-cell-component"><img src="https://cdn2.monday.com/assets/dapulse-person-column.svg"
-                      class="person-bullet-image person-bullet-component inline-image" title="" alt=""></div>
-                </div>
-                <div id="focus-214394170-status" class="cell-component color-cell is-lite" style="flex-basis: 140px;">
-                  <div
-                    class="status-label status-label-simple cell-light-ellipsis-overflow menu-color menu-color-print-helper-grey new-transparent-deadline-indicator light-left-to-linked"
-                    style="border-bottom-color: rgb(176, 176, 176);"></div>
-                </div>
-                <div id="focus-214394170-date" class="cell-component date-cell is-lite" style="flex-basis: 125px;">
-                  <div
-                    class="date-cell-component date-cell-light-component date-cell-component-simple cell-light-ellipsis-overflow">
-                  </div>
-                </div>
-                <div id="focus-214394170-status0" class="cell-component color-cell is-lite" style="flex-basis: 140px;">
-                  <div
-                    class="status-label status-label-simple cell-light-ellipsis-overflow menu-color menu-color-print-helper-purple"
-                    style="border-bottom-color: rgb(146, 56, 175);">Medium</div>
-                </div>
-                <div id="focus-214394170-numbers" class="cell-component numeric-cell is-lite"
-                  style="flex-basis: 140px;">
-                  <div class="numeric-cell-component numeric-cell-light-component"><span
-                      class="formatted-value">2.5h</span></div>
-                </div>
-                <div id="focus-214394170-time_tracking" class="cell-component duration-cell is-lite"
-                  style="flex-basis: 140px;">
-                  <div class="duration-cell-component">
-                    <div class="section">
-                      <div class="icon icon-duration-v2-play"></div>
-                      <div class="dummy-div"></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="pulse-right-indicator"></div>
-              </div>
-            </div>
-            <div style="top: 304px; height: 36px;" class="pulse-component-wrapper">
-              <div style="">
-                <div id="pulse-214394171" class="pulse-component can-edit">
-                  <div class="pulse-menu-component"></div>
-                  <div id="focus-214394171-name" class="cell-component name-cell" style="flex-basis: 300px;">
-                    <div class="name-cell-component ">
-                      <div class="pulse-left-indicator can-edit"
-                        style="background-color: rgb(162, 93, 220); color: rgb(162, 93, 220);">
-                        <div class="left-indicator-inner">
-                          <div class="left-indicator-checkbox"></div>
-                        </div>
-                      </div>
-                      <div class="name-cell-text">
-                        <div class="ds-editable-component  " style="width: auto; height: 24px;">
-                          <div class="ds-text-component" dir="auto"><span>Task 5</span></div>
-                        </div>
-                        <div class="edit-indicator "></div>
-                      </div>
-                      <div class="posts-indicator-component">
-                        <div class="conversation-indicator-icon"><span class="icon-v2-chat-without-update"></span></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div id="focus-214394171-person" class="cell-component person-cell" style="flex-basis: 80px;">
-                    <div class="person-cell-component can-edit">
-                      <div class="person-image-wrapper"><img
-                          src="https://cdn2.monday.com/assets/dapulse-person-column.svg"
-                          class="person-bullet-image person-bullet-component inline-image" title="" alt=""></div>
-                    </div>
-                  </div>
-                  <div id="focus-214394171-status" class="cell-component color-cell" style="flex-basis: 140px;">
-                    <div class="status-cell-component">
-                      <div class="transparent-deadline-indicator left-to-linked"></div>
-                      <div class="status-note-wrapper  ">
-                        <div>
-                          <div class="add-status-note"></div><i class="fa fa-plus menu-dog-ear-color"
-                            style="color: rgb(196, 196, 196);"></i>
-                        </div>
-                      </div>
-                      <div class="status-label menu-color menu-color-print-helper-grey left-to-linked"
-                        style="border-bottom-color: rgb(176, 176, 176);">
-                        <div class="status-label-marking left-to-linked">
-                          <div class="ds-text-component" dir="auto"><span></span></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div id="focus-214394171-date" class="cell-component date-cell" style="flex-basis: 125px;">
-                    <div class="date-cell-component ">
-                      <div class="deadline-indication-wrapper"></div>
-                      <div class="date-cell-content date-cell-icons-picker-ignore-hide empty-and-editable">
-                        <div class="ds-text-component" dir="auto"><span></span></div>
-                      </div>
-                      <div class="icon-picker-wrapper"></div>
-                    </div>
-                  </div>
-                  <div id="focus-214394171-status0" class="cell-component color-cell" style="flex-basis: 140px;">
-                    <div class="status-cell-component">
-                      <div class="status-note-wrapper  ">
-                        <div>
-                          <div class="add-status-note"></div><i class="fa fa-plus menu-dog-ear-color"
-                            style="color: rgb(226, 68, 92);"></i>
-                        </div>
-                      </div>
-                      <div class="status-label menu-color menu-color-print-helper-red-shadow"
-                        style="border-bottom-color: rgb(206, 48, 72);">
-                        <div class="status-label-marking">
-                          <div class="ds-text-component" dir="auto"><span>High</span></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div id="focus-214394171-numbers" class="cell-component numeric-cell" style="flex-basis: 140px;">
-                    <div class="numeric-cell-component">
-                      <div class="ds-editable-component  " style="width: 100%; height: 25px;">
-                        <div class="ds-text-component" dir="auto"><span>2h</span></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div id="focus-214394171-time_tracking" class="cell-component duration-cell"
-                    style="flex-basis: 140px;">
-                    <div class="duration-cell-component">
-                      <div class="section">
-                        <div class="icon icon-duration-v2-play"></div>
-                        <div class="dummy-div"></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="pulse-right-indicator"></div>
-                </div>
-              </div>
-              <div id="pulse-214394171" class="pulse-component can-edit" style="display: none;">
-                <div class="pulse-menu-component"></div>
-                <div id="focus-214394171-name" class="cell-component name-cell is-lite" style="flex-basis: 300px;">
-                  <div class="name-cell-component light-name-cell-component ">
-                    <div class="pulse-left-indicator"
-                      style="background-color: rgb(162, 93, 220); color: rgb(162, 93, 220);">
-                      <div class="left-indicator-inner">
-                        <div class="left-indicator-checkbox"></div>
-                      </div>
-                    </div>
-                    <div class="name-cell-text" dir="auto">
-                      <div class="name-cell-light-text" dir="auto">Task 5</div>
-                      <div class="edit-indicator"></div>
-                    </div>
-                    <div class="posts-indicator-component">
-                      <div class="conversation-indicator-icon"><span class="icon-v2-chat-without-update"></span></div>
-                    </div>
-                  </div>
-                </div>
-                <div id="focus-214394171-person" class="cell-component person-cell is-lite" style="flex-basis: 80px;">
-                  <div class="person-cell-component"><img src="https://cdn2.monday.com/assets/dapulse-person-column.svg"
-                      class="person-bullet-image person-bullet-component inline-image" title="" alt=""></div>
-                </div>
-                <div id="focus-214394171-status" class="cell-component color-cell is-lite" style="flex-basis: 140px;">
-                  <div
-                    class="status-label status-label-simple cell-light-ellipsis-overflow menu-color menu-color-print-helper-grey new-transparent-deadline-indicator light-left-to-linked"
-                    style="border-bottom-color: rgb(176, 176, 176);"></div>
-                </div>
-                <div id="focus-214394171-date" class="cell-component date-cell is-lite" style="flex-basis: 125px;">
-                  <div
-                    class="date-cell-component date-cell-light-component date-cell-component-simple cell-light-ellipsis-overflow">
-                  </div>
-                </div>
-                <div id="focus-214394171-status0" class="cell-component color-cell is-lite" style="flex-basis: 140px;">
-                  <div
-                    class="status-label status-label-simple cell-light-ellipsis-overflow menu-color menu-color-print-helper-red-shadow"
-                    style="border-bottom-color: rgb(206, 48, 72);">High</div>
-                </div>
-                <div id="focus-214394171-numbers" class="cell-component numeric-cell is-lite"
-                  style="flex-basis: 140px;">
-                  <div class="numeric-cell-component numeric-cell-light-component"><span
-                      class="formatted-value">2h</span></div>
-                </div>
-                <div id="focus-214394171-time_tracking" class="cell-component duration-cell is-lite"
-                  style="flex-basis: 140px;">
-                  <div class="duration-cell-component">
-                    <div class="section">
-                      <div class="icon icon-duration-v2-play"></div>
-                      <div class="dummy-div"></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="pulse-right-indicator"></div>
+          <div class="board-description can-edit">
+            <div class="ds-editable-component  " style="width: auto; height: auto;">
+              <div class="ds-text-component description-content">
+                <div class="description-line"><span class="text-content">Add board description</span></div>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <div class="board-filter board-entity-button">
+        <div class="collapse-all-groups ">
+          <div class="collapse-group-toggle-component" title="Свернуть/развернуть группы">
+            <i class="fa fa-compress" aria-hidden="true"></i>
+          </div>
+        </div>
+        <div class="add-board-entity-button-wrapper">
+          <div class="ds-menu-button-container ds-menu-button-old">
+            <div class="add-board-entity-button-component"><button class="ds-btn ds-btn-primary ds-btn-md">
+                <div class="add-icon">+</div>New
+              </button></div>
+          </div>
+        </div>
+        <div class="board-filter-input-container">
+          <div class="board-filter-input-wrapper_v2">
+            <div class="icon-and-input-wrapper"><input placeholder="Search / Filter Board" value=""></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- start board-content-component -->
+
+<div class="board-content-component">
+  <div class="board-group">
+    <div class="board-group-header">
+      <div class="board-group-row">
+      <div class="board-group-cell menu-cell-header js-board-group-menu">
+        <div class="board-group-menu-box" style="border-color: orange; background-color: orange;">
+          <i class="fa fa-caret-down" aria-hidden="true"></i>
+        </div>
+      </div>
+      <div class="board-group-cell name-cell-header" style="color: orange;">Название группы</div>
+      <div class="board-group-cell person-cell-header">Сотрудник</div>
+      <div class="board-group-cell status-cell-header">Статус</div>
+      <div class="board-group-cell date-cell-header">Дата</div>
+      <div class="board-group-cell sum-cell-header">Стоимость</div>
+      </div>
+    </div>
+    <div class="board-group-body">
+      <div class="board-group-row">
+        <div class="board-group-cell menu-cell"></div>
+        <div class="board-group-cell name-cell" style="border-left:8px solid orange;">
+          <input type="text" name="name" value="Задача 1" readonly>
+        </div>
+        <div class="board-group-cell person-cell">
+          <input type="hidden" name="person" value="1" readonly>
+          <div class="person-cell-component">
+            <div class="person-image-wrapper">
+              <img src="/img/person_noimage.svg" class="person-bullet-image person-bullet-component inline-image" title="" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="board-group-cell status-cell">
+          <input type="hidden" name="name" value="1" readonly>
+          <div class="status-cell-component" style="background-color: orange;">
+            <div class="status-cell-wrapper">
+              <div class="status-cell-text">В работе</div>
+            </div>
+          </div>
+        </div>
+        <div class="board-group-cell date-cell">
+          <input type="text" name="date" value="" class='datepicker-here' readonly>
+        </div>
+        <div class="board-group-cell sum-cell">
+          <input type="text" name="sum" value="0" readonly>
+        </div>
+      </div>
+    </div>
+    <div class="board-group-footer">
+      <div class="board-group-row">
+        <div class="board-group-cell menu-cell"></div>
+        <div class="board-group-cell add-cell" style="border-left:8px solid orange;">
+          <div class="add-cell-component">
+            <input type="text" name="name" value="" placeholder="+ Добавить" readonly>
+            <button class="add-pulse-button">Добавить</button>
+          </div>
+        </div>
+      </div>
+      <div class="board-group-row flex-end">
+        <div class="board-group-cell total-sum-cell">
+          <input type="text" name="total" value="0" readonly title="Сумма">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- end board-content-component -->
+</div>
       <!-- end board -->
     </div>
   </div>
-  <!-- start modals -->
-  <div class="ReactModalPortal open">
-    <div class="ReactModal__Overlay ReactModal__Overlay--after-open"
-      style="position: fixed; inset: 0px; background-color: rgba(255, 255, 255, 0.75);">
-      <div
-        style="position: absolute; inset: 50% auto auto 50%; border: 1px solid rgb(204, 204, 204); background: rgb(255, 255, 255) none repeat scroll 0% 0%; overflow: visible; border-radius: 4px; outline: currentcolor none medium; padding: 0px; margin-right: -50%; transform: translate(-50%, -50%);"
-        class="ReactModal__Content ReactModal__Content--after-open" tabindex="-1" role="dialog"
-        aria-label="UserProfilePersonalInfoModal">
-        <div class="react_popup_wrapper ">
-          <div class="close_button"></div>
-          <div>
-            <form>
-              <div class="form_title"><label for="edit_elem_13">Должность</label></div>
-              <div class="inline_form">
-                <div class="form_line_container"><input class="form-control fullwidth" id="edit_elem_13" value=""></div>
-                <div class="action_button_container"><button type="submit"
-                    class="ds-btn ds-btn-primary">Сохранить</button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- end modals -->
+  
 </body>
 
 </html>

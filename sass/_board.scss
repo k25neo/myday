@@ -251,6 +251,39 @@ svg:not(:root) {
   height: 100%;
   cursor: pointer;
 }
+
+.board-group-menu-content{
+  display: none;
+}
+.board-group-menu-item{
+  padding: 0 8px;
+  cursor: pointer;
+}
+.board-group-menu-hr{
+  height: 1px;
+  border-top: 1px dashed #c4c4c4;
+}
+.board-group-menu-item:hover{
+  background: #009aff;
+  color: white;
+}
+.board-group-menu.open{
+  .board-group-menu-content {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 200px;
+    text-align: left;
+    padding: 6px 6px;
+    border: 1px solid #c4c4c4;
+    z-index: 100;
+    background: white;
+    border-radius: 4px;
+  }
+
+}
 .board-group-cell{
   background-color: #f0f0f0;
   margin-bottom: 1px;
@@ -300,7 +333,6 @@ svg:not(:root) {
     justify-content: center;
     align-items: center;
     padding-bottom: 1px;
-    z-index: 1;
   }
   &.name-cell,
   &.name-cell-header{

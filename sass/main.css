@@ -2210,6 +2210,45 @@ svg:not(:root) {
   cursor: pointer;
 }
 
+.board-group-menu-content {
+  display: none;
+}
+
+.board-group-menu-item {
+  padding: 0 8px;
+  cursor: pointer;
+}
+
+.board-group-menu-hr {
+  height: 1px;
+  border-top: 1px dashed #c4c4c4;
+}
+
+.board-group-menu-item:hover {
+  background: #009aff;
+  color: white;
+}
+
+.board-group-menu.open .board-group-menu-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 200px;
+  text-align: left;
+  padding: 6px 6px;
+  border: 1px solid #c4c4c4;
+  z-index: 100;
+  background: white;
+  border-radius: 4px;
+}
+
 .board-group-cell {
   background-color: #f0f0f0;
   margin-bottom: 1px;
@@ -2281,7 +2320,6 @@ svg:not(:root) {
       -ms-flex-align: center;
           align-items: center;
   padding-bottom: 1px;
-  z-index: 1;
 }
 
 .board-group-cell.name-cell, .board-group-cell.name-cell-header {
@@ -2317,11 +2355,14 @@ svg:not(:root) {
 
 .ReactModalPortal {
   display: none;
-  position: fixed;
   top: 0;
   left: 0;
   z-index: 99999999;
-  height: 1px;
+  height: 100%;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  position: fixed;
 }
 
 .ReactModalPortal.open {
@@ -2336,6 +2377,17 @@ svg:not(:root) {
   background: rgba(0, 0, 0, 0.65) !important;
   -webkit-transition: opacity 0.1s ease-in-out;
   transition: opacity 0.1s ease-in-out;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+  width: 100%;
 }
 
 .ReactModalPortal .ReactModal__Overlay .ReactModal__Content {

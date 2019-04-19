@@ -21,7 +21,7 @@
   <div class="login_signup_header">
     <div class="account_logo">
       <a href="#" class="logo"
-        style="background-image:url(/img/monday_logo_short.png); background-size: 180px 44px;"
+        style="background-image:url(); background-size: 180px 44px;"
         tabindex="-1"></a>
     </div>
   </div>
@@ -38,9 +38,8 @@
 
 
           <div class="account_name">
-            <h1><b>Log</b> In</h1>
-
-            <h2>Mayday</h2>
+            <h1><b>Авторизация</b></h1>
+            <br>
           </div>
           <div class="form_inner tight_form">
             <div class="email_password_wrapper">
@@ -52,42 +51,25 @@
               </div>
               <div class="form-group flat">
                 <input class="form-control with_pop_label with_value parsley-validated" id="user_password"
-                  name="user[password]" parsley-error-message="Required" parsley-required="true" placeholder="Password"
+                  name="user[password]" parsley-error-message="Required" parsley-required="true" placeholder="Пароль"
                   size="30" tabindex="1" type="password">
-                <span class="pop_label" style="right: 280px;">Password</span>
-              </div>
-            </div>
-
-            <div class="otp_wrapper">
-              <div class="otp_title">Please insert the code you received by text message<span
-                  id="forgot_password_user_masked_phone"></span></div>
-              <div class="form-group flat">
-                <input class="form-control with_pop_label with_value" id="user_otp_attempt" name="user[otp_attempt]"
-                  placeholder="OTP" size="30" tabindex="2" type="text">
-                <span class="pop_label" style="right: 350px;">Two-Factor Authentication Code</span>
+                <span class="pop_label" style="right: 280px;">Пароль</span>
               </div>
             </div>
 
             <div class="help_wrapper forgot_password_wrapper">
               <a href="/users/password/new?email=eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6bnVsbH0.C98ApeGn13NEMbKiw88nfu3csq7QBOfagj-4-Dr5tRA"
-                class="help" onclick="BigBrain('track', 'forgot_password_click');" tabindex="3">Forgot your
-                password?</a>
+                class="help" onclick="BigBrain('track', 'forgot_password_click');" tabindex="3">Забыли пароль?</a>
             </div>
 
 
             <div class="login_button-wrapper">
               <button class="ladda-button submit_button btn btn-primary" data-style="expand-left" tabindex="2"><span
-                  class="ladda-label">Log In <i class="fa fa-arrow-right"></i></span><span
+                  class="ladda-label">Войти <i class="fa fa-arrow-right"></i></span><span
                   class="ladda-spinner"></span></button>
             </div>
 
 
-            <hr>
-            <div class="signup_wrapper">
-              In order to sign up to <b>Mayday</b>'s account, you have to be invited by its admin
-            </div>
-            <hr>
-            <a href="https://auth.monday.com/login?dont_redirect=true">Login to another account</a>
           </div>
 
 

@@ -38,6 +38,24 @@ jQuery.event.special.closePopup = {
     $('#' + dataID).addClass('open');
   });
 
+  //board menu
+  function BoardGroupMenu() {
+    this.init();
+  }
+  BoardGroupMenu.prototype = {
+    init: function () {
+      this.$body = $('body');
+      this.$boardGroupMenu = $('.js-board-group-menu');
+      this.addHandlers();
+    },
+    addHandlers: function () { 
+      this.$boardGroupMenu.on('click', this.showMenu.bind(this));
+    },
+    showMenu: function () {
+      this.$boardGroupMenu.toggleClass('open');
+    }
+  }
+  var boardGroupMenu = new BoardGroupMenu();
   //menu
   function PopupMenu(el) {
     console.log(el);

@@ -1,18 +1,20 @@
 .ReactModalPortal {
   display: none;
-  position: fixed;
   top: 0;
   left: 0;
   z-index: 99999999;
-  height: 1px;
-
+  height: 100%;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  position: fixed;
 }
 .ReactModalPortal.open{
-  display: block;
+  display: block; 
 }
 .ReactModalPortal .ReactModal__Overlay--after-open {
 
-  opacity: 1;
+  opacity: 1; 
 
 }
 .ReactModalPortal .ReactModal__Overlay {
@@ -20,7 +22,11 @@
   background: rgba(0, 0, 0, 0.65) !important;
   -webkit-transition: opacity 0.1s ease-in-out;
   transition: opacity 0.1s ease-in-out;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; 
+  width: 100%;
 }
 .ReactModalPortal .ReactModal__Overlay .ReactModal__Content {
 

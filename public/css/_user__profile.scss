@@ -1,0 +1,163 @@
+.user__profile {
+  .data_row_container .profile-field-title {
+
+    -webkit-flex: 0 1 auto;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    max-width: 200px;
+    white-space: nowrap;
+    margin-right: 5px;
+    color: #333;
+
+  }
+
+  .data_row_container {
+
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+
+  }
+
+  .data_row_container .profile-field-content .profile-field-content-missing {
+
+    color: #b3b3b3;
+
+  }
+
+  .data_row_container .profile-field-content {
+
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    max-width: 80%;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+
+  }
+
+  .data_row_container .profile-field-content .value-container {
+
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .data_row_container .profile-field-content .value-container .value {
+
+    -webkit-flex: 0 1 auto;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+  }
+
+  .data_row_container .profile-field-content .value-container .copy-icon-container {
+
+    -webkit-flex: 0 0 25px;
+    -ms-flex: 0 0 25px;
+    flex: 0 0 25px;
+    margin-left: 10px;
+  }
+
+  .user_profile_bottom_container {
+
+    padding: 30px 0;
+    background: #fff;
+    color: #333333;
+    text-align: center;
+
+  }
+
+  .user_inner_container {
+
+    max-width: 500px;
+    margin: 0 auto auto auto;
+
+  }
+
+  .user_profile_bottom_container .change_password h1 {
+
+    font-size: 18px;
+    margin-top: 20px;
+
+  }
+
+  .user_profile_bottom_container .change_password .input_container,
+  .user_profile_bottom_container .change_password .password_helper {
+
+    margin: 20px auto 20px auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .user_profile_bottom_container .change_password .input_container .label,
+  .user_profile_bottom_container .change_password .password_helper .label {
+
+    padding: 0;
+    display: inline-block;
+    width: 230px;
+    text-align: left;
+    flex-shrink: 0;
+  }
+
+  .user_profile_bottom_container .change_password .input_container .input,
+  .user_profile_bottom_container .change_password .password_helper .input {
+
+    display: inline-block;
+    width: 100%;
+    position: relative;
+
+  }
+
+  .user_profile_bottom_container .change_password .input_container .label label,
+  .user_profile_bottom_container .change_password .password_helper .label label {
+
+    color: #b3b3b3;
+    font-size: 15px;
+    font-weight: 300;
+
+  }
+
+
+
+  .user_profile_bottom_container .change_password .input_container .input input,
+  .user_profile_bottom_container .change_password .password_helper .input input {
+
+    border-radius: 0;
+
+  }
+
+  .user_profile_bottom_container .change_password {
+
+    text-align: left;
+
+  }
+
+  .user_profile_bottom_container .separetor_line {
+
+    border-bottom: 1px solid #cecece;
+    height: 1px;
+    margin: 32px 0;
+
+  }
+
+  .action_button_container {
+
+    text-align: right;
+
+  }
+}

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Myday</title>
+  <link href="//fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,400,500,500italic;subset=cyrillic"
+    rel="stylesheet"
+    type="text/css">
+  <link rel="stylesheet" href="/sass/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script defer src="https://code.jquery.com/jquery-3.4.0.min.js"
+    integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+  <script defer src="/js/main.js"></script>
+</head>
+
+<body>
+  <div class="header">
+    <div class="leftnav">
+      <a href="/" class="logo"></a>
+    </div>
+    <div class="content">
+      <div class="header__search">
+        <form action="#" id="top_project_finder">
+          <div class="form__control_block">
+            <input type="text" class="search form__control">
+            <div class="btn__search"><i class="fa fa-search" aria-hidden="true"></i> </div>
+          </div>
+        </form>
+      </div>
+      <div class="header__profile popup_menu" data-menu="profile-menu">
+        <div class="header__profile_block">
+          <div class="header__profile_image">
+            <img src="/img/profile_img.png" alt="" class="header__profile_pic img-circle">
+          </div>
+          <div class="header__profile_btn">
+            <span class="header__profile_arrow-circle">
+              <i class="fa fa-caret-down header__profile_arrow-icon"></i>
+            </span>
+          </div>
+        </div>
+        <div class="header__profile_menu popup_menu_data" id="profile-menu">
+          <ul id="top-user-menu" class="pulse_menu_options">
+            <li><a class="your_profile" href="javascript:void(0);"><i class="fa fa-user"></i>Профиль</a></li>
+            <li><a href="javascript:void(0)" class="logout_btn"><i class="fa fa-sign-out"></i>Выход</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main__container">
+    <div class="left__container">
+      <div class="left__nav">
+        <div class="left__nav_item">
+          <a href="#" class="left__nav_link">
+            <span class="title">Сообщения</span>
+            <span class="count">1</span>
+          </a>
+        </div>
+        <div class="left__nav_item">
+          <a href="#" class="left__nav_link">
+            <span class="title">Мои задачи</span>
+          </a>
+        </div>
+      </div>
+      <div class="left__nav_client">
+        <div class="left__nav_client-title"><i class="fa fa-list" aria-hidden="true"></i>
+          Клиенты</div>
+        <div class="left__nav_client-item">
+          <a href="#" class="left__nav_client-link">
+            <span class="title">ППК</span>
+          </a>
+        </div>
+        <div class="left__nav_client-item">
+          <a href="#" class="left__nav_client-link">
+            <span class="title">ХелпДеск</span>
+          </a>
+        </div>
+        <div class="left__nav_client-buttons">
+          <div class="left__nav_client-btn">
+            <i class="fa fa-plus-circle" aria-hidden="true"></i>
+            <span class="title">Добавить</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content__wrapper">
+      <!-- begin inbox -->
+      <div id="inbox" class="pulse-layout">
+        <div tabindex="-1" class="inbox-navigation-component">
+          <div id="latest_news" tabindex="0">
+            <div class="inbox-title-wrapper"><span class="inbox-title">Сообщения</span></div>
+          </div>
+        </div>
+      </div>
+      <!-- end inbox -->
+    </div>
+  </div>
+</body>
+
+</html>

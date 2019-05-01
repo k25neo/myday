@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Myday</title>
+  <link href="//fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,400,500,500italic;subset=cyrillic"
+    rel="stylesheet"
+    type="text/css">
+  <link rel="stylesheet" href="/sass/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script defer src="https://code.jquery.com/jquery-3.4.0.min.js"
+    integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+  <script defer src="/js/main.js"></script>
+</head>
+
+<body id="login_signup">
+  
+  <div class="login_signup_header">
+    <div class="account_logo">
+      <a href="#" class="logo"
+        style="background-image:url(); background-size: 180px 44px;"
+        tabindex="-1"></a>
+    </div>
+  </div>
+  
+<div class="page_content">
+
+  <div class="content    ">
+
+    <div class="login_wrapper" id="login_page">
+      <div class="main_box">
+
+        <form accept-charset="UTF-8" action="/users/sign_in" class="login-form" id="new_user" method="post"
+          parsley-focus="first" parsley-validate="">
+
+
+          <div class="account_name">
+            <h1><b>Авторизация</b></h1>
+            <br>
+          </div>
+          <div class="form_inner tight_form">
+            <div class="email_password_wrapper">
+              <div class="form-group flat">
+                <input class="form-control with_pop_label with_value parsley-validated" id="user_email"
+                  name="user[email]" parsley-error-message="Invalid Email" parsley-required="true" placeholder="Email"
+                  size="30" tabindex="1" type="email">
+                <span class="pop_label" style="right: 310px;">Email</span>
+              </div>
+              <div class="form-group flat">
+                <input class="form-control with_pop_label with_value parsley-validated" id="user_password"
+                  name="user[password]" parsley-error-message="Required" parsley-required="true" placeholder="Пароль"
+                  size="30" tabindex="1" type="password">
+                <span class="pop_label" style="right: 280px;">Пароль</span>
+              </div>
+            </div>
+
+            <div class="help_wrapper forgot_password_wrapper">
+              <a href="/users/password/new?email=eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6bnVsbH0.C98ApeGn13NEMbKiw88nfu3csq7QBOfagj-4-Dr5tRA"
+                class="help" onclick="BigBrain('track', 'forgot_password_click');" tabindex="3">Забыли пароль?</a>
+            </div>
+
+
+            <div class="login_button-wrapper">
+              <button class="ladda-button submit_button btn btn-primary" data-style="expand-left" tabindex="2"><span
+                  class="ladda-label">Войти <i class="fa fa-arrow-right"></i></span><span
+                  class="ladda-spinner"></span></button>
+            </div>
+
+
+          </div>
+
+
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Myday</title>
+  <link href="//fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,400,500,500italic;subset=cyrillic"
+    rel="stylesheet"
+    type="text/css">
+  <link rel="stylesheet" href="/sass/main.css">
+  <link rel="stylesheet" href="/js/vendors/air-datepicker/datepicker.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script defer src="/js/vendors/jquery-3.4.0.min.js"></script>
+  <script defer src="/js/main.js"></script>
+  <script defer src="/js/vendors/air-datepicker/datepicker.min.js"></script>
+</head>
+
+<body>
+  <div class="header">
+    <div class="leftnav">
+      <a href="/" class="logo"></a>
+    </div>
+    <div class="content">
+      <div class="header__search">
+        <form action="#" id="top_project_finder">
+          <div class="form__control_block">
+            <input type="text" class="search form__control">
+            <div class="btn__search"><i class="fa fa-search" aria-hidden="true"></i> </div>
+          </div>
+        </form>
+      </div>
+      <div class="header__profile popup_menu" data-menu="profile-menu">
+        <div class="header__profile_block">
+          <div class="header__profile_image">
+            <img src="/img/profile_img.png" alt="" class="header__profile_pic img-circle">
+          </div>
+          <div class="header__profile_btn">
+            <span class="header__profile_arrow-circle">
+              <i class="fa fa-caret-down header__profile_arrow-icon"></i>
+            </span>
+          </div>
+        </div>
+        <div class="header__profile_menu popup_menu_data" id="profile-menu">
+          <ul id="top-user-menu" class="pulse_menu_options">
+            <li><a class="your_profile" href="javascript:void(0);"><i class="fa fa-user"></i>Профиль</a></li>
+            <li><a href="javascript:void(0)" class="logout_btn"><i class="fa fa-sign-out"></i>Выход</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main__container">
+    <div class="left__container">
+      <div class="left__nav">
+        <div class="left__nav_item">
+          <a href="#" class="left__nav_link">
+            <span class="title">Сообщения</span>
+            <span class="count">1</span>
+          </a>
+        </div>
+        <div class="left__nav_item">
+          <a href="#" class="left__nav_link">
+            <span class="title">Мои задачи</span>
+          </a>
+        </div>
+      </div>
+      <div class="left__nav_client">
+        <div class="left__nav_client-title"><i class="fa fa-list" aria-hidden="true"></i>
+          Клиенты</div>
+        <div class="left__nav_client-item">
+          <a href="#" class="left__nav_client-link">
+            <span class="title">ППК</span>
+          </a>
+        </div>
+        <div class="left__nav_client-item">
+          <a href="#" class="left__nav_client-link">
+            <span class="title">ХелпДеск</span>
+          </a>
+        </div>
+        <div class="left__nav_client-buttons">
+          <div class="left__nav_client-btn">
+            <i class="fa fa-plus-circle" aria-hidden="true"></i>
+            <span class="title">Добавить</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content__wrapper">
+      <!-- begin board -->
+<div class="board-wrapper">
+  <div id="board-header" class="board-header ">
+    <div class="board-header-top">
+    </div>
+    <div class="board-header-content-wrapper">
+      <div class="board-header-main">
+        <div class="board-header-left">
+          <div class="board-name">
+            <div class="ds-editable-component  " style="width: auto; height: auto;">
+              <div class="ds-text-component" dir="auto"><span>Weekly Team Tasks</span></div>
+            </div>
+          </div>
+          <div class="board-description can-edit">
+            <div class="ds-editable-component  " style="width: auto; height: auto;">
+              <div class="ds-text-component description-content">
+                <div class="description-line"><span class="text-content">Add board description</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="board-filter board-entity-button">
+        <div class="collapse-all-groups ">
+          <div class="collapse-group-toggle-component" title="Свернуть/развернуть группы">
+            <i class="fa fa-compress" aria-hidden="true"></i>
+          </div>
+        </div>
+        <div class="add-board-entity-button-wrapper">
+          <div class="ds-menu-button-container ds-menu-button-old">
+            <div class="add-board-entity-button-component"><button class="ds-btn ds-btn-primary ds-btn-md">
+                <div class="add-icon">+</div>New
+              </button></div>
+          </div>
+        </div>
+        <div class="board-filter-input-container">
+          <div class="board-filter-input-wrapper_v2">
+            <div class="icon-and-input-wrapper"><input placeholder="Search / Filter Board" value=""></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- start board-content-component -->
+
+<div class="board-content-component">
+  <div class="board-group">
+    <div class="board-group-header">
+      <div class="board-group-row">
+      <div class="board-group-cell board-group-menu menu-cell-header js-board-group-menu">
+        <div class="board-group-menu-box" style="border-color: orange; background-color: orange;">
+          <i class="fa fa-caret-down" aria-hidden="true"></i>
+        </div>
+        <div class="board-group-menu-content">
+          <div class="board-group-menu-item">Свернуть группу</div>
+          <div class="board-group-menu-item">Выбрать все элементы</div>
+          <div class="board-group-menu-hr"></div>
+          <div class="board-group-menu-item">Добавить группу</div>
+          <div class="board-group-menu-item">Дублировать группу</div>
+          <div class="board-group-menu-item">Переместить группу</div>
+          <div class="board-group-menu-hr"></div>
+          <div class="board-group-menu-item">Переименовать группу</div>
+          <div class="board-group-menu-item">Сменить цвет группы</div>
+          <div class="board-group-menu-hr"></div>
+          <div class="board-group-menu-item">Удалить</div>
+        </div>
+      </div>
+      <div class="board-group-cell name-cell-header" style="color: orange;">Название группы</div>
+      <div class="board-group-cell person-cell-header">Сотрудник</div>
+      <div class="board-group-cell status-cell-header">Статус</div>
+      <div class="board-group-cell date-cell-header">Дата</div>
+      <div class="board-group-cell sum-cell-header">Стоимость</div>
+      </div>
+    </div>
+    <div class="board-group-body">
+      <div class="board-group-row">
+        <div class="board-group-cell menu-cell"></div>
+        <div class="board-group-cell name-cell" style="border-left:8px solid orange;">
+          <input type="text" name="name" value="Задача 1" readonly>
+        </div>
+        <div class="board-group-cell person-cell">
+          <input type="hidden" name="person" value="1" readonly>
+          <div class="person-cell-component">
+            <div class="person-image-wrapper">
+              <img src="/img/person_noimage.svg" class="person-bullet-image person-bullet-component inline-image" title="" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="board-group-cell status-cell">
+          <input type="hidden" name="name" value="1" readonly>
+          <div class="status-cell-component" style="background-color: orange;">
+            <div class="status-cell-wrapper">
+              <div class="status-cell-text">В работе</div>
+            </div>
+          </div>
+        </div>
+        <div class="board-group-cell date-cell">
+          <input type="text" name="date" value="" class='datepicker-here' readonly>
+        </div>
+        <div class="board-group-cell sum-cell">
+          <input type="text" name="sum" value="0" readonly>
+        </div>
+      </div>
+    </div>
+    <div class="board-group-footer">
+      <div class="board-group-row">
+        <div class="board-group-cell menu-cell"></div>
+        <div class="board-group-cell add-cell" style="border-left:8px solid orange;">
+          <div class="add-cell-component">
+            <input type="text" name="name" value="" placeholder="+ Добавить" readonly>
+            <button class="add-pulse-button">Добавить</button>
+          </div>
+        </div>
+      </div>
+      <div class="board-group-row flex-end">
+        <div class="board-group-cell total-sum-cell">
+          <input type="text" name="total" value="0" readonly title="Сумма">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- end board-content-component -->
+</div>
+      <!-- end board -->
+    </div>
+  </div>
+  
+</body>
+
+</html>

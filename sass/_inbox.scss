@@ -1,0 +1,33 @@
+#inbox #latest_news {
+  position: relative;
+  padding: 20px 40px 10px;
+  margin-right: 0;
+  height: 100%;
+  overflow-x: auto;
+  overflow-y: scroll;
+  outline: 0;
+}
+#inbox .inbox-title-wrapper {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-right: 70px;
+  margin-top: 20px;
+  max-width: 750px;
+}
+#inbox .inbox-title {
+  vertical-align: top;
+  font-size: 30px;
+  font-weight: 500;
+  margin-right: auto;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 330px;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+}

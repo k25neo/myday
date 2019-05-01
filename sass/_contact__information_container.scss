@@ -1,0 +1,71 @@
+.contact_information_container .profile_get_in_touch_el {
+    margin: 6px 0;
+    padding-bottom: 2px;
+    padding-top: 2px;
+}
+
+.contact_information_container .icon_container {
+    color: #009aff;
+    vertical-align: middle;
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    border-radius: 50%;
+    border: 1px solid #009aff;
+    text-align: center;
+    font-size: 22px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact_information_container .data_container {
+    display: inline-block;
+    vertical-align: middle;
+    width: calc(100% - 50px);
+    padding: 2px 14px 2px 5px;
+    position: relative;
+    margin: 0 0 0 5px;
+}
+
+.contact_information_container .popup_edit_link {
+    border: 1px solid transparent;
+}
+
+.ds-text-component {
+
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border: 1px solid transparent;
+    padding: 0 2px;
+
+}
+
+.contact_information_container .popup_edit_link:hover {
+
+    border: 1px dashed #c4c4c4;
+    cursor: pointer;
+
+}
+
+.contact_information_container .edit_icon_container {
+
+    width: 14px;
+    height: 14px;
+    line-height: 14px;
+    display: none;
+    position: absolute;
+    top: 4px;
+    right: 7px;
+
+}
+
+.contact_information_container .popup_edit_link:hover .edit_icon_container {
+
+    display: inline-block;
+
+}

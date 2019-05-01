@@ -1,0 +1,143 @@
+.ReactModalPortal {
+  display: none;
+  top: 0;
+  left: 0;
+  z-index: 99999999;
+  height: 100%;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  position: fixed;
+}
+.ReactModalPortal.open{
+  display: block; 
+}
+.ReactModalPortal .ReactModal__Overlay--after-open {
+
+  opacity: 1; 
+
+}
+.ReactModalPortal .ReactModal__Overlay {
+
+  background: rgba(0, 0, 0, 0.65) !important;
+  -webkit-transition: opacity 0.1s ease-in-out;
+  transition: opacity 0.1s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; 
+  width: 100%;
+}
+.ReactModalPortal .ReactModal__Overlay .ReactModal__Content {
+
+  border: 0px !important;
+  border-radius: 0px;
+  box-shadow: rgba(0, 0, 0, 0.7) 0 25px 50px -15px !important;
+
+}
+.ReactModalPortal .react_popup_wrapper {
+
+  font-weight: 300;
+  position: relative;
+  width: 500px;
+  min-height: 200px;
+  border-top: 4px solid #66ccf5;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  padding: 30px;
+
+}
+.ReactModalPortal .react_popup_wrapper .close_button {
+
+  background-image: url(/img/modal_sprite.png);
+  position: absolute;
+  top: -18px;
+  right: -18px;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  z-index: 8040;
+
+}
+
+.ReactModalPortal .react_popup_wrapper .form_title {
+
+  font-size: 25px;
+  margin-bottom: 14px;
+
+}
+.ReactModalPortal .react_popup_wrapper .form_line_container {
+
+  margin: 10px 0 16px 0;
+  line-height: 30px;
+  padding-bottom: 1px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+
+}
+.ReactModalPortal .react_popup_wrapper .form_line_container .form-control.fullwidth {
+
+  width: 100%;
+
+}
+.form-control {
+
+  display: block;
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 0;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+
+}
+.ReactModalPortal .react_popup_wrapper .action_button_container {
+
+  text-align: right;
+  margin-top: 28px;
+
+}
+
+.ds-btn-primary {
+
+  outline: none;
+  color: #fff;
+  background-color: #009aff;
+  border-color: #009aff;
+
+}
+
+.ds-btn {
+
+  display: inline-block;
+  font-weight: 300;
+  font-family: Roboto;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  border: 1px solid transparent;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+  padding: .641rem 2rem;
+  font-size: .875rem;
+  line-height: 1.25;
+  height: 2.50908rem;
+  border-radius: 15rem;
+  transition: padding-left .35s cubic-bezier(.19, 1, .22, 1), padding-right .35s cubic-bezier(.19, 1, .22, 1), color .1s ease-in-out, background-color .1s ease-in-out, border-color .1s ease-in-out;
+
+}

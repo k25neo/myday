@@ -35,6 +35,10 @@
 
 @yield('profile_modal')
 
+@yield('message_modal')
+
+@yield('error_modal')
+
 </body>
 
 </html>

@@ -36,6 +36,19 @@ class ProfileController extends Controller
       ]);
     }
 
+    public function changepass(Request $request, $id){
+      $this->validate(request(), [
+          'current_password' => 'required',
+          'new_password' => 'required|string|min:6|confirmed',
+      ]);
+
+      $model = User::findOrFail($id)->update([
+          'password' => \Hash::make(request()->input('new_password'))
+      ]);
+
+      return redirect()->back()->with('status', 'Пароль изменен!');
+    }
+
     public function update(Request $request, $id){
       $arAll = $request->all();
 

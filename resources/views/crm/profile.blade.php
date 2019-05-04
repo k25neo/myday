@@ -182,15 +182,22 @@
             <section class="user_profile_bottom_container">
               <div class="user_inner_container change_password">
                 <h1>Смена пароля</h1>
-                <form action="#">
+
+                <form action="{{ route('profile.changepass', Auth::user()->id) }}" method="post">
+                  {{ csrf_field() }}
+                  {{ method_field('PUT') }}
                   <div class="input_container">
                     <div class="label"><label for="current_password">Текущий пароль</label></div>
-                    <div class="input"><input type="password" class="form-control" id="current_password"></div>
+                    <div class="input">
+                      <input type="password" class="form-control"
+                      id="current_password" name="current_password">
+                    </div>
                   </div>
                   <div class="input_container">
                     <div class="label"><label for="new_password">Новый пароль</label></div>
-                    <div class="input password_status_empty"><input type="password" class="form-control"
-                        id="new_password">
+                    <div class="input password_status_empty">
+                      <input type="password" class="form-control"
+                        id="new_password" name="new_password">
                       <div class="progress">
                         <div class="progress-bar"></div>
                       </div><span class="password-verdict"></span>
@@ -199,12 +206,15 @@
                   <div></div>
                   <div class="input_container">
                     <div class="label"><label for="password_confirmation">Подтвердить новый пароль</label></div>
-                    <div class="input"><input type="password" class="form-control" id="password_confirmation"></div>
+                    <div class="input">
+                      <input type="password" class="form-control"
+                        id="new_password_confirmation" name="new_password_confirmation">
+                    </div>
                   </div>
                   <div></div>
                   <div class="separetor_line"></div>
-                  <div class="action_button_container"><button type="submit" disabled=""
-                      class="ds-btn ds-btn-primary disabled">Сохранить</button></div>
+                  <div class="action_button_container"><button type="submit"
+                      class="ds-btn ds-btn-primary">Сохранить</button></div>
                 </form>
               </div>
             </section>
@@ -217,6 +227,61 @@
   </div>
   <!-- end personal info -->
 @endsection
+
+@if (session('status'))
+  @section('message_modal')
+    <!-- start modals -->
+    <div class="ReactModalPortal open">
+      <div class="ReactModal__Overlay ReactModal__Overlay--after-open"
+        style="position: fixed; inset: 0; background-color: rgba(255, 255, 255, 0.75);">
+        <div
+          style="position: absolute; border: 1px solid rgb(204, 204, 204); background: rgb(255, 255, 255) none repeat scroll 0 0; overflow: visible; border-radius: 4px; outline: currentcolor none medium; padding: 0;"
+          class="ReactModal__Content ReactModal__Content--after-open" tabindex="-1" role="dialog"
+          aria-label="UserProfilePersonalInfoModal">
+          <div class="react_popup_wrapper ">
+            <div class="close_button"></div>
+            <div>
+              <div class="form_title"><label>Сообщение</label></div>
+              <div class="alert alert-success">
+                {{ session('status') }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  @endsection
+@endif
+
+@if (count($errors) > 0)
+  @section('error_modal')
+    <!-- start modals -->
+    <div class="ReactModalPortal open">
+      <div class="ReactModal__Overlay ReactModal__Overlay--after-open"
+        style="position: fixed; inset: 0; background-color: rgba(255, 255, 255, 0.75);">
+        <div
+          style="position: absolute; border: 1px solid rgb(204, 204, 204); background: rgb(255, 255, 255) none repeat scroll 0 0; overflow: visible; border-radius: 4px; outline: currentcolor none medium; padding: 0;"
+          class="ReactModal__Content ReactModal__Content--after-open" tabindex="-1" role="dialog"
+          aria-label="UserProfilePersonalInfoModal">
+          <div class="react_popup_wrapper ">
+            <div class="close_button"></div>
+            <div>
+              <div class="form_title"><label>Ошибка</label></div>
+              <div class="alert alert-danger">
+                <ul>
+                  @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                  @endforeach
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  @endsection
+
+@endif
 
 @section('profile_modal')
   <!-- start modals -->

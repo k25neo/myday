@@ -17,4 +17,5 @@ Route::group(['middleware'=>['auth'], 'namespace'=>'CRM'], function(){
   Route::redirect('/', '/profile', 301);
   Route::get('/profile', 'ProfileController@show')->name('profile');
   Route::put('/profile/{id}', 'ProfileController@update')->name('profile.update');
+  Route::put('/profile/{id}/changepass', 'ProfileController@changepass')->name('profile.changepass');
 });

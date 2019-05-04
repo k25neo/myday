@@ -11,11 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-//Route::get('/profile', 'ProfileController@index')->name('profile');
+Route::group(['middleware'=>['auth'], 'namespace'=>'CRM'], function(){
+  Route::redirect('/', '/profile', 301);
+  Route::get('/profile', 'ProfileController@show')->name('profile');
+  Route::put('/profile/{id}', 'ProfileController@update')->name('profile.update');
+});

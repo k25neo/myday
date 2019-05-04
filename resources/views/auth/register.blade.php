@@ -10,18 +10,18 @@
         @csrf
 
         <div class="account_name">
-          <h1><b>Авторизация</b></h1>
+          <h1><b>Регистрация</b></h1>
           <br>
         </div>
         <div class="form_inner tight_form">
           <div class="email_password_wrapper">
             <div class="form-group flat">
-              <input class="form-control with_pop_label with_value parsley-validated {{ $errors->has('name') ? ' is-invalid' : '' }}" id="user_name"
-                name="name" value="{{ old('name') }}" placeholder="Логин"
+              <input class="form-control with_pop_label with_value parsley-validated {{ $errors->has('login') ? ' is-invalid' : '' }}" id="user_login"
+                name="login" value="{{ old('login') }}" placeholder="Логин"
                 size="30" tabindex="1" type="text" required autofocus >
-                @if ($errors->has('name'))
+                @if ($errors->has('login'))
                     <span class="invalid-feedback" role="alert">
-                        <strong>{{ $errors->first('name') }}</strong>
+                        <strong>{{ $errors->first('login') }}</strong>
                     </span>
                 @endif
               <span class="pop_label" style="right: 310px;">Логин</span>

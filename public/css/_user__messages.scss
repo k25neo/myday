@@ -18,6 +18,9 @@
   }
   &_footer{
     padding: 30px;
+    position: absolute;
+    bottom: 0;
+    width: calc(100% - 200px);
   }
   &_content{
     &-header {

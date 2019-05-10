@@ -26,7 +26,16 @@ jQuery.event.special.closePopup = {
 
 //messages
 $('body').on('click', '.js-open-write-message', function(){
-  $('.write-message').toggleClass('open');
+  var $this = $(this);
+  if($this.hasClass('open')){
+    $this.text('Написать сообщение');
+    $('.write-message').removeClass('open');
+    $this.removeClass('open');
+  }else{
+    $this.addClass('open');
+    $('.write-message').addClass('open');
+    $this.text('Закрыть');
+  }
 });
 
 $('body').on('click', '.js-changePicture', function(){

@@ -1,7 +1,7 @@
 <div class="left__container">
   <div class="left__nav">
     <div class="left__nav_item">
-      <a href="#" class="left__nav_link">
+      <a href="{{ route('messages.index') }}" class="left__nav_link">
         <span class="title">Сообщения</span>
         <span class="count">1</span>
       </a>

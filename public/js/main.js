@@ -1,4 +1,9 @@
 window.onload = function () {
+
+  tinymce.init({
+    selector: 'textarea',  // change this value according to your HTML
+  });
+
   //event
   $('body').on('click', function () {
     var eventClosePopup = new Event('closePopup', {
@@ -18,6 +23,12 @@ jQuery.event.special.closePopup = {
     var elem = this;
   }
 };
+
+//messages
+$('body').on('click', '.js-open-write-message', function(){
+  $('.write-message').toggleClass('open');
+});
+
 $('body').on('click', '.js-changePicture', function(){
   var $fileImage = $(this).parent().find('input[name="image"]');
   $fileImage.on('change', function(){

@@ -21,6 +21,7 @@
     <!-- Scripts -->
     <link href="{{ asset('js/vendors/air-datepicker/datepicker.min.css') }}" rel="stylesheet" type="text/css">
     <script defer src="{{ asset('/js/vendors/air-datepicker/datepicker.min.js') }}"></script>
+    <script defer src="{{ asset('/js/vendors/tinymce/tinymce.min.js') }}"></script>
     <script defer src="{{ asset('js/main.js') }}"></script>
 </head>
 

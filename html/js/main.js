@@ -18,7 +18,13 @@ jQuery.event.special.closePopup = {
     var elem = this;
   }
 };
-  
+
+//messages
+$('body').on('click', '.js-open-write-message', function(){
+  console.log('111');
+  $('.write-message').toggleClass('open');
+});
+
   //modal
   $('.ReactModalPortal .close_button').on('click', function(){
     $(this).closest('.ReactModalPortal').removeClass('open');
@@ -48,7 +54,7 @@ jQuery.event.special.closePopup = {
       this.$boardGroupMenu = $('.js-board-group-menu');
       this.addHandlers();
     },
-    addHandlers: function () { 
+    addHandlers: function () {
       this.$boardGroupMenu.on('click', this.showMenu.bind(this));
     },
     showMenu: function () {
@@ -95,7 +101,7 @@ jQuery.event.special.closePopup = {
       this.arPopupMenu = [];
       this.$body = $('body');
       this.$popupMenu = this.$body.find('.popup_menu');
-      this.$popupMenu.each(function (i, el) { 
+      this.$popupMenu.each(function (i, el) {
         this.arPopupMenu.push(new PopupMenu(this.$popupMenu[i]));
       }.bind(this));
       this.addHadlers();
@@ -106,7 +112,7 @@ jQuery.event.special.closePopup = {
   }
   var popupMenuManager = new PopupMenuManager();
 
-  $('.collapse-group-toggle-component').on('click', function () { 
+  $('.collapse-group-toggle-component').on('click', function () {
     var $fa = $(this).find('i');
     if ($fa.hasClass('fa-compress')) {
       $fa.removeClass('fa-compress');

@@ -20,4 +20,7 @@ Route::group(['middleware'=>['auth'], 'namespace'=>'CRM'], function(){
   Route::put('/profile/{id}/changepass', 'ProfileController@changepass')->name('profile.changepass');
 
   Route::resource('/messages', 'MessageController');
+
+  Route::get('/board/{id}', 'BoardController@show')->name('board.show');
+  Route::post('/board', 'BoardController@store')->name('board.store');
 });

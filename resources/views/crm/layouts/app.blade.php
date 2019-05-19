@@ -34,10 +34,10 @@
     </div>
   </div>
 
+@include('crm.layouts.partials.modal_add_board')
 @yield('profile_modal')
-
 @yield('message_modal')
-
+@yield('add_group_modal')
 @yield('error_modal')
 
 </body>

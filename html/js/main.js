@@ -19,6 +19,13 @@ jQuery.event.special.closePopup = {
   }
 };
 
+//start js-editable-component
+$('body').on('click', '.js-editable-component', function(e){
+  console.log(e.currentTarget);
+  $(e.currentTarget).find('input').attr('readonly', false);
+});
+//end js-editable-component
+
 //messages
 $('body').on('click', '.js-open-write-message', function(){
   console.log('111');

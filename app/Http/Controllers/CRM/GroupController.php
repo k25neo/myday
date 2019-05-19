@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\CRM;
 
 use App\Board;
+use App\Group;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class BoardController extends Controller
+class GroupController extends Controller
 {
   /**
    * Store a newly created resource in storage.
@@ -14,12 +15,14 @@ class BoardController extends Controller
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
    */
-  public function store(Request $request)
+  public function store(Request $request, $board_id)
   {
     $allRequest = $request->all();
-    $model = Board::create($allRequest);
+    $allRequest['board_id'] = $board_id;
+    $model = Group::create($allRequest);
+    //TODO: create empty task
 
-    return redirect()->route('board.show', $model->id);
+    return redirect()->route('board.show', $board_id);
   }
 
   /**
@@ -30,9 +33,7 @@ class BoardController extends Controller
    */
   public function show($id)
   {
-      return view('crm.board.show', [
-          'board' => Board::findOrFail($id)
-      ]);
+      return view('crm.board.show', ['board' => Board::findOrFail($id)]);
   }
 
   /**
@@ -42,9 +43,9 @@ class BoardController extends Controller
    * @param  int  $id
    * @return \Illuminate\Http\Response
    */
-  public function update(Request $request, Board $board)
+  public function update(Request $request, Board $board, Group $group)
   {
-      $board->update($request->all());
+      $group->update($request->all());
       return redirect()->back();
   }
 

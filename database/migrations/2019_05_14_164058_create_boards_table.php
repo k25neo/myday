@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSubdivisionsTable extends Migration
+class CreateBoardsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateSubdivisionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('subdivisions', function (Blueprint $table) {
+        Schema::create('boards', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->string('description');
@@ -28,6 +28,6 @@ class CreateSubdivisionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('subdivisions');
+        Schema::dropIfExists('boards');
     }
 }

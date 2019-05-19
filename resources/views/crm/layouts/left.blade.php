@@ -16,13 +16,13 @@
     <div class="left__nav_client-title"><i class="fa fa-list" aria-hidden="true"></i>
       Клиенты</div>
     @php
-      $arGroups = \App\Group::all();
+      $arBoards = \App\Board::all();
     @endphp
 
-    @forelse($arGroups as $group)
+    @forelse($arBoards as $board)
       <div class="left__nav_client-item">
-        <a href="{{ route('board.show') }}" class="left__nav_client-link">
-          <span class="title">{{ $group->name }}</span>
+        <a href="{{ route('board.show', $board->id) }}" class="left__nav_client-link">
+          <span class="title">{{ $board->name }}</span>
         </a>
       </div>
     @empty
@@ -36,7 +36,7 @@
     <div class="left__nav_client-buttons">
       <div class="left__nav_client-btn">
         <i class="fa fa-plus-circle" aria-hidden="true"></i>
-        <span class="title">Добавить</span>
+        <span class="title js-open-add-board">Добавить</span>
       </div>
     </div>
   </div>

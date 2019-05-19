@@ -25,4 +25,24 @@
     }
   }
 
+  &-apply{
+    outline: none;
+    color: #fff;
+    background-color: #009aff;
+    border-color: #009aff;
+    &:hover{
+      background: #008ae6;
+    }
+  }
+
+  &-cancel{
+    outline: none;
+    color: #fff;
+    background-color: #009aff;
+    border-color: #009aff;
+    &:hover{
+      background: #008ae6;
+    }
+  }
+
 }

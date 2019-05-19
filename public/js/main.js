@@ -24,6 +24,91 @@ jQuery.event.special.closePopup = {
   }
 };
 
+//start js-editable-component
+function EditableComponent(el, $form){
+  this.el = el;
+  this.$el = $(el);
+  this.$form = $form;
+  this.init();
+}
+EditableComponent.prototype = {
+  init: function(){
+    this.$input = this.$el.find('input');
+    this.inputVal = this.$input.val();
+    this.$edIconCont = this.$el.find('.edit_icon_container');
+    this.$edBtnCont = this.$el.find('.edit-btn__container');
+    this.$edBtnCancel = this.$el.find('.js-edit-btn-cancel');
+    this.$edBtnApply = this.$el.find('.js-edit-btn-apply');
+    this.addEventHandlers();
+  },
+  addEventHandlers: function(){
+    this.$el.on('click', this.onClick.bind(this));
+    this.$edBtnCancel.on('click', this.onCancel.bind(this));
+    this.$edBtnApply.on('click', this.onApply.bind(this));
+  },
+  edit: function(){
+    this.$input.attr('readonly', false);
+    this.$el.addClass('edit');
+    this.$edIconCont.hide();
+    this.$edBtnCont.show();
+    this.status = 'edit';
+  },
+  onApply: function(){
+    this.$form.submit();
+  },
+  onClick: function(){
+    console.log('onClick', this.status);
+    switch (this.status) {
+      case 'cancel':
+        this.status = 'edit';
+        break;
+      case 'edit':
+        this.edit();
+        break;
+      default:
+        this.edit();
+      }
+
+  },
+  onCancel: function(e){
+    this.status = 'cancel';
+    console.log('onCancel');
+    this.$el.removeClass('edit');
+    this.$edIconCont.show();
+    this.$edBtnCont.hide();
+    this.$input.val(this.inputVal);
+    this.$input.attr('readonly', true);
+  }
+}
+
+function EditableComponentManager(){
+  this.init();
+}
+EditableComponentManager.prototype = {
+  init: function(){
+    this.arEditableComponents = [];
+    this.$body = $('body');
+    this.$editableComponent = this.$body.find('.js-editable-component');
+    this.$editableComponent.each(function(i, el){
+      this.$form = this.$editableComponent[i].closest('form');
+      this.arEditableComponents.push(new EditableComponent(el,this.$form));
+    }.bind(this));
+  }
+}
+var editableComponentManager = new EditableComponentManager();
+
+//end js-editable-component
+
+//add board menu
+$('body').on('click', '.js-open-add-board', function(){
+  $('#add_board_modal').addClass('open');
+});
+
+//add group
+$('body').on('click', '.js-add-group-modal', function(){
+  $('#add_group_modal').addClass('open');
+})
+
 //messages
 $('body').on('click', '.js-open-write-message', function(){
   var $this = $(this);

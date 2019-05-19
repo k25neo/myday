@@ -1,0 +1,47 @@
+.ds-editable-component{
+  border: 1px solid transparent;
+  &.edit {
+    border: 1px dashed #009aff;
+  }
+  &:hover {
+    border: 1px dashed #ababac;
+    .edit_icon_container {
+      display: block;
+      font-size: 18px;
+      color: black;
+    }
+  }
+  .ds-text-component {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .form-control {
+      border: 1px solid transparent;
+      box-shadow: none;
+      font-size: inherit;
+      font-weight: inherit;
+      color: inherit;
+      padding: 0;
+  }
+  .edit_icon_container {
+    display: none;
+    cursor: pointer;
+  }
+  .edit-btn__container{
+    display: none;
+    .edit-btn{
+      display: inline-block;
+      color: #009aff;
+      cursor: pointer;
+      font-size: 1.5rem;
+      &__apply{
+        color:#009aff;
+      }
+      &__cancel{
+        color: #ff3131;
+      }
+    }
+  }
+}

@@ -27,7 +27,7 @@
       </div>
     @empty
       <div class="left__nav_client-item">
-        <a href="#" class="left__nav_client-link">
+        <a href="{{ route('board.index') }}" class="left__nav_client-link">
           <span class="title">Нет клиентов</span>
         </a>
       </div>

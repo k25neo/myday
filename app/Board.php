@@ -17,4 +17,9 @@ class Board extends Model
   {
     return $this->hasMany('App\Group');
   }
+
+  public function tasks()
+  {
+    return $this->hasManyThrough('App\Task', 'App\Group');
+  }
 }

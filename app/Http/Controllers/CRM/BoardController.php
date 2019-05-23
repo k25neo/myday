@@ -3,11 +3,25 @@
 namespace App\Http\Controllers\CRM;
 
 use App\Board;
+use App\Group;
+use App\Task;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class BoardController extends Controller
 {
+  /**
+   * Display a listing of the resource.
+   *
+   * @return \Illuminate\Http\Response
+   */
+  public function index()
+  {
+      return view('crm.board.index', [
+        'boards' => Board::orderBy('created_at', 'desc')->paginate(50)
+      ]);
+  }
+
   /**
    * Store a newly created resource in storage.
    *
@@ -18,7 +32,12 @@ class BoardController extends Controller
   {
     $allRequest = $request->all();
     $model = Board::create($allRequest);
-
+    // create empty group
+    $group = new Group(['name'=>'Новая группа']);
+    $newGroup = $model->groups()->save($group);
+    // create empty task
+    $task = new Task(['name'=>'Новая задача']);
+    $newGroup->tasks()->save($task);
     return redirect()->route('board.show', $model->id);
   }
 
@@ -30,9 +49,14 @@ class BoardController extends Controller
    */
   public function show($id)
   {
+    $board = Board::find($id);
+    if (!$board) {
+       return redirect()->route('board.index');
+    }else{
       return view('crm.board.show', [
-          'board' => Board::findOrFail($id)
+          'board' => $board
       ]);
+    }
   }
 
   /**
@@ -46,6 +70,14 @@ class BoardController extends Controller
   {
       $board->update($request->all());
       return redirect()->back();
+  }
+
+  public function destroy(Request $request, Board $board)
+  {
+    $board->tasks()->delete();
+    $board->groups()->delete();
+    $board->delete();
+    return redirect()->back();
   }
 
 }

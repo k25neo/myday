@@ -1,3 +1,15 @@
+.board{
+  &__list{
+    &_row,&_header{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    &_header{
+      border-bottom: 1px solid #d4d4d4;
+    }
+  }
+}
 .board-wrapper {
   user-select: none;
   cursor: default;
@@ -199,6 +211,14 @@ svg:not(:root) {
   box-sizing: content-box;
   padding: 18px 30px 30px 16px;
   margin-top: 26px;
+  &.collapsed{
+    .board-group-body{
+      display: none;
+    }
+    .board-group-footer{
+      display: none;
+    }
+  }
 }
 .board-group {
   display: flex;
@@ -266,6 +286,21 @@ svg:not(:root) {
 .board-group-menu-item:hover{
   background: #009aff;
   color: white;
+}
+.board-group-menu-item{
+  button {
+      width: 100%;
+      border: none;
+      background: none;
+      cursor: pointer;
+      text-align: left;
+      padding: 0;
+      line-height: 36px;
+      &:hover{
+        background: #009aff;
+        color: white;
+      }
+  }
 }
 .board-group-menu.open{
   .board-group-menu-content {

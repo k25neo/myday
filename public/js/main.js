@@ -170,23 +170,81 @@ $('body').on('click', '.js-profileModal', function(){
   });
 
   //board menu
-  function BoardGroupMenu() {
+  function BoardGroupMenu(el) {
+    this.$el = $(el);
     this.init();
   }
   BoardGroupMenu.prototype = {
     init: function () {
-      this.$body = $('body');
-      this.$boardGroupMenu = $('.js-board-group-menu');
+      this.$boardContentComponent = this.$el.closest('.board-content-component');
+      this.$boardGroupHeader = this.$boardContentComponent.find('.board-group-header');
+      this.$boardGroupBody = this.$boardContentComponent.find('.board-group-body');
+      this.$boardGroupFooter = this.$boardContentComponent.find('.board-group-footer');
+      this.$jsCollapseGroup = this.$boardContentComponent.find('.js-collapse-group');
+
       this.addHandlers();
     },
     addHandlers: function () {
-      this.$boardGroupMenu.on('click', this.showMenu.bind(this));
+      this.$el.on('click', this.showMenu.bind(this));
+      this.$jsCollapseGroup.on('click', this.toggleCollapseGroup.bind(this));
+
     },
     showMenu: function () {
-      this.$boardGroupMenu.toggleClass('open');
+      this.$el.toggleClass('open');
+    },
+    toggleCollapseGroup: function(){
+      if(this.$boardContentComponent.hasClass('collapsed')){
+        this.expandGroup();
+      }else{
+        this.collapseGroup();
+      }
+    },
+    collapseGroup: function(){
+      this.$boardContentComponent.addClass('collapsed');
+      this.$jsCollapseGroup.text('Развернуть группу');
+    },
+    expandGroup: function(){
+      this.$boardContentComponent.removeClass('collapsed');
+      this.$jsCollapseGroup.text('Свернуть группу');
     }
   }
-  var boardGroupMenu = new BoardGroupMenu();
+
+  function BoardGroupMenuManager(){
+    this.init();
+  }
+  BoardGroupMenuManager.prototype = {
+    init: function(){
+      this.$body = $('body');
+      this.arBoardGroupMenu = [];
+      this.$boardGroupMenu = $('.js-board-group-menu');
+      this.$boardGroupMenu.each(function(i,el){
+        this.arBoardGroupMenu.push( new BoardGroupMenu(el) );
+      }.bind(this));
+    },
+    collapseGroups: function(){
+      this.arBoardGroupMenu.forEach(function(oGroup, i, arr){
+        oGroup.collapseGroup();
+      });
+    },
+    expandGroups: function(){
+      this.arBoardGroupMenu.forEach(function(oGroup, i, arr){
+        oGroup.expandGroup();
+      });
+    }
+  }
+  window.boardGroupMenuManager = new BoardGroupMenuManager();
+
+  $('.collapse-group-toggle-component').on('click', function(e){
+    if( $(e.currentTarget).hasClass('group-collapsed') ){
+      $(e.currentTarget).removeClass('group-collapsed');
+      window.boardGroupMenuManager.expandGroups();
+    }else{
+      $(e.currentTarget).addClass('group-collapsed');
+      window.boardGroupMenuManager.collapseGroups();
+    }
+
+  });
+
   //menu
   function PopupMenu(el) {
     console.log(el);

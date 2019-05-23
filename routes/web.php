@@ -22,6 +22,9 @@ Route::group(['middleware'=>['auth'], 'namespace'=>'CRM'], function(){
   Route::resource('/messages', 'MessageController');
   Route::resource('/board', 'BoardController');
 
-  Route::put('/board/{board}/group/{group}', 'GroupController@update')->name('group.update');
   Route::post('/board/{board}/group', 'GroupController@store')->name('group.store');
+  Route::put('/board/{board}/group/{group}', 'GroupController@update')->name('group.update');
+  Route::delete('/board/{board}/group/{group}', 'GroupController@destroy')->name('group.destroy');
+
+  Route::post('/board/{board}/group/{group}/task', 'TaskController@store')->name('task.store');
 });

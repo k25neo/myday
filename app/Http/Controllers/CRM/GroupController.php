@@ -4,6 +4,7 @@ namespace App\Http\Controllers\CRM;
 
 use App\Board;
 use App\Group;
+use App\Task;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -20,8 +21,9 @@ class GroupController extends Controller
     $allRequest = $request->all();
     $allRequest['board_id'] = $board_id;
     $model = Group::create($allRequest);
-    //TODO: create empty task
-
+    // create empty task
+    $task = new Task(['name'=>'Новая задача']);
+    $model->tasks()->save($task);
     return redirect()->route('board.show', $board_id);
   }
 
@@ -47,6 +49,13 @@ class GroupController extends Controller
   {
       $group->update($request->all());
       return redirect()->back();
+  }
+
+  public function destroy(Request $request, Board $board, Group $group)
+  {
+    $group->tasks()->delete();
+    $group->delete();
+    return redirect()->back();
   }
 
 }

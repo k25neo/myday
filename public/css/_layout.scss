@@ -254,6 +254,11 @@ a {
         }
     }
 }
+.content{
+  &__container{
+    padding: 30px;
+  }
+}
 .left {
     &__container{
         width: 200px;

@@ -9,17 +9,23 @@
             <i class="fa fa-caret-down" aria-hidden="true"></i>
           </div>
           <div class="board-group-menu-content">
-            <div class="board-group-menu-item">Свернуть группу</div>
+            <div class="board-group-menu-item js-collapse-group">Свернуть группу</div>
             <div class="board-group-menu-item">Выбрать все элементы</div>
-            <div class="board-group-menu-hr"></div>
-            <div class="board-group-menu-item">Добавить группу</div>
-            <div class="board-group-menu-item">Дублировать группу</div>
-            <div class="board-group-menu-item">Переместить группу</div>
+            {{--<div class="board-group-menu-hr"></div>--}}
+            {{--<div class="board-group-menu-item">Добавить группу</div>--}}
+            {{--<div class="board-group-menu-item">Дублировать группу</div>--}}
+            {{--<div class="board-group-menu-item">Переместить группу</div>--}}
             <div class="board-group-menu-hr"></div>
             <div class="board-group-menu-item">Переименовать группу</div>
-            <div class="board-group-menu-item">Сменить цвет группы</div>
+            {{-- <div class="board-group-menu-item">Сменить цвет группы</div> --}}
             <div class="board-group-menu-hr"></div>
-            <div class="board-group-menu-item">Удалить</div>
+            <div class="board-group-menu-item">
+              <form action="{{ route('group.destroy', [$board->id, $group->id]) }}" method="post">
+                {{ csrf_field() }}
+                {{ method_field('DELETE') }}
+                <button>Удалить группу</button>
+              </form>
+            </div>
           </div>
         </div>
         <div class="board-group-cell name-cell-header" style="color: orange;">
@@ -43,10 +49,14 @@
         <div class="board-group-row">
           <div class="board-group-cell menu-cell"></div>
           <div class="board-group-cell add-cell" style="border-left:8px solid orange;">
-            <div class="add-cell-component">
-              <input type="text" name="name" value="" placeholder="+ Добавить" readonly>
-              <button class="add-pulse-button">Добавить</button>
-            </div>
+            <form action="{{ route('task.store', [$board->id, $group->id]) }}" method="post">
+              {{ csrf_field() }}
+              <div class="add-cell-component">
+                <input type="text" name="name" value="" placeholder="+ Добавить" readonly>
+                <button class="add-pulse-button">Добавить</button>
+              </div>
+            </form>
+
           </div>
         </div>
         <div class="board-group-row flex-end">

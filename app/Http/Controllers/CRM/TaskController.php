@@ -72,9 +72,12 @@ class TaskController extends Controller
      * @param  \App\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Task $task)
+    public function update(Request $request, Board $board, Group $group, Task $task)
     {
-        //
+      $allRequest = $request->all();
+      $allRequest['group_id'] = $group->id;
+      $task->update($allRequest);
+      return redirect()->back();
     }
 
     /**

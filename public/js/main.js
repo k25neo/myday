@@ -4,25 +4,78 @@ window.onload = function () {
     selector: 'textarea',  // change this value according to your HTML
   });
 
+  //EventBus
+  const EventBus = {
+    channels: {},
+    subscribe (channelName, listener) {
+      if (!this.channels[channelName]){
+        this.channels[channelName] = []
+      }
+      this.channels[channelName].push(listener)
+    },
+    publish (channelName, data) {
+      const channel = this.channels[channelName]
+      if (!channel || !channel.length) {
+        return
+      }
+      channel.forEach(listener => listener(data))
+    }
+  }
+  //end EventBus
   //event
-  $('body').on('click', function () {
-    var eventClosePopup = new Event('closePopup', {
-      bubbles: true,
-      cancelable: true
+  document.addEventListener('click', function (event) {
+    EventBus.publish('modal/close',{
+      event: event,
     });
-    console.log('click');
-    document.dispatchEvent(eventClosePopup);
   });
 
-jQuery.event.special.closePopup = {
-  setup: function (data, namespaces) {
-    var elem = this;
-  },
 
-  teardown: function (namespaces) {
-    var elem = this;
+function AddCellComponentManager(){
+  this.init();
+}
+AddCellComponentManager.prototype = {
+  init: function(){
+    this.arAddCellComponent = [];
+    this.$AddCellComponent = $('.js-add-cell-component');
+    this.$AddCellComponent.each(function(i,el){
+      this.arAddCellComponent.push( new AddCellComponent(el) );
+    }.bind(this));
   }
-};
+}
+//js-add-cell-component
+function AddCellComponent(el){
+  this.$el = $(el);
+  this.init();
+}
+AddCellComponent.prototype = {
+  init: function(){
+    this.$addCell = this.$el.find('.add-cell-component');
+    this.$input = this.$addCell.find('input');
+    this.addEventHandlers();
+    this.value = this.$input.val();
+  },
+  addEventHandlers: function(){
+    this.$el.on('click', this.onClick.bind(this));
+    EventBus.subscribe('modal/close', this.close.bind(this));
+  },
+  onClick: function(){
+    this.edit();
+  },
+  edit: function(){
+    this.$el.addClass('edit');
+    this.$input.attr('readonly', false);
+  },
+  close: function(params){
+    var $target = $(params.event.target);
+    if($target.closest('.js-add-cell-component').length){return}
+
+    this.$el.removeClass('edit');
+    this.$input.attr('readonly', true);
+    this.$input.val(this.value);
+  }
+}
+var addCellComponentManager = new AddCellComponentManager();
+//end js-add-cell-component
 
 //start js-editable-component
 function EditableComponent(el, $form){
@@ -187,7 +240,12 @@ $('body').on('click', '.js-profileModal', function(){
     addHandlers: function () {
       this.$el.on('click', this.showMenu.bind(this));
       this.$jsCollapseGroup.on('click', this.toggleCollapseGroup.bind(this));
-
+      EventBus.subscribe('modal/close', this.close.bind(this));
+    },
+    close: function(params){
+      var $target = $(params.event.target);
+      if( $target.closest('.js-board-group-menu').length ){return}
+      this.$el.removeClass('open');
     },
     showMenu: function () {
       this.$el.toggleClass('open');
@@ -259,13 +317,15 @@ $('body').on('click', '.js-profileModal', function(){
       this.menu = document.getElementById(this.dataID);
       this.addHadlers();
     },
-    closePopup: function (e) {
-      console.log('1232');
+    close: function (params) {
+      var $target = $(params.event.target);
+      if( $target.closest('#' + this.dataID).length
+        || $target.closest('.popup_menu').length ){return}
       this.$menu.removeClass('open');
     },
     addHadlers: function () {
       console.log(this.menu);
-      console.log(this.menu.addEventListener('closePopup', this.closePopup.bind(this), false));
+      EventBus.subscribe('modal/close', this.close.bind(this));
       this.$el.on('click', this.togglePopup.bind(this));
     },
     togglePopup: function () {

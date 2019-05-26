@@ -1,0 +1,29 @@
+.add-cell{
+  &.edit{
+    opacity: 1;
+    .add-pulse-button {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+  .add-pulse-button {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .1s ease;
+    color: #fff;
+    background: #009aff;
+    border-color: #009aff;
+    outline: none;
+    border: 0;
+    border-right-color: currentcolor;
+    border-right-style: none;
+    border-right-width: 0px;
+    padding: 0 12px;
+    border-right: 1px solid #fff;
+  }
+}

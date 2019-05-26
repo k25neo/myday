@@ -16,24 +16,7 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  .add-pulse-button {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    opacity: 0;
-    transition: opacity .1s ease;
-    color: #fff;
-    background: #009aff;
-    border-color: #009aff;
-    outline: none;
-    border: 0;
-    border-right-color: currentcolor;
-    border-right-style: none;
-    border-right-width: 0px;
-    padding: 0 12px;
-    border-right: 1px solid #fff;
-  }
+
 }
 
 .board-wrapper .board-header {
@@ -211,6 +194,13 @@ svg:not(:root) {
   box-sizing: content-box;
   padding: 18px 30px 30px 16px;
   margin-top: 26px;
+  .board-group-body{
+    .board-group-row{
+      &:hover {
+        background: #e4e4e4;
+      }
+    }
+  }
   &.collapsed{
     .board-group-body{
       display: none;
@@ -251,6 +241,10 @@ svg:not(:root) {
 .board-group-row{
   display: flex;
   flex-direction: row;
+  margin-bottom: 1px;
+  button{
+    display: none;
+  }
   &.flex-end{
     justify-content: flex-end;
   }
@@ -320,11 +314,11 @@ svg:not(:root) {
 
 }
 .board-group-cell{
-  background-color: #f0f0f0;
-  margin-bottom: 1px;
+  background-color: #f0f0f080;
   border-right: 1px solid #fff;
   height: 36px;
   line-height: 36px;
+
   .status-cell-text {
     text-align: center;
     width: 100%;
@@ -389,5 +383,10 @@ svg:not(:root) {
   &.sum-cell,
   &.sum-cell-header{
     flex: 0 0 140px;
+  }
+  &.btn-cell,
+  &.btn-cell-header{
+    flex: 0 0 45px;
+    background-color: white;
   }
 }

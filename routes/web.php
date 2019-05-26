@@ -27,4 +27,5 @@ Route::group(['middleware'=>['auth'], 'namespace'=>'CRM'], function(){
   Route::delete('/board/{board}/group/{group}', 'GroupController@destroy')->name('group.destroy');
 
   Route::post('/board/{board}/group/{group}/task', 'TaskController@store')->name('task.store');
+  Route::put('/board/{board}/group/{group}/task/{task}', 'TaskController@update')->name('task.update');
 });

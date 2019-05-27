@@ -29,6 +29,73 @@ window.onload = function () {
     });
   });
 
+function InputCell(el){
+  this.$el = $(el);
+  this.init();
+}
+InputCell.prototype = {
+  init: function(){
+    this.$row = this.$el.closest('.board-group-row');
+    this.value = this.$el.val();
+    this.addHandlers();
+  },
+  addHandlers: function(){
+    this.$el.on('click', this.onClick.bind(this));
+    EventBus.subscribe('modal/close', this.close.bind(this));
+  },
+  onClick: function(){
+    console.log('InputCell onClick');
+    this.edit();
+  },
+  edit: function(){
+    this.$el.attr('readonly', false);
+    this.$row.addClass('edit');
+  },
+  close: function(params){
+    var $target = $(params.event.target);
+
+console.log($target.closest('.datepicker').length);
+
+    if(
+      $target.closest('.board-group-cell').length ||
+      $target.closest('.datepicker').length ||
+      $target.closest('.datepicker--cell').length ||
+      $target.closest('.datepicker--nav').length ||
+      $target.closest('.datepicker--nav-title').length ||
+      $target.closest('.datepicker--nav-action').length 
+    ){return}
+
+    this.$row.removeClass('edit');
+    this.$el.attr('readonly', true);
+    this.$el.val(this.value);
+  }
+}
+function BoardGroupRow(el){
+  this.$el = $(el);
+  this.init();
+}
+BoardGroupRow.prototype = {
+  init: function(){
+    this.inputs = [];
+    this.$input = this.$el.find('input');
+    this.$input.each(function(i,el){
+      this.inputs.push(new InputCell(el));
+    }.bind(this));
+  }
+}
+function BoardGroupRowManager(){
+  this.init();
+}
+BoardGroupRowManager.prototype = {
+  init: function(){
+    this.$row = $('.board-group-row');
+    this.rows = [];
+    this.$row.each(function(i,el){
+      this.rows.push(new BoardGroupRow(el));
+    }.bind(this));
+  }
+}
+var boardGroupRowManager = new BoardGroupRowManager();
 
 function AddCellComponentManager(){
   this.init();

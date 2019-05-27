@@ -76,6 +76,9 @@ class TaskController extends Controller
     {
       $allRequest = $request->all();
       $allRequest['group_id'] = $group->id;
+      $date = \DateTime::createFromFormat('d.m.Y', $request->date);
+      $usableDate = $date->format('Y-m-d');
+      $allRequest['date'] = $usableDate;
       $task->update($allRequest);
       return redirect()->back();
     }

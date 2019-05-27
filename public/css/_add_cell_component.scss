@@ -2,6 +2,7 @@
   &.edit{
     opacity: 1;
     .add-pulse-button {
+      display: inline-block;
       visibility: visible;
       opacity: 1;
     }

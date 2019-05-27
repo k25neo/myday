@@ -24,13 +24,13 @@
       </div>
     </div>
     <div class="board-group-cell date-cell">
-      <input type="text" name="date" value="" class='datepicker-here' readonly>
+      <input type="text" name="date" value="{{ $task->date->format('d.m.Y') }}" class='datepicker-here' readonly>
     </div>
     <div class="board-group-cell sum-cell">
-      <input type="text" name="sum" value="0" readonly>
+      <input type="text" name="sum" value="{{ $task->sum }}" readonly>
     </div>
     <div class="board-group-cell btn-cell">
-      <button><i class="fa fa-check-circle" aria-hidden="true"></i></button>
+      <button class="btn btn-row-update"><i class="fa fa-check-circle" aria-hidden="true"></i></button>
     </div>
 
   </div>

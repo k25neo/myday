@@ -17,6 +17,8 @@ class CreateTasksTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->integer('group_id');
+            $table->date('date')->nullable();
+            $table->decimal('sum', 10, 2)->nullable();
             $table->timestamps();
         });
     }

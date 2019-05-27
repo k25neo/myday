@@ -196,6 +196,14 @@ svg:not(:root) {
   margin-top: 26px;
   .board-group-body{
     .board-group-row{
+      button{
+        display: none;
+      }
+      &.edit{
+        button{
+          display: inline-block;
+        }
+      }
       &:hover {
         background: #e4e4e4;
       }
@@ -242,9 +250,7 @@ svg:not(:root) {
   display: flex;
   flex-direction: row;
   margin-bottom: 1px;
-  button{
-    display: none;
-  }
+
   &.flex-end{
     justify-content: flex-end;
   }
@@ -334,6 +340,8 @@ svg:not(:root) {
     font-size: 13px;
     font-weight: 400;
     width: 100%;
+    border: transparent;
+    background: transparent;
   }
   input[name="date"],
   input[name="sum"],

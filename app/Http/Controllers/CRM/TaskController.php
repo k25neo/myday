@@ -5,6 +5,7 @@ namespace App\Http\Controllers\CRM;
 use App\Task;
 use App\Group;
 use App\Board;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -78,7 +79,7 @@ class TaskController extends Controller
       $allRequest['group_id'] = $group->id;
       // $date = \DateTime::createFromFormat('d.m.Y', $request->date);
       // $usableDate = $date->format('Y-m-d');
-      // $allRequest['date'] = $usableDate;
+      $allRequest['date'] = Carbon::parse($request->date);
       $task->update($allRequest);
       return redirect()->back();
     }

@@ -24,7 +24,10 @@
       </div>
     </div>
     <div class="board-group-cell date-cell">
-      <input type="text" name="date" value="{{ $task->date->format('d.m.Y') }}" class='datepicker-here' readonly>
+      <input type="text" name="date" value="
+      @if (!empty($task->date))
+        {{ $task->date->format('d.m.Y') }}
+      @endif" class='datepicker-here' readonly>
     </div>
     <div class="board-group-cell sum-cell">
       <input type="text" name="sum" value="{{ $task->sum }}" readonly>

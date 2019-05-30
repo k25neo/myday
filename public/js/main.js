@@ -29,6 +29,71 @@ window.onload = function () {
     });
   });
 
+function CustomSelect(el){
+  this.$el = $(el);
+  this.init();
+}
+CustomSelect.prototype = {
+  init: function(){
+    this.style = this.$el.attr('style');
+    this.$selectNative = this.$el.find('select');
+    this.$selectOptions = this.$selectNative.find('option');
+    this.$selectedElem = this.$selectNative.find('option[selected]');
+    this.$selectSelected = $(
+      '<div class="select-selected">'+
+        this.$selectedElem.text()+
+      '</div>'
+    );
+    this.$el.append(this.$selectSelected);
+    this.$selectItems = $('<div class="select-items select-hide"></div>');
+    this.$selectOptions.each(function(i,el){
+      this.$selectItems.append($('<div class="select-item">'+$(el).text()+'</div>'));
+    }.bind(this));
+    this.$selectItems.attr('style',this.style);
+    this.$el.append(this.$selectItems);
+    this.$selectItem = this.$selectItems.find('.select-item');
+    this.addHandlers();
+  },
+  addHandlers: function(){
+    this.$selectSelected.on('click', this.showItems.bind(this));
+    this.$selectItem.on('click', this.selectItem.bind(this));
+    EventBus.subscribe('modal/close', this.close.bind(this));
+  },
+  showItems: function(){
+    this.$selectItems.toggleClass('select-hide');
+  },
+  selectItem: function(e){
+    this.$selectNative.find('option').each(function(){
+      $(this).attr('selected', false);
+    });
+    this.$selectedElem = this.$selectOptions.eq($(e.currentTarget).index()).attr('selected', 'selected');
+    this.$selectSelected.text(  this.$selectedElem.text() );
+    this.$selectItems.addClass('select-hide');
+    this.$el.closest('form').submit();
+  },
+  close: function(params){
+      var $target = $(params.event.target);
+      if($target.closest('.js-custom-select').length){
+        return;
+      }
+      this.$selectItems.addClass('select-hide');
+  }
+}
+function CustomSelectManager(){
+  this.$body = $('body');
+  this.init();
+}
+CustomSelectManager.prototype = {
+  init: function(){
+     this.customSelects = [];
+     this.$customSelects = this.$body.find('.js-custom-select');
+     this.$customSelects.each(function(i,el){
+       this.customSelects.push(new CustomSelect(el));
+     }.bind(this));
+  }
+}
+var customSelectManager = new CustomSelectManager();
+
 function InputCell(el){
   this.$el = $(el);
   this.init();
@@ -62,7 +127,7 @@ console.log($target.closest('.datepicker').length);
       $target.closest('.datepicker--cell').length ||
       $target.closest('.datepicker--nav').length ||
       $target.closest('.datepicker--nav-title').length ||
-      $target.closest('.datepicker--nav-action').length 
+      $target.closest('.datepicker--nav-action').length
     ){return}
 
     this.$row.removeClass('edit');

@@ -22,7 +22,12 @@ class GroupController extends Controller
     $allRequest['board_id'] = $board_id;
     $model = Group::create($allRequest);
     // create empty task
-    $task = new Task(['name'=>'Новая задача']);
+    $keys = array_keys(Task::$status);
+    $firstKey = $keys[0];
+    $task = new Task([
+      'name'=>'Новая задача',
+      'status'=>$firstKey
+    ]);
     $model->tasks()->save($task);
     return redirect()->route('board.show', $board_id);
   }

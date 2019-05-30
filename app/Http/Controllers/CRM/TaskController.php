@@ -39,7 +39,11 @@ class TaskController extends Controller
      */
     public function store(Request $request, Board $board, Group $group)
     {
-      $task = new Task($request->all());
+      $arRequest = $request->all();
+      $keys = array_keys(Task::$status);
+      $firstKey = $keys[0];
+      $arRequest['status'] = $firstKey;
+      $task = new Task($arRequest);
       $group->tasks()->save($task);
       return redirect()->route('board.show', $board->id);
     }

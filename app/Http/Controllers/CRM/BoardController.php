@@ -36,7 +36,12 @@ class BoardController extends Controller
     $group = new Group(['name'=>'Новая группа']);
     $newGroup = $model->groups()->save($group);
     // create empty task
-    $task = new Task(['name'=>'Новая задача']);
+    $keys = array_keys(Task::$status);
+    $firstKey = $keys[0];
+    $task = new Task([
+      'name'=>'Новая задача',
+      'status'=>$firstKey
+    ]);
     $newGroup->tasks()->save($task);
     return redirect()->route('board.show', $model->id);
   }
@@ -54,7 +59,8 @@ class BoardController extends Controller
        return redirect()->route('board.index');
     }else{
       return view('crm.board.show', [
-          'board' => $board
+          'board' => $board,
+          'statuses' => Task::$status
       ]);
     }
   }

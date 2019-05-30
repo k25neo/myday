@@ -16,12 +16,19 @@
       </div>
     </div>
     <div class="board-group-cell status-cell">
-      <input type="hidden" name="status_id" value="1" readonly>
-      <div class="status-cell-component" style="background-color: orange;">
-        <div class="status-cell-wrapper">
-          <div class="status-cell-text">В работе</div>
-        </div>
+      {{-- custom select --}}
+      <div class="custom-select js-custom-select" style="background-color: orange;">
+        <select name="status">
+          @foreach ($statuses as $key => $value)
+            <option value="{{ $key }}"
+            @if ($key == $task->status)
+              selected="selected"
+            @endif
+            >{{ $value }}</option>
+          @endforeach
+        </select>
       </div>
+      {{-- end custom select --}}
     </div>
     <div class="board-group-cell date-cell">
       <input type="text" name="date" value="

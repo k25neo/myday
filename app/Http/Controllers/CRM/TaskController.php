@@ -5,6 +5,7 @@ namespace App\Http\Controllers\CRM;
 use App\Task;
 use App\Group;
 use App\Board;
+use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -98,4 +99,29 @@ class TaskController extends Controller
     {
         //
     }
+
+    /**
+     * get task users & all users array
+     */
+     public function users(Request $request, Task $task)
+     {
+       $arResult['task_users'] = $task->users;
+       $arResult['all_users'] = User::all();
+       return json_encode($arResult);
+     }
+
+     /**
+      * users sync
+      */
+      public function usersSync(Request $request, Task $task)
+      {
+        $arRequest = $request->all();
+        if(!empty($arRequest['users'])){
+          $task->users()->sync(explode(',',$arRequest['users']));
+        }else{
+          $task->users()->detach();
+        }
+
+      }
+
 }

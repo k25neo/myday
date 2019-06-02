@@ -28,4 +28,7 @@ Route::group(['middleware'=>['auth'], 'namespace'=>'CRM'], function(){
 
   Route::post('/board/{board}/group/{group}/task', 'TaskController@store')->name('task.store');
   Route::put('/board/{board}/group/{group}/task/{task}', 'TaskController@update')->name('task.update');
+
+  Route::get('/task/{task}/users', 'TaskController@users')->name('task.users');
+  Route::put('/task/{task}/users', 'TaskController@usersSync')->name('task.usersSync');
 });

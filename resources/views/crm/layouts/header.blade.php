@@ -3,6 +3,8 @@
     <a href="/" class="logo"></a>
   </div>
   <div class="content">
+    <div></div>
+    {{--
     <div class="header__search">
       <form action="#" id="top_project_finder">
         <div class="form__control_block">
@@ -11,6 +13,7 @@
         </div>
       </form>
     </div>
+    --}}
     <div class="header__profile popup_menu" data-menu="profile-menu">
       <div class="header__profile_block">
         <div class="header__profile_image">

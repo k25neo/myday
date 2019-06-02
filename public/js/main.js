@@ -29,6 +29,170 @@ window.onload = function () {
     });
   });
 
+// begin user-select
+function UserSelect(el){
+  this.open = false;
+  this.$el = $(el);
+  this.init();
+}
+UserSelect.prototype = {
+  init:function(){
+    this.tplUserSelectModal = `
+    <div class="user-select-modal">
+      <div class="user-select-selected"></div>
+      <div class="user-select-all"></div>
+    </div>
+    `;
+    this.$input = this.$el.find('input[name="users"]');
+    this.task_id = this.$el.data('task');
+    this.personImageWrapper = this.$el.find('.person-image-wrapper');
+    this.user_selected = [];
+    this.addHandlers();
+  },
+  addHandlers: function(){
+    this.personImageWrapper.on('click', this.onClick.bind(this));
+    EventBus.subscribe('modal/close', this.close.bind(this));
+  },
+  close: function(params){
+      var $target = $(params.event.target);
+      console.log($target);
+      if($target.closest('.js-user-select').length ||
+         $target.closest('.user-selected-del').length){
+        return;
+      }
+      if(this.$modal){
+        this.$modal.removeClass('open');
+        this.dataUpdate();
+      }
+  },
+  userDel: function(e){
+    var $this = $(e.currentTarget);
+    var $user = $this.closest('.user-selected-item');
+
+    var user_id = $user.data('id');
+
+    var index = this.user_selected.indexOf(user_id);
+    if (index > -1) {
+      this.user_selected.splice(index, 1);
+    }
+    this.inputUpdateVal();
+    console.log('userDel', this.user_selected);
+
+    $user.remove();
+    this.$modalUsers.find('.user-all-item[data-id="'+user_id+'"]').removeClass('hidden');
+    this.personImageWrapper.find('img[data-id="'+user_id+'"]').remove();
+  },
+  userAdd: function(e){
+    var $this = $(e.currentTarget);
+    var user_id = $this.data('id');
+    var index = this.user_selected.push(user_id);
+    var element = {};
+    element.id = user_id;
+    element.name = $this.text().trim();
+    element.image = $this.find('img').attr('src');
+    $this.addClass('hidden');
+    var tplUserSelectedItem = `
+    <div class="user-selected-item" data-id="${element.id}">
+    ${ (element.name ? element.name : element.login) }
+    <span class="user-selected-del">x</span>
+    </div>`;
+    this.$modalSelected.append(
+      $(tplUserSelectedItem)
+    );
+    this.inputUpdateVal();
+    this.personImageWrapper.append($(`
+      <img data-id="${element.id}" src="${ (element.image ? element.image : '/img/person_noimage.svg') }"
+       class="person-bullet-image person-bullet-component inline-image"
+       title="${element.name}" alt="${element.name}">
+      `));
+  },
+  inputUpdateVal: function(){
+    this.$input.eq(0).val(this.user_selected);
+  },
+  onClick: function(){
+    this.open = true;
+    this.$modal = this.$el.find('.user-select-modal');
+    if ( this.$modal.length > 0) {
+      this.$modal.addClass('open');
+    }else{
+      this.$el.append($(this.tplUserSelectModal));
+      this.$modal = this.$el.find('.user-select-modal');
+      this.$modalSelected = this.$modal.find('.user-select-selected');
+      this.$modalUsers = this.$modal.find('.user-select-all');
+      this.dataLoad();
+      this.$modalSelected.on('click', '.user-selected-del', this.userDel.bind(this));
+      this.$modalUsers.on('click', '.user-all-item', this.userAdd.bind(this));
+    };
+  },
+  dataLoad: function(){
+    var $url = `/task/${this.task_id}/users`;
+    $data = '';
+    $.ajax({
+      url: $url,
+      dataType: 'json',
+      data: $data,
+      type: "GET",
+    }).done(function(data){
+
+      data.task_users.forEach(function(element){
+        var tplUserSelectedItem = `
+        <div class="user-selected-item" data-id="${element.id}">
+        ${ (element.name ? element.name : element.login) }
+        <span class="user-selected-del">x</span>
+        </div>`;
+        this.user_selected.push(element.id);
+        this.$modalSelected.append(
+          $(tplUserSelectedItem)
+        );
+      }.bind(this));
+
+      data.all_users.forEach(function(element){
+        this.$modalUsers.append(
+          $(`<div class="user-all-item
+          ${ (this.user_selected.includes(element.id) ? 'hidden': '') }"
+          data-id="${element.id}">
+          <img class="person-bullet-image person-bullet-component inline-image"
+           src="${ (element.image ? '/storage/'+element.image : '/img/person_noimage.svg') }">
+          ${ (element.name ? element.name : element.login) }
+          </div>`)
+        );
+      }.bind(this));
+      this.$modal.addClass('open');
+
+    }.bind(this));
+  },
+  dataUpdate: function(){
+    var $url = `/task/${this.task_id}/users`;
+    $data = {
+      'users':this.$input.val(),
+      '_method': 'PUT',
+      '_token': $('meta[name="csrf-token"]').attr('content'),
+    }
+    $.ajax({
+      url: $url,
+      dataType: 'json',
+      data: $data,
+      type: "POST",
+    }).done(function(data){
+      console.log(data);
+    })
+  }
+}
+function UserSelectManager(){
+  this.userSelects = [];
+  this.init();
+}
+UserSelectManager.prototype = {
+  init: function(){
+    this.$arUserSelect = $('.js-user-select');
+    this.$arUserSelect.each(function(i,el){
+      this.userSelects.push( new UserSelect(el) );
+    }.bind(this));
+  }
+}
+var userSelectManager = new UserSelectManager();
+// end user-select
+
 function CustomSelect(el){
   this.$el = $(el);
   this.init();
@@ -109,7 +273,6 @@ InputCell.prototype = {
     EventBus.subscribe('modal/close', this.close.bind(this));
   },
   onClick: function(){
-    console.log('InputCell onClick');
     this.edit();
   },
   edit: function(){
@@ -118,8 +281,6 @@ InputCell.prototype = {
   },
   close: function(params){
     var $target = $(params.event.target);
-
-console.log($target.closest('.datepicker').length);
 
     if(
       $target.closest('.board-group-cell').length ||
@@ -142,7 +303,7 @@ function BoardGroupRow(el){
 BoardGroupRow.prototype = {
   init: function(){
     this.inputs = [];
-    this.$input = this.$el.find('input');
+    this.$input = this.$el.find('input.input-cell');
     this.$input.each(function(i,el){
       this.inputs.push(new InputCell(el));
     }.bind(this));
@@ -242,7 +403,6 @@ EditableComponent.prototype = {
     this.$form.submit();
   },
   onClick: function(){
-    console.log('onClick', this.status);
     switch (this.status) {
       case 'cancel':
         this.status = 'edit';
@@ -257,7 +417,6 @@ EditableComponent.prototype = {
   },
   onCancel: function(e){
     this.status = 'cancel';
-    console.log('onCancel');
     this.$el.removeClass('edit');
     this.$edIconCont.show();
     this.$edBtnCont.hide();
@@ -437,7 +596,6 @@ $('body').on('click', '.js-profileModal', function(){
 
   //menu
   function PopupMenu(el) {
-    console.log(el);
     this.el = el;
     this.$el = $(this.el);
     this.init();
@@ -456,7 +614,6 @@ $('body').on('click', '.js-profileModal', function(){
       this.$menu.removeClass('open');
     },
     addHadlers: function () {
-      console.log(this.menu);
       EventBus.subscribe('modal/close', this.close.bind(this));
       this.$el.on('click', this.togglePopup.bind(this));
     },

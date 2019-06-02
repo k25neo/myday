@@ -68,7 +68,7 @@
     </div>
     <div class="board-filter-input-container">
       <div class="board-filter-input-wrapper_v2">
-        <div class="icon-and-input-wrapper"><input placeholder="Search / Filter Board" value=""></div>
+        <div class="icon-and-input-wrapper"><input placeholder="Поиск" value=""></div>
       </div>
     </div>
   </div>

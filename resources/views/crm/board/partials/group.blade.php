@@ -45,7 +45,7 @@
       </div>
       <div class="board-group-body">
         @foreach ($group->tasks as $task)
-          @include('crm.board.partials.board_group_row', ['task'=>$task, 'group'=>$group, 'board'=>$board])
+          @include('crm.board.partials.board_group_row', ['task'=>$task, 'group'=>$group, 'board'=>$board, 'users'=>$task->users])
         @endforeach
       </div>
       <div class="board-group-footer">

@@ -16,4 +16,12 @@ class Task extends Model
       'work' => 'В работе',
       'ready' => 'Готово'
     ];
+
+    /**
+     * get group tasks
+     */
+      public function users()
+      {
+        return $this->belongsToMany('App\User');
+      }
 }

@@ -8,12 +8,24 @@
       <input type="text" name="name" value="{{ $task->name }}" readonly>
     </div>
     <div class="board-group-cell person-cell">
-      <input type="hidden" name="person" value="1" readonly>
-      <div class="person-cell-component">
+      {{-- user-select --}}
+      <div class="person-cell-component js-user-select" data-task="{{ $task->id }}">
+        <input type="hidden" name="users" value="{{ $users->keys() }}" >
         <div class="person-image-wrapper">
-          <img src="/img/person_noimage.svg" class="person-bullet-image person-bullet-component inline-image" title="" alt="">
+          @forelse ($users as $key => $user)
+            <img data-id="{{ $user->id }}" src="
+            @if ( !empty($user->image) )
+              {{ asset('/storage/'.$user->image) }}
+            @else
+              /img/person_noimage.svg
+            @endif
+            " class="person-bullet-image person-bullet-component inline-image" title="{{ $user->name or $user->login }}" alt="{{ $user->name or $user->login }}">
+          @empty
+            {{-- <img src="/img/person_noimage.svg" class="person-bullet-image person-bullet-component inline-image" title="" alt="">  --}}
+          @endforelse
         </div>
       </div>
+      {{-- end user-select  --}}
     </div>
     <div class="board-group-cell status-cell">
       {{-- custom select --}}
@@ -31,13 +43,13 @@
       {{-- end custom select --}}
     </div>
     <div class="board-group-cell date-cell">
-      <input type="text" name="date" value="
+      <input class="input-cell" type="text" name="date" value="
       @if (!empty($task->date))
         {{ $task->date->format('d.m.Y') }}
       @endif" class='datepicker-here' readonly>
     </div>
     <div class="board-group-cell sum-cell">
-      <input type="text" name="sum" value="{{ $task->sum }}" readonly>
+      <input class="input-cell" type="text" name="sum" value="{{ $task->sum }}" readonly>
     </div>
     <div class="board-group-cell btn-cell">
       <button class="btn btn-row-update"><i class="fa fa-check-circle" aria-hidden="true"></i></button>

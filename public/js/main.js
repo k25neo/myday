@@ -1,7 +1,7 @@
 window.onload = function () {
 
   tinymce.init({
-    selector: 'textarea',  // change this value according to your HTML
+    selector: '.tinymce',  // change this value according to your HTML
   });
 
   //EventBus
@@ -29,6 +29,73 @@ window.onload = function () {
     });
   });
 
+// begin modal comments
+function CommentsModal(){
+  this.init();
+}
+CommentsModal.prototype = {
+  init: function(){
+    this.$modal = $('#comments_modal');
+    this.$close = this.$modal.find('.comments_modal__close');
+    this.$name = this.$modal.find('.task-name');
+    this.$comments = this.$modal.find('.task-comments');
+    this.$textarea = this.$modal.find('textarea');
+    this.$btnSave = this.$modal.find('.js-comments-save');
+    this.addHandlers();
+  },
+  addHandlers: function(){
+    this.$close.on('click', this.close.bind(this));
+    this.$btnSave.on('click', this.dataStore.bind(this));
+    EventBus.subscribe('modal/comments/open', this.open.bind(this));
+  },
+  close: function(){
+    this.$modal.removeClass('open');
+  },
+  open: function(data){
+    this.$modal.addClass('open');
+    this.$name.text(data.name);
+    this.task_id = data.task_id;
+    console.log(data);
+    this.dataLoad();
+  },
+  dataLoad: function(){
+    var $url = `/task/${this.task_id}/comments`;
+    $data = '';
+    $.ajax({
+      url: $url,
+      dataType: 'json',
+      data: $data,
+      type: "GET",
+    }).done(function(data){
+      console.log(data);
+    })
+  },
+  dataStore: function(){
+    var $url = `/task/${this.task_id}/comments`;
+    $data = {
+      'comment':this.$textarea.val(),
+      '_token': $('meta[name="csrf-token"]').attr('content'),
+    }
+    $.ajax({
+      url: $url,
+      dataType: 'json',
+      data: $data,
+      type: "POST",
+    }).done(function(data){
+      console.log(data);
+    })
+  }
+}
+var commentsModal = new CommentsModal();
+
+$('.js-comment-open').on('click', function(e){
+  var $btn = $(e.currentTarget);
+  var name = $btn.siblings('input').val();
+  var task_id = $btn.data('task');
+  EventBus.publish('modal/comments/open', {event: e, task_id: task_id, name: name});
+});
+// end modal comments
+
 // begin user-select
 function UserSelect(el){
   this.open = false;
@@ -43,6 +110,7 @@ UserSelect.prototype = {
       <div class="user-select-all"></div>
     </div>
     `;
+    this.change = false;
     this.$input = this.$el.find('input[name="users"]');
     this.task_id = this.$el.data('task');
     this.personImageWrapper = this.$el.find('.person-image-wrapper');
@@ -55,14 +123,16 @@ UserSelect.prototype = {
   },
   close: function(params){
       var $target = $(params.event.target);
-      console.log($target);
       if($target.closest('.js-user-select').length ||
          $target.closest('.user-selected-del').length){
         return;
       }
       if(this.$modal){
         this.$modal.removeClass('open');
+      }
+      if(this.change){
         this.dataUpdate();
+        this.change = false;
       }
   },
   userDel: function(e){
@@ -76,11 +146,11 @@ UserSelect.prototype = {
       this.user_selected.splice(index, 1);
     }
     this.inputUpdateVal();
-    console.log('userDel', this.user_selected);
 
     $user.remove();
     this.$modalUsers.find('.user-all-item[data-id="'+user_id+'"]').removeClass('hidden');
     this.personImageWrapper.find('img[data-id="'+user_id+'"]').remove();
+    this.change = true;
   },
   userAdd: function(e){
     var $this = $(e.currentTarget);
@@ -105,6 +175,7 @@ UserSelect.prototype = {
        class="person-bullet-image person-bullet-component inline-image"
        title="${element.name}" alt="${element.name}">
       `));
+    this.change = true;
   },
   inputUpdateVal: function(){
     this.$input.eq(0).val(this.user_selected);

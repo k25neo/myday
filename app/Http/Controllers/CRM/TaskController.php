@@ -6,6 +6,7 @@ use App\Task;
 use App\Group;
 use App\Board;
 use App\User;
+use App\Comment;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -121,7 +122,24 @@ class TaskController extends Controller
         }else{
           $task->users()->detach();
         }
-
       }
+
+      /**
+       * get task comments
+       */
+       public function comments(Request $request, Task $task)
+       {
+         $arResult['comments'] = $task->comments()->with('user')->get();
+         return json_encode($arResult);
+       }
+
+       public function commentsStore(Request $request, Task $task)
+       {
+         $arRequest = $request->all();
+         $arRequest['user_id'] = \Auth::id();
+         $comment = new Comment($arRequest);
+         $id = $task->comments()->save($comment);
+         return json_encode($id);
+       }
 
 }

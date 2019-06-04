@@ -5,7 +5,10 @@
     <div class="board-group-cell menu-cell"></div>
     <div class="board-group-cell checkbox-cell"></div>
     <div class="board-group-cell name-cell" style="border-left:8px solid orange;">
-      <input type="text" name="name" value="{{ $task->name }}" readonly>
+      <input class="input-cell" type="text" name="name" value="{{ $task->name }}" readonly>
+      <div class="comment-open-icon js-comment-open" data-task="{{ $task->id }}">
+        <i class="fa fa-comment-o" aria-hidden="true"></i>
+      </div>
     </div>
     <div class="board-group-cell person-cell">
       {{-- user-select --}}
@@ -13,7 +16,7 @@
         <input type="hidden" name="users" value="{{ $users->keys() }}" >
         <div class="person-image-wrapper">
           @forelse ($users as $key => $user)
-            <img data-id="{{ $user->id }}" src="
+            <img style="margin:0 -{{ $users->count() }}px" data-id="{{ $user->id }}" src="
             @if ( !empty($user->image) )
               {{ asset('/storage/'.$user->image) }}
             @else
@@ -52,7 +55,7 @@
       <input class="input-cell" type="text" name="sum" value="{{ $task->sum }}" readonly>
     </div>
     <div class="board-group-cell btn-cell">
-      <button class="btn btn-row-update"><i class="fa fa-check-circle" aria-hidden="true"></i></button>
+      <button class="btn btn-row-update">ok</button>
     </div>
 
   </div>

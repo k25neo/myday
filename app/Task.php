@@ -20,8 +20,16 @@ class Task extends Model
     /**
      * get group tasks
      */
-      public function users()
-      {
-        return $this->belongsToMany('App\User');
-      }
+    public function users()
+    {
+      return $this->belongsToMany('App\User');
+    }
+
+    /**
+     * get task comments
+     */
+    public function comments()
+    {
+      return $this->hasMany('App\Comment');
+    }
 }

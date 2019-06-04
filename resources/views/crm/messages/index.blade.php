@@ -63,7 +63,7 @@
         action="{{ route('messages.store') }}" method="post">
           {{ csrf_field() }}
           <label for="">Сообщение</label>
-          <textarea class="form-control" name="message"></textarea>
+          <textarea class="form-control tinymce" name="message"></textarea>
 
           <hr>
 

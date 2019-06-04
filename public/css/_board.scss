@@ -336,6 +336,16 @@ svg:not(:root) {
     color: white;
     font-size: 12px;
   }
+  &.name-cell{
+    input{
+      width: calc(100% - 40px);
+    }
+    &:hover{
+      .comment-open-icon{
+        display: inline-block;
+      }
+    }
+  }
   input{
     font-size: 13px;
     font-weight: 400;

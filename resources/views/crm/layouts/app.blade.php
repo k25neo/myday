@@ -35,6 +35,7 @@
   </div>
 
 @include('crm.layouts.partials.modal_add_board')
+@yield('comments_modal')
 @yield('profile_modal')
 @yield('message_modal')
 @yield('add_group_modal')

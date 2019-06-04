@@ -78,4 +78,4 @@
 @include('crm.board.partials.group')
 @endsection
 
-@include('crm.board.partials.add_group_modal')
+@include('crm.board.partials.comments_modal')

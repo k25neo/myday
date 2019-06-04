@@ -1,0 +1,13 @@
+.comment-open-icon{
+  width: 32px;
+  font-size: 28px;
+  float: right;
+  color: #c4c4c4;
+  vertical-align: middle;
+  margin-right: 5px;
+  cursor: pointer;
+  display: none;
+  &:hover{
+    color: #009aff;
+  }
+}

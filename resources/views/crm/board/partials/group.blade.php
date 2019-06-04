@@ -65,7 +65,7 @@
         </div>
         <div class="board-group-row flex-end">
           <div class="board-group-cell total-sum-cell">
-            <input type="text" name="total" value="0" readonly title="Сумма">
+            <input type="text" name="total" value="{{ $group->tasks->sum('sum') }}" readonly title="Сумма">
           </div>
           <div class="board-group-cell btn-cell-header"></div>
         </div>

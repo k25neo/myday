@@ -13,8 +13,8 @@ class Group extends Model
   /**
    * get group tasks
    */
-    public function tasks()
-    {
-      return $this->hasMany('App\Task');
-    }
+  public function tasks()
+  {
+    return $this->hasMany('App\Task');
+  }
 }

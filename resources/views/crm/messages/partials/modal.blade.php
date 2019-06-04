@@ -18,7 +18,7 @@
                 <div class="form_title"><label>Сообщение</label></div>
                 <div class="inline_form">
                   <div class="form_line_container">
-                    <textarea class="form-control" name="message"></textarea>
+                    <textarea class="form-control tinymce" name="message"></textarea>
                   </div>
                 </div>
               </div>

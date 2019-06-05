@@ -6,8 +6,15 @@
     <div class="board-group-cell checkbox-cell"></div>
     <div class="board-group-cell name-cell" style="border-left:8px solid orange;">
       <input class="input-cell" type="text" name="name" value="{{ $task->name }}" readonly>
-      <div class="comment-open-icon js-comment-open" data-task="{{ $task->id }}">
+      <div class="comment-open-icon
+      @if ($comments > 0)
+        no-empty
+      @endif
+      js-comment-open" data-task="{{ $task->id }}">
         <i class="fa fa-comment-o" aria-hidden="true"></i>
+        @if ( $comments > 0 )
+          <div class="comment-open-icon-count">{{ $comments }}</div>
+        @endif
       </div>
     </div>
     <div class="board-group-cell person-cell">

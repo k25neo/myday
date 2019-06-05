@@ -6,7 +6,6 @@
     bottom: 0;
     width: 500px;
     background: white;
-    cursor: pointer;
     z-index: 100;
     padding: 30px;
     transition: all .4s ease;
@@ -26,6 +25,7 @@
       left: -50px;
       top: 10px;
       transition: all .3s ease;
+      cursor: pointer;
       &:after, &:before{
         content: '';
         width: 50%;
@@ -56,6 +56,7 @@
       width: 100%;
       height: 100px;
       resize: none;
+      padding: 10px;
     }
     .task-comments {
       border: 2px dashed #e4dede;
@@ -63,5 +64,37 @@
       border-radius: 10px;
       flex: auto;
       overflow-y: auto;
+    }
+    .comment {
+      border: 1px solid #DDD;
+      margin: 20px;
+      padding: 10px;
+      border-radius: 10px;
+      &-date{
+        text-align: right;
+        font-size: 0.8em;
+        float: right;
+      }
+      &-user{
+        display: flex;
+        align-items: center;
+        .user-avatar{
+          width: 40px;
+          height: 40px;
+          overflow: hidden;
+          border-radius: 50%;
+          margin-right: 10px;
+        }
+        .user-fio{
+
+        }
+      }
+      &-text{
+        background: #f6f5f5;
+        border-radius: 10px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        margin-top: 10px;
+      }
     }
 }

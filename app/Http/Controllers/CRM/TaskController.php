@@ -138,8 +138,10 @@ class TaskController extends Controller
          $arRequest = $request->all();
          $arRequest['user_id'] = \Auth::id();
          $comment = new Comment($arRequest);
-         $id = $task->comments()->save($comment);
-         return json_encode($id);
+         $model = $task->comments()->save($comment);
+         $model['user'] = \Auth::user();
+         $arResult['comments'][] = $model;
+         return json_encode($arResult);
        }
 
 }

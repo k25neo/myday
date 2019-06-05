@@ -55,8 +55,25 @@ CommentsModal.prototype = {
     this.$modal.addClass('open');
     this.$name.text(data.name);
     this.task_id = data.task_id;
-    console.log(data);
     this.dataLoad();
+  },
+  dataShow: function(data){
+
+    data.comments.forEach(function(el,i){
+      var name = (el.user.name ? el.user.name : el.user.login);
+      var ava = (el.user.image ? '/storage/'+el.user.image : '/img/person_noimage.svg')
+      var tplComment = `
+      <div class="comment">
+        <div class="comment-date">${el.created_at}</div>
+        <div class="comment-user">
+          <div class="user-avatar" style="background:center / cover
+          no-repeat url('${ava}')"></div>
+          <div class="user-fio">${name}</div>
+        </div>
+        <div class="comment-text">${el.comment}</div>
+      </div>`;
+      this.$comments.append($(tplComment));
+    }.bind(this));
   },
   dataLoad: function(){
     var $url = `/task/${this.task_id}/comments`;
@@ -67,8 +84,8 @@ CommentsModal.prototype = {
       data: $data,
       type: "GET",
     }).done(function(data){
-      console.log(data);
-    })
+      this.dataShow(data);
+    }.bind(this))
   },
   dataStore: function(){
     var $url = `/task/${this.task_id}/comments`;
@@ -82,8 +99,8 @@ CommentsModal.prototype = {
       data: $data,
       type: "POST",
     }).done(function(data){
-      console.log(data);
-    })
+      this.dataShow(data);
+    }.bind(this))
   }
 }
 var commentsModal = new CommentsModal();

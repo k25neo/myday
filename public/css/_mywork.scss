@@ -198,6 +198,9 @@
 .deadline-tasks-section-component .deadline-tasks-wrapper {
   margin-left: 66px;
   margin-bottom: 24px;
+  a{
+    outline: none;
+  }
 }
 .deadline-task-component {
   display: flex;
@@ -208,6 +211,10 @@
   background: #fff;
   margin-bottom: 8px;
   cursor: pointer;
+  transition: all .3s ease;
+  &:hover{
+    box-shadow: 0 0 10px 0px #a1a1a14f;
+  }
 }
 
 .deadline-task-component .details {

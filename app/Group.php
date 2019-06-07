@@ -17,4 +17,12 @@ class Group extends Model
   {
     return $this->hasMany('App\Task');
   }
+
+  /**
+  * get board
+  */
+  public function board()
+  {
+    return $this->belongsTo('App\Board');
+  }
 }

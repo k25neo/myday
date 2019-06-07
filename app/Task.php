@@ -32,4 +32,17 @@ class Task extends Model
     {
       return $this->hasMany('App\Comment');
     }
+
+    /**
+   * get group.
+   */
+    public function group()
+    {
+      return $this->belongsTo('App\Group');
+    }
+
+
+
+
+
 }

@@ -7,7 +7,7 @@
       </a>
     </div>
     <div class="left__nav_item">
-      <a href="#" class="left__nav_link">
+      <a href="{{ route('mywork') }}" class="left__nav_link">
         <span class="title">Мои задачи</span>
       </a>
     </div>

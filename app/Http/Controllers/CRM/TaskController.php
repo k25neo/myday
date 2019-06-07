@@ -144,4 +144,17 @@ class TaskController extends Controller
          return json_encode($arResult);
        }
 
+       /**
+       * mywork
+       */
+       public function mywork()
+       {
+         $user = User::find(\Auth::id());
+         $tasks = $user->belongsToMany('App\Task')
+         ->orderBy('created_at', 'desc')
+         ->paginate(50);
+         return view('crm.mywork', [
+           'tasks' => $tasks, 'user' => \Auth::user()
+         ]);
+       }
 }

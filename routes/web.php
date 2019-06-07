@@ -34,4 +34,6 @@ Route::group(['middleware'=>['auth'], 'namespace'=>'CRM'], function(){
 
   Route::get('/task/{task}/comments', 'TaskController@comments')->name('task.comments');
   Route::post('/task/{task}/comments', 'TaskController@commentsStore')->name('task.commentsStore');
+
+  Route::get('/mywork', 'TaskController@mywork')->name('mywork');
 });

@@ -353,7 +353,7 @@
                 <div class="form_title"><label>День рождения</label></div>
                 <div class="inline_form">
                   <div class="form_line_container">
-                    <input class="form-control fullwidth datepicker-here"
+                    <input class="form-control fullwidth js-datepicker"
                     name="birthday"
                     data-startDate="{{ isset($birthday) ?  $birthday : '' }}"
                     value="{{ isset($birthday) ?  $birthday : '' }}">

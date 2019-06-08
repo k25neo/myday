@@ -53,10 +53,13 @@
       {{-- end custom select --}}
     </div>
     <div class="board-group-cell date-cell">
-      <input type="text" name="date" value="
-      @if (!empty($task->date))
-        {{ $task->date->format('d.m.Y') }}
-      @endif" class='input-cell datepicker-here' readonly>
+      @php
+        $task_date = '';
+        if(!empty($task->date)){
+          $task_date = $task->date->format('d.m.Y');
+        }
+      @endphp
+      <input type="text" name="date" value="{{ $task_date }}" class='input-cell js-datepicker' readonly>
     </div>
     <div class="board-group-cell sum-cell">
       <input class="input-cell" type="text" name="sum" value="{{ $task->sum }}" readonly>

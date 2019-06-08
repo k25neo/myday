@@ -531,6 +531,46 @@ var editableComponentManager = new EditableComponentManager();
 
 //end js-editable-component
 
+//datepicker
+// A function to check wether the element fits inside the viewport:
+function isElementInViewport(el) {
+        var rect = el.getBoundingClientRect();
+        var fitsLeft = (rect.left >= 0 && rect.left <= $(window).width());
+        var fitsTop = (rect.top >= 0 && rect.top <= $(window).height());
+        var fitsRight = (rect.right >= 0 && rect.right <= $(window).width());
+        var fitsBottom = (rect.bottom >= 0 && rect.bottom <= $(window).height());
+        return {
+            top: fitsTop,
+            left: fitsLeft,
+            right: fitsRight,
+            bottom: fitsBottom,
+            all: (fitsLeft && fitsTop && fitsRight && fitsBottom)
+        };
+    }
+$('.js-datepicker').datepicker({
+    position: 'right center', // Default position
+    onHide: function(inst){
+        inst.update('position', 'right center'); // Update the position to the default again
+    },
+    onShow: function(inst, animationComplete){
+        // Just before showing the datepicker
+        if(!animationComplete){
+            var iFits = false;
+            // Loop through a few possible position and see which one fits
+            $.each(['right center', 'right bottom', 'right top', 'top center', 'bottom center'], function (i, pos) {
+                if (!iFits) {
+                    inst.update('position', pos);
+                    var fits = isElementInViewport(inst.$datepicker[0]);
+                    if (fits.all) {
+                        iFits = true;
+                    }
+                }
+            });
+        }
+    },
+
+})
+
 //add board menu
 $('body').on('click', '.js-open-add-board', function(){
   $('#add_board_modal').addClass('open');
@@ -544,15 +584,13 @@ $('body').on('click', '.js-add-group-modal', function(){
 //messages
 $('body').on('click', '.js-open-write-message', function(){
   var $this = $(this);
-  if($this.hasClass('open')){
-    $this.text('Написать сообщение');
-    $('.write-message').removeClass('open');
-    $this.removeClass('open');
-  }else{
-    $this.addClass('open');
-    $('.write-message').addClass('open');
-    $this.text('Закрыть');
-  }
+  $('.write-message').addClass('open');
+  $this.hide();
+});
+
+$('body').on('click', '.js-close-write-message', function(){
+  $('.write-message').removeClass('open');
+  $('.js-open-write-message').show();
 });
 
 $('body').on('click', '.js-changePicture', function(){

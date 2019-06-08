@@ -68,7 +68,7 @@
           <hr>
 
           <input class="btn btn-default" type="submit" value="Отправить">
-
+          <div class="btn btn-default float-right js-close-write-message">Отмена</div>
         </form>
       </div>
   </div>

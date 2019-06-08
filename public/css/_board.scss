@@ -24,6 +24,7 @@
   z-index: 2;
   will-change: transform;
   transform: translateZ(0);
+  margin: 0 0 10px;
 }
 
 .board-collapse-button {
@@ -192,8 +193,10 @@ svg:not(:root) {
 
 .board-content-component {
   box-sizing: content-box;
-  padding: 18px 30px 30px 16px;
-  margin-top: 26px;
+  padding: 0 30px 30px 23px;
+  &.collapsed {
+      padding: 0 30px 0 23px;
+  }
   .board-group-body{
     .board-group-row{
       button{

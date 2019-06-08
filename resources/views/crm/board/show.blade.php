@@ -61,7 +61,13 @@
       <div class="ds-menu-button-container ds-menu-button-old">
         <div class="add-board-entity-button-component">
           <button class="ds-btn ds-btn-primary ds-btn-md js-add-group-modal">
-            <div class="add-icon">+</div>Добавить
+            <div class="add-icon">+</div>Добавить группу
+          </button>
+          <button class="ds-btn ds-btn-primary ds-btn-md js-add-excell-modal">
+            Добавить список
+          </button>
+          <button class="ds-btn ds-btn-primary ds-btn-md js-add-excell-modal">
+            Удалить доску
           </button>
         </div>
       </div>
@@ -79,3 +85,4 @@
 @endsection
 
 @include('crm.board.partials.comments_modal')
+@include('crm.board.partials.add_group_modal')

@@ -571,6 +571,12 @@ $('.js-datepicker').datepicker({
 
 })
 
+//remove board modal
+$('body').on('click', '.js-remove-board-modal', function(){
+  $('#remove_board_modal').addClass('open');
+});
+
+
 //add board menu
 $('body').on('click', '.js-open-add-board', function(){
   $('#add_board_modal').addClass('open');
@@ -627,6 +633,14 @@ $('body').on('click', '.js-profileModal', function(){
   //modal
   $('.ReactModalPortal .close_button').on('click', function(){
     $(this).closest('.ReactModalPortal').removeClass('open');
+  });
+
+  $('.ReactModalPortal *[role="close_button"]').on('click', function(){
+    $(this).closest('.ReactModalPortal').removeClass('open');
+  });
+
+  $('.ReactModalPortal *[role="yes_button"]').on('click', function(){
+    $(this).closest('form').submit();
   });
 
   //tab

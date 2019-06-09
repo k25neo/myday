@@ -1,5 +1,5 @@
 <!-- start board-content-component -->
-@forelse ($board->groups as $key => $group)
+@forelse ($groups as $key => $group)
   <div class="board-content-component">
     <div class="board-group">
       <div class="board-group-header">

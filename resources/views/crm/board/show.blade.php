@@ -66,16 +66,18 @@
           <button class="ds-btn ds-btn-primary ds-btn-md js-add-excell-modal">
             Добавить список
           </button>
-          <button class="ds-btn ds-btn-primary ds-btn-md js-add-excell-modal">
+          <button class="ds-btn ds-btn-primary ds-btn-md js-remove-board-modal">
             Удалить доску
           </button>
         </div>
       </div>
     </div>
     <div class="board-filter-input-container">
-      <div class="board-filter-input-wrapper_v2">
-        <div class="icon-and-input-wrapper"><input placeholder="Поиск" value=""></div>
-      </div>
+      <form class="" action="{{ route('board.show', $board->id) }}" method="get">
+        <div class="board-filter-input-wrapper_v2">
+          <div class="icon-and-input-wrapper"><input placeholder="Поиск" value="" name="q"></div>
+        </div>
+      </form>
     </div>
   </div>
 </div>
@@ -86,3 +88,4 @@
 
 @include('crm.board.partials.comments_modal')
 @include('crm.board.partials.add_group_modal')
+@include('crm.board.partials.remove_board_modal')

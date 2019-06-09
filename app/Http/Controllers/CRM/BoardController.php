@@ -52,17 +52,33 @@ class BoardController extends Controller
    * @param  int  $id
    * @return \Illuminate\Http\Response
    */
-  public function show($id)
+  public function show(Request $request, $id)
   {
-    $board = Board::find($id);
-    if (!$board) {
-       return redirect()->route('board.index');
-    }else{
-      return view('crm.board.show', [
-          'board' => $board,
-          'statuses' => Task::$status
-      ]);
-    }
+      //get board with id
+      $board = Board::find($id);
+      if (!$board) {
+         return redirect()->route('board.index');
+      }else{
+
+        if(!empty($request->q)){
+          $search = $request->q;
+          $groups = $board->groups()->whereHas('tasks', function($query) use($search){
+            $query->where('groups.name', 'like', '%'.$search.'%')
+            ->orWhere('tasks.name', 'like', '%'.$search.'%');
+          })->get();
+
+        }else{
+          $groups = $board->groups;
+        }
+
+        return view('crm.board.show', [
+            'board' => $board,
+            'groups' => $groups,
+            'statuses' => Task::$status
+        ]);
+      }
+
+
   }
 
   /**

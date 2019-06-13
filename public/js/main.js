@@ -595,6 +595,11 @@ $('.js-datepicker').datepicker({
 
 })
 
+//cancel search
+$('.js-cancel-search-btn').on('click', function(e){
+  var $this = $(e.currentTarget);
+  $this.siblings('input[name="q"]').val('').closest('form').submit();
+});
 //remove board modal
 $('body').on('click', '.js-remove-board-modal', function(){
   $('#remove_board_modal').addClass('open');

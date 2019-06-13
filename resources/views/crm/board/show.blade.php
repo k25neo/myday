@@ -51,6 +51,7 @@
     </div>
 </form>
   {{-- end form board update --}}
+  {{-- begin buttons panel --}}
   <div class="board-filter board-entity-button">
     <div class="collapse-all-groups ">
       <div class="collapse-group-toggle-component" title="Свернуть/развернуть группы">
@@ -75,11 +76,22 @@
     <div class="board-filter-input-container">
       <form class="" action="{{ route('board.show', $board->id) }}" method="get">
         <div class="board-filter-input-wrapper_v2">
-          <div class="icon-and-input-wrapper"><input placeholder="Поиск" value="" name="q"></div>
+          <div class="icon-and-input-wrapper">
+            <input placeholder="Поиск" value="{{ $search or '' }}" name="q">
+            @if (!empty($search))
+              <div class="cancel-search-btn js-cancel-search-btn"></div>
+            @endif
+          </div>
         </div>
       </form>
     </div>
   </div>
+  {{-- end buttons panel --}}
+  @if (!empty($search))
+    <div class="search-query-message">
+      <span>Выполнен поиск по: "{{ $search }}"</span>
+    </div>
+  @endif
 </div>
 </div>
 <!-- start board-content-component -->
@@ -89,3 +101,4 @@
 @include('crm.board.partials.comments_modal')
 @include('crm.board.partials.add_group_modal')
 @include('crm.board.partials.remove_board_modal')
+@include('crm.board.partials.add_excel_modal')

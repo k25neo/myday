@@ -54,6 +54,7 @@ class BoardController extends Controller
    */
   public function show(Request $request, $id)
   {
+    $arParams = [];
       //get board with id
       $board = Board::find($id) ? Board::find($id) : Board::first();
       if (!$board) {
@@ -62,6 +63,7 @@ class BoardController extends Controller
 
         if(!empty($request->q)){
           $search = $request->q;
+          $arParams['search'] = $search;
           $groups = $board->groups()->whereHas('tasks', function($query) use($search){
             $query->where('groups.name', 'like', '%'.$search.'%')
             ->orWhere('tasks.name', 'like', '%'.$search.'%');
@@ -70,12 +72,13 @@ class BoardController extends Controller
         }else{
           $groups = $board->groups;
         }
-
-        return view('crm.board.show', [
-            'board' => $board,
-            'groups' => $groups,
-            'statuses' => Task::$status
+        $arParams = array_merge($arParams, [
+          'board' => $board,
+          'groups' => $groups,
+          'statuses' => Task::$status
         ]);
+
+        return view('crm.board.show', $arParams);
       }
 
 

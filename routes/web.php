@@ -22,6 +22,7 @@ Route::group(['middleware'=>['auth'], 'namespace'=>'CRM'], function(){
   Route::resource('/messages', 'MessageController');
   Route::resource('/board', 'BoardController');
 
+  Route::post('/board/{board}/excel', 'BoardController@importExcel')->name('importExcel');
   Route::post('/board/{board}/group', 'GroupController@store')->name('group.store');
   Route::put('/board/{board}/group/{group}', 'GroupController@update')->name('group.update');
   Route::delete('/board/{board}/group/{group}', 'GroupController@destroy')->name('group.destroy');

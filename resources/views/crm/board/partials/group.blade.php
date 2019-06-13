@@ -76,7 +76,11 @@
   </div>
 @empty
   <div class="message__green">
-    Создайте группу
+    @if (!empty($search))
+      По вашему запросу ничего не найдено
+    @else
+      Создайте группу
+    @endif
   </div>
 @endforelse
 

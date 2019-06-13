@@ -62,7 +62,8 @@
       <input type="text" name="date" value="{{ $task_date }}" class='input-cell js-datepicker' readonly>
     </div>
     <div class="board-group-cell sum-cell">
-      <input class="input-cell" type="text" name="sum" value="{{ $task->sum }}" readonly>
+      <input class="input-cell number" type="text" pattern="\d+(\.\d{2})?"
+        name="sum" value="{{ $task->sum }}" readonly>
     </div>
     <div class="board-group-cell btn-cell">
       <button class="btn btn-row-update">ok</button>

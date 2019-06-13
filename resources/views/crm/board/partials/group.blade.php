@@ -67,7 +67,7 @@
         </div>
         <div class="board-group-row flex-end">
           <div class="board-group-cell total-sum-cell">
-            <input type="text" name="total" value="{{ $group->tasks->sum('sum') }}" readonly title="Сумма">
+            <input type="text" class="number" name="total" value="{{ number_format($group->tasks->sum('sum'), 2, '.', ' ') }} руб." pattern="\d+(\.\d{2})?" readonly title="Сумма">
           </div>
           <div class="board-group-cell btn-cell-header"></div>
         </div>

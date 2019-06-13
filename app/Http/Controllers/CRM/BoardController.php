@@ -55,9 +55,9 @@ class BoardController extends Controller
   public function show(Request $request, $id)
   {
       //get board with id
-      $board = Board::find($id);
+      $board = Board::find($id) ? Board::find($id) : Board::first();
       if (!$board) {
-         return redirect()->route('board.index');
+         return redirect()->route('messages.index');
       }else{
 
         if(!empty($request->q)){

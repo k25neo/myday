@@ -15,6 +15,21 @@
     color: white;
     font-size: 12px;
     cursor: pointer;
+    &.await {
+      background: gray;
+    }
+    &.request {
+      background: #ec5a5a;
+    }
+    &.work {
+      background: #09a2f2;
+    }
+    &.ready {
+      background: #59d42e;
+    }
+    &.hide{
+      display: none;
+    }
   }
   .select-items{
     cursor: pointer;
@@ -28,6 +43,6 @@
     }
   }
   .select-item:hover{
-    background: #ffffff30;;
+    background: #ffffff30;
   }
 }

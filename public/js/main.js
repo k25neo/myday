@@ -55,6 +55,7 @@ CommentsModal.prototype = {
     this.$modal.addClass('open');
     this.$name.text(data.name);
     this.task_id = data.task_id;
+    this.$comments.empty();
     this.dataLoad();
   },
   dataShow: function(data){
@@ -88,6 +89,9 @@ CommentsModal.prototype = {
     }.bind(this))
   },
   dataStore: function(){
+    if(this.$textarea.val().length <= 0){
+      return false;
+    }
     var $url = `/task/${this.task_id}/comments`;
     $data = {
       'comment':this.$textarea.val(),
@@ -99,6 +103,7 @@ CommentsModal.prototype = {
       data: $data,
       type: "POST",
     }).done(function(data){
+      this.$textarea.val('');
       this.dataShow(data);
     }.bind(this))
   }
@@ -292,14 +297,19 @@ CustomSelect.prototype = {
     this.$selectOptions = this.$selectNative.find('option');
     this.$selectedElem = this.$selectNative.find('option[selected]');
     this.$selectSelected = $(
-      '<div class="select-selected">'+
+      '<div class="select-selected '+this.$selectedElem.val()+'">'+
         this.$selectedElem.text()+
       '</div>'
     );
     this.$el.append(this.$selectSelected);
     this.$selectItems = $('<div class="select-items select-hide"></div>');
     this.$selectOptions.each(function(i,el){
-      this.$selectItems.append($('<div class="select-item">'+$(el).text()+'</div>'));
+      var hide = '';
+      if(i == this.$selectedElem.index()){
+        console.log(el.value);
+        hide = 'hide';
+      }
+      this.$selectItems.append($('<div class="select-item '+el.value+' '+hide+'">'+$(el).text()+'</div>'));
     }.bind(this));
     this.$selectItems.attr('style',this.style);
     this.$el.append(this.$selectItems);
@@ -354,11 +364,25 @@ InputCell.prototype = {
   init: function(){
     this.$row = this.$el.closest('.board-group-row');
     this.value = this.$el.val();
+    this.isNumber = this.$el.hasClass('number');
     this.addHandlers();
   },
   addHandlers: function(){
     this.$el.on('click', this.onClick.bind(this));
+    if(this.isNumber){
+      this.$el.on('keypress', this.validate.bind(this));
+    }
     EventBus.subscribe('modal/close', this.close.bind(this));
+  },
+  validate: function(evt){
+    var theEvent = evt || window.event;
+    var key = theEvent.keyCode || theEvent.which;
+    key = String.fromCharCode( key );
+    var regex = /[0-9]|\./;
+    if( !regex.test(key) ) {
+      theEvent.returnValue = false;
+      if(theEvent.preventDefault) theEvent.preventDefault();
+    }
   },
   onClick: function(){
     this.edit();

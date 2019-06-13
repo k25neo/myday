@@ -18,8 +18,10 @@
                 <div class="form_title"><label>Вы подтверждаете удаление доски?</label></div>
                 <div class="inline_form">
                   <div class="form_line_container">
-                    <div class="ds-btn ds-btn-primary" role="yes_button" >
-                      Да
+                    <div class="column">
+                      <div class="ds-btn ds-btn-primary" role="yes_button" >
+                        Да
+                      </div>
                     </div>
                     <div class="column">
                       <div class="ds-btn ds-btn-primary" role="close_button" >

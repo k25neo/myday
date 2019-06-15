@@ -100,6 +100,26 @@
   -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
   transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 
+  &.inputfile{
+      display: none;
+  }
+
+}
+.ReactModalPortal .inputfile-btn{
+  padding: 0 15px;
+  border: 1px solid #9e9d9d;
+  cursor: pointer;
+  svg{
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    fill: currentColor;
+    margin-top: -0.25em;
+    margin-right: 0.25em;
+  }
+  &:hover {
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+  }
 }
 .ReactModalPortal .react_popup_wrapper .action_button_container {
 

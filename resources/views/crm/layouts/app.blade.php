@@ -39,6 +39,7 @@
 @yield('profile_modal')
 @yield('message_modal')
 @yield('add_group_modal')
+@yield('add_excel_modal')
 @yield('error_modal')
 @yield('remove_board_modal')
 

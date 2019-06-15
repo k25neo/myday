@@ -5,8 +5,10 @@ namespace App\Http\Controllers\CRM;
 use App\Board;
 use App\Group;
 use App\Task;
+use App\Imports\GroupsImport;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Maatwebsite\Excel\Facades\Excel;
 
 class BoardController extends Controller
 {
@@ -46,6 +48,49 @@ class BoardController extends Controller
     return redirect()->route('board.show', $model->id);
   }
 
+
+  /**
+   * import Excel.
+   *
+   * @param  \Illuminate\Http\Request  $request
+   *
+   */
+  public function importExcel(Request $request, Board $board){
+    if(!empty($request->file('file'))) {
+        $lists = Excel::toArray(new GroupsImport, $request->file('file'));
+
+        $data = [];
+        $groupName = '';
+        // Проходимся по страницам в excel
+            foreach ($lists as $listKey => $list) {
+              foreach ($list as $key => $item) {
+                  if ( empty(trim($item[0])) && empty(trim($item[1])) ) {
+                    continue;
+                  }
+                  if ( $item[0] != $groupName && !empty(trim($item[0])) ) {
+                    $groupName = $item[0];
+                  }
+                  $data[$groupName][] = $item[1];
+
+              }
+            }
+            $keys = array_keys(Task::$status);
+            $firstKey = $keys[0];
+            foreach ($data as $group => $tasks) {
+              $newGroup = $board->groups()->save( new Group(['name'=>$group]) );
+              foreach ($tasks as $key => $task) {
+                $newGroup->tasks()->save( new Task([
+                  'name'=>$task,
+                  'status'=>$firstKey
+                  ]) );
+              }
+            }
+
+    }
+
+    return redirect()->back();
+  }
+
   /**
    * Display the specified resource.
    *
@@ -80,7 +125,6 @@ class BoardController extends Controller
 
         return view('crm.board.show', $arParams);
       }
-
 
   }
 

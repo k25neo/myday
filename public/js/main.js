@@ -47,8 +47,21 @@ CommentsModal.prototype = {
     this.$close.on('click', this.close.bind(this));
     this.$btnSave.on('click', this.dataStore.bind(this));
     EventBus.subscribe('modal/comments/open', this.open.bind(this));
+    EventBus.subscribe('modal/close', this.close.bind(this));
   },
-  close: function(){
+  close: function(params){
+    if(!!params.event){
+      var $target = $(params.event.target);
+    }else{
+      var $target = $(params.currentTarget);
+    }
+    if($target.hasClass('comments_modal__close')){
+      this.$modal.removeClass('open');
+    }
+    if( $target.closest('.js-comment-open').length
+      || $target.closest('.comments_modal').length){
+      return;
+    }
     this.$modal.removeClass('open');
   },
   open: function(data){

@@ -125,6 +125,7 @@ a {
             background-size: contain;
             position: absolute;
         }
+
     }
     .content{
         display: block;
@@ -269,14 +270,32 @@ a {
         z-index: 3;
         height: 100%;
         flex-shrink: 0;
+
+        .nav_client_name{
+          flex: 1 1 100%;
+        }
     }
+
     &__nav{
+      &_title{
+        height: 56px;
+        flex-shrink: 0;
+        cursor: pointer;
+        transition: background .1s;
+        border-bottom: 1px solid #c4c4c4;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 16px;
+      }
         &_item{
             height: 56px;
             flex-shrink: 0;
             cursor: pointer;
             transition: background .1s;
             border-bottom: 1px solid #c4c4c4;
+            display: flex;
+            align-items: center;
             &:hover {
                 background: #009aff;
                 border-bottom: 1px solid #009aff;
@@ -318,8 +337,14 @@ a {
                 padding: 0 16px;
                 font-size: 13px;
                 font-weight: 500;
+                border-bottom: 1px solid #bcbcbc;
                 .fa{
                     margin-right: 10px;
+                }
+                &:hover{
+                  .btn__add_board_modal{
+                    display: block;
+                  }
                 }
             }
             &-item{
@@ -332,6 +357,8 @@ a {
                 color: #333;
                 cursor: pointer;
                 position: relative;
+                background: #dedede;
+                border-bottom: 1px solid #c5c5c5;
             }
             &-link{
                 height: 100%;

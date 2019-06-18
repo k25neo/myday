@@ -38,7 +38,10 @@
         </div>
         <div class="board-group-cell person-cell-header">Сотрудник</div>
         <div class="board-group-cell status-cell-header">Статус заявки</div>
-        <div class="board-group-cell date-cell-header">Дата</div>
+        <div class="board-group-cell status-cell-header">Критичность</div>
+        <div class="board-group-cell status-cell-header">Тип</div>
+        <div class="board-group-cell date-cell-header">Дата начала</div>
+        <div class="board-group-cell date-cell-header">Дата окончания</div>
         <div class="board-group-cell sum-cell-header">Стоимость</div>
         <div class="board-group-cell btn-cell-header"></div>
         </div>
@@ -67,7 +70,7 @@
         </div>
         <div class="board-group-row flex-end">
           <div class="board-group-cell total-sum-cell">
-            <input type="text" class="number" name="total" value="{{ number_format($group->tasks->sum('sum'), 2, '.', ' ') }} руб." pattern="\d+(\.\d{2})?" readonly title="Сумма">
+            <input type="text" class="number center" name="total" value="{{ number_format($group->tasks->sum('sum'), 2, '.', ' ') }} руб." pattern="\d+(\.\d{2})?" readonly title="Сумма">
           </div>
           <div class="board-group-cell btn-cell-header"></div>
         </div>

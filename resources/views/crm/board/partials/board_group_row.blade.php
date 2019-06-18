@@ -39,7 +39,7 @@
     </div>
     <div class="board-group-cell status-cell">
       {{-- custom select --}}
-      <div class="custom-select js-custom-select" style="background-color: orange;">
+      <div class="custom-select color js-custom-select" style="background-color: orange;">
         <select name="status">
           @foreach ($statuses as $key => $value)
             <option value="{{ $key }}"
@@ -52,6 +52,39 @@
       </div>
       {{-- end custom select --}}
     </div>
+    {{-- critical --}}
+    <div class="board-group-cell status-cell">
+      {{-- custom select --}}
+      <div class="custom-select js-custom-select">
+        <select name="critical">
+          @foreach ($criticals as $key => $value)
+            <option value="{{ $key }}"
+            @if ($key == $task->critical)
+              selected="selected"
+            @endif
+            >{{ $value }}</option>
+          @endforeach
+        </select>
+      </div>
+      {{-- end custom select --}}
+    </div>
+    {{-- work_type --}}
+    <div class="board-group-cell status-cell">
+      {{-- custom select --}}
+      <div class="custom-select js-custom-select">
+        <select name="work_type">
+          @foreach ($work_types as $key => $value)
+            <option value="{{ $key }}"
+            @if ($key == $task->work_type)
+              selected="selected"
+            @endif
+            >{{ $value }}</option>
+          @endforeach
+        </select>
+      </div>
+      {{-- end custom select --}}
+    </div>
+    {{-- date from --}}
     <div class="board-group-cell date-cell">
       @php
         $task_date = '';
@@ -59,8 +92,19 @@
           $task_date = $task->date->format('d.m.Y');
         }
       @endphp
-      <input type="text" name="date" value="{{ $task_date }}" class='input-cell js-datepicker' readonly>
+      <input type="text" name="date" value="{{ $task_date }}" class='input-cell center js-datepicker' readonly>
     </div>
+    {{-- date to  --}}
+    <div class="board-group-cell date-cell">
+      @php
+        $task_date = '';
+        if(!empty($task->date_to)){
+          $task_date = $task->date_to->format('d.m.Y');
+        }
+      @endphp
+      <input type="text" name="date_to" value="{{ $task_date }}" class='input-cell center js-datepicker' readonly>
+    </div>
+    {{-- --}}
     <div class="board-group-cell sum-cell">
       <input class="input-cell number" type="text" pattern="\d+(\.\d{2})?"
         name="sum" value="{{ $task->sum }}" readonly>

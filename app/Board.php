@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Board extends Model
 {
   protected $fillable = [
-      'name','description'
+      'name','description','client_id'
   ];
 
 /**

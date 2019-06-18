@@ -35,11 +35,13 @@
   </div>
 
 @include('crm.layouts.partials.modal_add_board')
+@include('crm.layouts.partials.add_client_modal')
 @yield('comments_modal')
 @yield('profile_modal')
 @yield('message_modal')
 @yield('add_group_modal')
 @yield('add_excel_modal')
+@yield('add_client_modal')
 @yield('error_modal')
 @yield('remove_board_modal')
 

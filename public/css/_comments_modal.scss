@@ -1,7 +1,7 @@
 .comments_modal {
     box-shadow: 0 0 1px 1px #d7d1d1;
     position: fixed;
-    right: -100%;
+    right: -500px;
     top: 65px;
     bottom: 0;
     width: 500px;
@@ -14,8 +14,12 @@
     justify-content: space-between;
     &.open{
       right: 0;
+      .comments_modal__close{
+        display: block;
+      }
     }
     &__close{
+      display: none;
       width: 40px;
       height: 40px;
       border-radius: 50%;

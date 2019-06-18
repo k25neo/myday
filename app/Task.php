@@ -7,16 +7,27 @@ use Illuminate\Database\Eloquent\Model;
 class Task extends Model
 {
   protected $fillable = [
-      'name','group_id', 'sum', 'date', 'status'
+      'name','group_id', 'sum', 'date', 'date_to',
+      'status', 'critical', 'work_type'
   ];
-  protected $dates = ['date'];
+  protected $dates = ['date','date_to'];
   public static $status = [
       'await' => 'Ожидает',
       'request' => 'В заявке',
       'work' => 'В работе',
       'ready' => 'Готово'
-    ];
-
+  ];
+  public static $critical = [
+      'a' => 'A',
+      'b' => 'B',
+      'c' => 'C',
+      'd' => 'D',
+      'e' => 'E'
+  ];
+  public static $work_type = [
+      'repair' => 'Ремонт',
+      'refueling' => 'Заправка'
+  ];
     /**
      * get group tasks
      */

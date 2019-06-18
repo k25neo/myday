@@ -11,7 +11,7 @@
         <div>
           <form action="{{ route('board.store') }}" method="post">
             {{ csrf_field() }}
-
+            <input type="hidden" name="client_id" value="">
             {{-- name --}}
             <div class="form__input_container">
               <div class="form_title"><label>Название</label></div>

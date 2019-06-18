@@ -120,7 +120,9 @@ class BoardController extends Controller
         $arParams = array_merge($arParams, [
           'board' => $board,
           'groups' => $groups,
-          'statuses' => Task::$status
+          'statuses' => Task::$status,
+          'criticals' => Task::$critical,
+          'work_types' => Task::$work_type
         ]);
 
         return view('crm.board.show', $arParams);

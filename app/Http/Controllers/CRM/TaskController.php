@@ -86,6 +86,7 @@ class TaskController extends Controller
       // $date = \DateTime::createFromFormat('d.m.Y', $request->date);
       // $usableDate = $date->format('Y-m-d');
       $allRequest['date'] = Carbon::parse($request->date);
+      $allRequest['date_to'] = Carbon::parse($request->date_to);
       $task->update($allRequest);
       return redirect()->back();
     }

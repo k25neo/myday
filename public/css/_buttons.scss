@@ -14,6 +14,26 @@
   height: 2.50908rem;
   border-radius: 15rem;
   transition: padding-left 0.35s cubic-bezier(0.19, 1, 0.22, 1),padding-right 0.35s cubic-bezier(0.19, 1, 0.22, 1),color 0.1s ease-in-out,background-color 0.1s ease-in-out,border-color 0.1s ease-in-out;
+  &__add{
+    &_client_modal{
+      cursor: pointer;
+      width: 18px;
+      height: 18px;
+      & img {
+          width: 100%;
+      }
+    }
+    &_board_modal{
+      display: none;
+      cursor: pointer;
+      width: 18px;
+      height: auto;
+      & img{
+        width: 100%;
+        display: block;
+      }
+    }
+  }
 
   &.btn-row-update{
     padding: 6px 12px;

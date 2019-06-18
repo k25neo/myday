@@ -375,6 +375,7 @@ function InputCell(el){
 }
 InputCell.prototype = {
   init: function(){
+    this.$form = this.$el.closest('form');
     this.$row = this.$el.closest('.board-group-row');
     this.value = this.$el.val();
     this.isNumber = this.$el.hasClass('number');
@@ -419,6 +420,7 @@ InputCell.prototype = {
     this.$row.removeClass('edit');
     this.$el.attr('readonly', true);
     this.$el.val(this.value);
+    this.$form.submit();
   }
 }
 function BoardGroupRow(el){
@@ -585,6 +587,7 @@ function isElementInViewport(el) {
         };
     }
 $('.js-datepicker').datepicker({
+    autoclose: true,
     position: 'right center', // Default position
     onHide: function(inst){
         inst.update('position', 'right center'); // Update the position to the default again
@@ -643,8 +646,16 @@ $('body').on('click', '.js-remove-board-modal', function(){
 
 
 //add board menu
-$('body').on('click', '.js-open-add-board', function(){
-  $('#add_board_modal').addClass('open');
+$('body').on('click', '.js-open-add-board', function(e){
+  var $e = $(e.currentTarget);
+  var $modal = $('#add_board_modal');
+  $modal.find('input[name="client_id"]').val($e.data('clientid'));
+  $modal.addClass('open');
+});
+
+//add Client
+$('body').on('click', '.js-open-add-client', function(){
+  $('#add_client_modal').addClass('open');
 });
 
 //add group

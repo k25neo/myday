@@ -239,6 +239,10 @@ svg:not(:root) {
       }
       &:hover {
         background: #e4e4e4;
+        .select-selected{
+          background: #e9e9e9;
+          color: black;
+        }
       }
     }
   }
@@ -380,11 +384,9 @@ svg:not(:root) {
     width: 100%;
     border: transparent;
     background: transparent;
-  }
-  input[name="date"],
-  input[name="sum"],
-  input[name="total"]{
-    text-align: center;
+    &.center{
+      text-align: center;
+    }
   }
   input:read-only{
     border: transparent;

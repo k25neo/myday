@@ -402,6 +402,7 @@ InputCell.prototype = {
     this.edit();
   },
   edit: function(){
+    this.change = true;
     this.$el.attr('readonly', false);
     this.$row.addClass('edit');
   },
@@ -420,7 +421,10 @@ InputCell.prototype = {
     this.$row.removeClass('edit');
     this.$el.attr('readonly', true);
     this.$el.val(this.value);
-    this.$form.submit();
+    if(this.change){
+      this.$form.submit(); 
+    }
+    this.change = false;
   }
 }
 function BoardGroupRow(el){

@@ -422,7 +422,7 @@ InputCell.prototype = {
     this.$el.attr('readonly', true);
     this.$el.val(this.value);
     if(this.change){
-      this.$form.submit();
+      this.$form.submit(); 
     }
     this.change = false;
   }

@@ -327,6 +327,8 @@ a {
             font-size: 13px;
         }
         &_client{
+          overflow-y: auto;
+          max-height: calc(100% - 168px);
             &-title{
                 height: 56px;
                 flex-shrink: 0;

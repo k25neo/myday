@@ -12,16 +12,17 @@
         <span class="title">Мои задачи</span>
       </a>
     </div>
+    <div class="left__nav_title">
+        Клиенты
+        <div class="btn__add_client_modal js-open-add-client"><img src="/img/add-contacts.svg"></div>
+    </div>
   </div>
   {{-- end left__nav --}}
   @php
     $arClients = \App\Client::with('boards')->get();
   @endphp
   <div class="left__nav_client">
-    <div class="left__nav_title">
-        Клиенты
-        <div class="btn__add_client_modal js-open-add-client"><img src="/img/add-contacts.svg"></div>
-    </div>
+
     @foreach ($arClients as $client)
       <div class="left__nav_client-title"><i class="fa fa-list" aria-hidden="true"></i>
         <div class="nav_client_name">{{ $client->name }}</div>

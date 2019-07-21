@@ -28,6 +28,7 @@
             </div>
           </div>
         </div>
+        <div>{{ $key+1 }}</div>
         <div class="board-group-cell name-cell-header" style="color: orange;">
           {{-- form group update --}}
           <form action="{{ route('group.update', [$board->id, $group->id]) }}" method="post">
@@ -47,7 +48,7 @@
         </div>
       </div>
       <div class="board-group-body">
-        @foreach ($group->tasks as $task)
+        @foreach ($group->tasks as $tk => $task)
           @include('crm.board.partials.board_group_row',
           ['task'=>$task, 'group'=>$group, 'board'=>$board,
           'users'=>$task->users, 'comments'=>$task->comments->count()])
@@ -57,6 +58,7 @@
         <div class="board-group-row">
           <div class="board-group-cell menu-cell"></div>
           <div class="board-group-cell checkbox-cell"></div>
+          <div class="board-group-cell"></div>
           <div class="board-group-cell add-cell js-add-cell-component" style="border-left:8px solid orange;">
             <form action="{{ route('task.store', [$board->id, $group->id]) }}" method="post">
               {{ csrf_field() }}

@@ -15,6 +15,7 @@ class Task extends Model
       'await' => 'Ожидает',
       'request' => 'В заявке',
       'work' => 'В работе',
+      'matching' => 'Согласование',
       'ready' => 'Готово'
   ];
   public static $critical = [

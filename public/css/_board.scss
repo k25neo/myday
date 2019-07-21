@@ -290,6 +290,8 @@ svg:not(:root) {
   display: flex;
   flex-direction: row;
   margin-bottom: 1px;
+  align-items: center;
+
 
   &.flex-end{
     justify-content: flex-end;

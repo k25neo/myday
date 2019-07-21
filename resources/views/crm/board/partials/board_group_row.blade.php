@@ -2,8 +2,9 @@
     {{ csrf_field() }}
     {{ method_field('PUT') }}
   <div class="board-group-row">
-    <div class="board-group-cell menu-cell"></div>
+    <div class="board-group-cell menu-cell">{{ $tk+1 }}</div>
     <div class="board-group-cell checkbox-cell"></div>
+    <div class="board-group-cell"></div>
     <div class="board-group-cell name-cell" style="border-left:8px solid orange;">
       <input class="input-cell" type="text" name="name" value="{{ $task->name }}" readonly>
       <div class="comment-open-icon

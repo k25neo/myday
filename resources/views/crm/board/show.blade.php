@@ -13,6 +13,7 @@
     {{ method_field('PUT') }}
     <div class="board-header-main">
       <div class="board-header-left">
+        <div class="board-client-name">{{ $client->name }}</div>
         <div class="board-name">
           <div class="ds-editable-component js-editable-component" style="width: auto; height: auto;">
             <div class="ds-text-component" >

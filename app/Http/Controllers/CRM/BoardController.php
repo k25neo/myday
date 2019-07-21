@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\CRM;
 
+use App\Client;
 use App\Board;
 use App\Group;
 use App\Task;
@@ -118,6 +119,7 @@ class BoardController extends Controller
           $groups = $board->groups;
         }
         $arParams = array_merge($arParams, [
+          'client' => Client::find($board->client_id),
           'board' => $board,
           'groups' => $groups,
           'statuses' => Task::$status,

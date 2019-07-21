@@ -67,13 +67,16 @@ svg:not(:root) {
   min-width: 100px;
   margin-right: 8px;
 }
-
+.board-client-name {
+    padding: 0 4px;
+    font-size: 1.5em;
+}
 .board-wrapper .board-name {
   font-size: 30px;
   white-space: nowrap;
   font-weight: 500;
   cursor: text;
-  display: inline-flex;
+  display: block;
   max-width: 100%;
   align-items: center;
 }

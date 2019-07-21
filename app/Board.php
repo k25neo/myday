@@ -22,4 +22,5 @@ class Board extends Model
   {
     return $this->hasManyThrough('App\Task', 'App\Group');
   }
+  
 }
